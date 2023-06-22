@@ -25,8 +25,7 @@ class CustomSlider extends GetView<OnBoardingControllerImp> {
             height: 20,
           ),
           Text(onBoardingList[i].title!,
-              style:
-                  TextStyle(fontWeight: FontWeight.bold, fontSize: width / 15)),
+              style: Theme.of(context).textTheme.headline1),
           CachedNetworkImage(
               imageUrl: onBoardingList[i].imgUrl!, width: width / 1),
           const SizedBox(
@@ -36,7 +35,7 @@ class CustomSlider extends GetView<OnBoardingControllerImp> {
             fit: BoxFit.scaleDown,
             child: Text(
               onBoardingList[i].body!,
-              style: TextStyle(fontSize: width / 20, color: AppColor.grey),
+              style: Theme.of(context).textTheme.bodyText1,
               textAlign: TextAlign.center,
             ),
           ),
