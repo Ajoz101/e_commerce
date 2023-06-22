@@ -1,3 +1,4 @@
+import 'package:e_commerce/view/screen/onboarding.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -15,23 +16,7 @@ class HomePage extends StatelessWidget {
       theme: ThemeData(
         useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'E-Commerce'),
-    );
-  }
-}
-
-class MyHomePage extends StatelessWidget {
-  const MyHomePage({super.key, required this.title});
-
-  final String title;
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(title),
-      ),
-      body: Column(children: const []),
+      home: const OBoarding(),
     );
   }
 }
