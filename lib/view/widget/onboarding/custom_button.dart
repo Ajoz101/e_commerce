@@ -1,8 +1,10 @@
+import 'package:e_commerce/controller/onboardController.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../../../core/constant/colors.dart';
 
-class ContinueButton extends StatelessWidget {
+class ContinueButton extends GetView<OnBoardingControllerImp> {
   const ContinueButton({super.key});
 
   @override
@@ -14,7 +16,9 @@ class ContinueButton extends StatelessWidget {
       decoration: BoxDecoration(
           color: AppColor.primary, borderRadius: BorderRadius.circular(20)),
       child: MaterialButton(
-        onPressed: () {},
+        onPressed: () {
+          controller.next();
+        },
         child: Text("Continue", style: TextStyle(fontSize: width / 15)),
       ),
     );

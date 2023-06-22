@@ -1,4 +1,6 @@
+import 'package:e_commerce/controller/onboardController.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../../../core/constant/colors.dart';
 import '../../../data/static/static.dart';
@@ -8,23 +10,27 @@ class Dots extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        ...List.generate(
-          onBoardingList.length,
-          (index) => AnimatedContainer(
-            margin: EdgeInsets.only(right: 5),
-            duration: const Duration(milliseconds: 800),
-            width: 6,
-            height: 6,
-            decoration: BoxDecoration(
-              color: AppColor.primary,
-              borderRadius: BorderRadius.circular(10),
+    return GetBuilder<OnBoardingControllerImp>(
+      builder: (controller) => Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          ...List.generate(
+            onBoardingList.length,
+            (index) => AnimatedContainer(
+              margin: const EdgeInsets.only(right: 5),
+              duration: const Duration(milliseconds: 600),
+              width: controller.currentPage == index ? 20 : 12,
+              height: 12,
+              decoration: BoxDecoration(
+                color: controller.currentPage == index
+                    ? AppColor.black
+                    : AppColor.primary,
+                borderRadius: BorderRadius.circular(10),
+              ),
             ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }
