@@ -37,6 +37,48 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
   get: any
+  
+  # DateTime
+  jiffy: any
+  intl: any
+  http: any
+  # Images
+  cached_network_image: any
+  image_picker: any
+  # Animate
+  show_up_animation: any
+  auto_animated: any
+  # Google Map
+  flutter_polyline_points: ^1.0.0
+  google_maps_flutter: any
+  geolocator: any
+  geocoding: any
+  # Firebase And Notification 
+  firebase_messaging: any
+  firebase_core: any
+  flutter_local_notifications: any
+  cloud_firestore: any
+  # Local Data Cache
+  sqflite: any
+  shared_preferences: any
+  path: any
+  # Qrcode 
+  qr_flutter: any
+  scan: any
+  grouped_list: any
+  url_launcher: any
+  dropdown_search: any
+  badges: any
+  # Icon 
+  # flutter_svg: ^1.0.3
+  font_awesome_flutter: any
+  fluttericon: any
+  dartz: any
+  # Google Auth
+  google_sign_in: any
+  device_preview: any
+  responsive_builder: any
+  image_pickers: any
 
 dev_dependencies:
   flutter_test:
