@@ -1,3 +1,4 @@
+import 'package:e_commerce/routes.dart';
 import 'package:e_commerce/view/screen/onboarding.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -17,6 +18,7 @@ class HomePage extends StatelessWidget {
         useMaterial3: true,
       ),
       home: const OBoarding(),
+      routes: routes,
     );
   }
 }
