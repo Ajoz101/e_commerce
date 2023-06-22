@@ -103,8 +103,13 @@ flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
-  assets:
-    - assets\onboard
+  # assets:
+  #   - assets/onboard/imageOne.jpg
+  #   - assets/onboard/imageTwo.jpg
+  #   - assets/onboard/imageThree.jpg
+  #   - assets/onboard/choose.PNG
+  #   - assets/onboard/track.PNG
+    
     
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
@@ -120,8 +125,8 @@ flutter:
   fonts:
     - family: Cairo
       fonts:
-        - asset: assets\fonts\Cairo-Regular.ttf
-        - asset: assets\fonts\Cairo-Bold
+        - asset: assets/fonts/Cairo-Regular.ttf
+        - asset: assets/fonts/Cairo-Bold.ttf
           
     # - family: Trajan Pro
     #   fonts:
