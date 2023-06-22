@@ -8,10 +8,10 @@ void main() {
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         useMaterial3: true,
       ),
