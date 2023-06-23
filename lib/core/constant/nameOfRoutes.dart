@@ -4,4 +4,5 @@ class AppRoutes{
   static const String  forgotpass= "/forgotpass";
   static const String  verifyCode= "/verifycode";
   static const String  resetPass= "/reset";
+  static const String  successReset= "/success";
 }

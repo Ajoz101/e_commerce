@@ -1,3 +1,4 @@
+import 'package:e_commerce/controller/auth/resetpassController.dart';
 import 'package:e_commerce/view/widget/auth/customBottomAuth.dart';
 import 'package:e_commerce/view/widget/auth/customTextBody.dart';
 import 'package:e_commerce/view/widget/auth/cutsomTextTitle.dart';
@@ -13,7 +14,7 @@ class ResetPassword extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var height = MediaQuery.of(context).size.height;
-    // var controller = Get.put(ForgotPassControllerImp());
+    var controller = Get.put(ResetPasswordControllerImp());
     return GestureDetector(
       onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
@@ -23,22 +24,29 @@ class ResetPassword extends StatelessWidget {
             padding: const EdgeInsets.all(15),
             child: ListView(
               children: [
-                CustomTitle(title: "Reset Password"),
+                CustomTitle(title: "Reset Password "),
                 SizedBox(
                   height: height / 30,
                 ),
-                CustomBodyAuth(body: "Check E-mail"),
+                CustomBodyAuth(body: "Enter Your New Password 😊"),
                 SizedBox(
                   height: height / 33,
                 ),
-                // CustomFormField(
-                //     textController: controller.email,
-                //     title: "E-mail",
-                //     hintText: "Enter Your Email",
-                //     icon: Icons.email_outlined),
+                CustomFormField(
+                    textController: controller.password,
+                    title: "Password",
+                    hintText: "Enter Your Password ",
+                    icon: Icons.password_outlined),
+                CustomFormField(
+                    textController: controller.rePassword,
+                    title: "Confirm",
+                    hintText: "Re-Enter Your Password",
+                    icon: Icons.password_outlined),
                 CustomBottomAuth(
-                  text: "Check",
-                  tapped: () {},
+                  text: "Save",
+                  tapped: () {
+                    controller.checkPasswordCompat();
+                  },
                 )
               ],
             ),

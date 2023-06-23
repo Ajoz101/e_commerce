@@ -38,7 +38,11 @@ class ForgotPassword extends StatelessWidget {
                     icon: Icons.email_outlined),
                 CustomBottomAuth(
                   text: "Check",
-                  tapped: () {},
+                  tapped: () {
+                    controller.showSnack();
+                    Future.delayed(Duration(seconds: 2),
+                        (() => controller.gotoVerifyCode()));
+                  },
                 )
               ],
             ),

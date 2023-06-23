@@ -80,6 +80,9 @@ dependencies:
   responsive_builder: any
   image_pickers: any
 
+  #Auth
+  flutter_otp_text_field: ^1.1.1
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

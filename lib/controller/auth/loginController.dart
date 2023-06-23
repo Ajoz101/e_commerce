@@ -21,7 +21,6 @@ class LoginControllerImp extends LoginController {
 
   @override
   void onInit() {
-    // TODO:  onInit
     email = TextEditingController();
     password = TextEditingController();
     super.onInit();
@@ -29,7 +28,6 @@ class LoginControllerImp extends LoginController {
 
   @override
   void dispose() {
-    // TODO: implement dispose
     super.dispose();
     email.dispose();
     password.dispose();
