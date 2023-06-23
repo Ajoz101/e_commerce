@@ -4,7 +4,7 @@ import '../../../core/constant/colors.dart';
 
 class CustomFormField extends StatelessWidget {
   CustomFormField(
-      {super.key, this.title, this.hintText, this.icon, this.textController});
+      {super.key, this.title, this.hintText, this.icon, required this.textController});
   String? title;
   String? hintText;
   IconData? icon;

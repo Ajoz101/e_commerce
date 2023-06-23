@@ -8,15 +8,16 @@ import 'package:e_commerce/view/widget/auth/signupOrLoginText.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../controller/auth/login.dart';
+import '../../../controller/auth/signup.dart';
 
-class Login extends StatelessWidget {
-  const Login({super.key});
+class SignUp extends StatelessWidget {
+  const SignUp({super.key});
 
   @override
   Widget build(BuildContext context) {
     var height = MediaQuery.of(context).size.height;
-    var control = Get.put(LoginControllerImp());
+    var control = Get.put(SignUpControllerImp());
+
     return GestureDetector(
       onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
@@ -26,44 +27,53 @@ class Login extends StatelessWidget {
             padding: const EdgeInsets.all(15),
             child: ListView(
               children: [
-                const Logo(),
-                CustomTitle(title: "Welcome Back"),
+                CustomTitle(title: "Create Your Account"),
                 SizedBox(
                   height: height / 30,
                 ),
-                CustomBodyAuth(
-                    body:
-                        "Sign In With Your Email And Password OR Continue with Socials"),
+                CustomBodyAuth(body: "Sign up With Your Email And Password "),
                 SizedBox(
                   height: height / 33,
                 ),
                 CustomFormField(
+                  textController: control.username,
+                  title: "Username",
+                  hintText: "Enter Your Username",
+                  icon: Icons.person_outlined,
+                ),
+                CustomFormField(
                   textController: control.email,
-                    title: "E-mail",
-                    hintText: "Enter Your Email",
-                    icon: Icons.email_outlined),
+                  title: "E-mail",
+                  hintText: "Enter Your Email",
+                  icon: Icons.email_outlined,
+                ),
+                CustomFormField(
+                  textController: control.phone,
+                  title: "Phone",
+                  hintText: "Enter Your Phone Number",
+                  icon: Icons.phone_android_outlined,
+                ),
                 CustomFormField(
                   textController: control.password,
-                    title: "Password",
-                    hintText: "Enter Your Password",
-                    icon: Icons.password_outlined),
-                Text(
-                  "Forgot Password?",
-                  textAlign: TextAlign.center,
-                  style: Theme.of(context)
-                      .textTheme
-                      .bodyText1!
-                      .copyWith(fontSize: 19),
+                  title: "Password",
+                  hintText: "Enter Your Password",
+                  icon: Icons.password_outlined,
                 ),
                 SizedBox(height: height / 37),
                 CustomBottomAuth(
-                  text: "Sign In",
+                  text: "Sign Up",
                   tapped: () {},
                 ),
-                SignUpOrSigninText(
-                    txtone: "Don't Have  An Account?",
-                    txttwo: " Sign Up",
-                    onTap: (() => control.goToSignUP())),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    SignUpOrSigninText(
+                      txtone: "Already Have An Account? ",
+                      txttwo: " Sign in",
+                      onTap: (() => control.goToLogin()),
+                    )
+                  ],
+                ),
               ],
             ),
           ),
