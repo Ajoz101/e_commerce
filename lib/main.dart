@@ -25,7 +25,7 @@ class HomePage extends StatelessWidget {
         inputDecorationTheme: InputDecorationTheme(
           focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(20),
-            borderSide: BorderSide(width: 3, color: AppColor.second),
+            borderSide: const BorderSide(width: 3, color: AppColor.second),
           ),
         ),
         fontFamily: "PlayfairDisplay",

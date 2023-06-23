@@ -1,4 +1,7 @@
 import 'package:e_commerce/core/constant/colors.dart';
+import 'package:e_commerce/view/widget/auth/customTextBody.dart';
+import 'package:e_commerce/view/widget/auth/customTextFormField.dart';
+import 'package:e_commerce/view/widget/auth/cutsomTextTitle.dart';
 import 'package:flutter/material.dart';
 
 class Login extends StatelessWidget {
@@ -25,41 +28,26 @@ class Login extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.only(top: 30),
                   child: SizedBox(
-                    child: Text(
-                      "Welcome Back",
-                      textAlign: TextAlign.center,
-                      style: Theme.of(context).textTheme.headline1,
-                    ),
+                    child: CustomTitle(title: "Welcome Back"),
                   ),
                 ),
                 const SizedBox(
                   height: 20,
                 ),
-                Text(
-                  "Sign In With Your Email And Password OR Continue with Socials",
-                  style: Theme.of(context).textTheme.bodyText1,
-                  textAlign: TextAlign.center,
-                ),
+                CustomBodyAuth(
+                    body:
+                        "Sign In With Your Email And Password OR Continue with Socials"),
                 const SizedBox(
-                  height: 40,
+                  height: 80,
                 ),
-                TextFormField(
-                  decoration: InputDecoration(
-                    suffixIcon: const Icon(Icons.email_outlined,
-                        color: AppColor.primary),
-                    focusColor: AppColor.second,
-                    label: const Text(
-                      "E-mail",
-                      style: TextStyle(fontSize: 20, color: AppColor.grey),
-                    ),
-                    contentPadding: const EdgeInsets.symmetric(
-                        vertical: 15, horizontal: 12),
-                    border: OutlineInputBorder(
-                      borderSide: BorderSide(color: Colors.red),
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                  ),
-                ),
+                CustomFormField(
+                    title: "E-mail",
+                    hintText: "Enter Your Email",
+                    icon: Icons.email_outlined),
+                CustomFormField(
+                    title: "Password",
+                    hintText: "Enter Your Password",
+                    icon: Icons.password_outlined),
               ],
             ),
           ),
