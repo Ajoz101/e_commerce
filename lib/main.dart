@@ -7,7 +7,7 @@ import 'package:get/get.dart';
 import 'core/constant/colors.dart';
 import 'core/services/services.dart';
 
-void main()async {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await initalServices();
   runApp(const HomePage());
@@ -22,11 +22,21 @@ class HomePage extends StatelessWidget {
       translations: CustomTranslate(),
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
+        inputDecorationTheme: InputDecorationTheme(
+          focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(20),
+            borderSide: BorderSide(width: 3, color: AppColor.second),
+          ),
+        ),
         fontFamily: "PlayfairDisplay",
         textTheme: const TextTheme(
           headline1: TextStyle(
               fontWeight: FontWeight.bold,
               fontSize: 30,
+              color: AppColor.second),
+          headline2: TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 26,
               color: AppColor.second),
           bodyText1: TextStyle(fontSize: 20, color: AppColor.grey),
         ),
