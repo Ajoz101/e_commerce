@@ -5,10 +5,13 @@ class CustomTitle extends StatelessWidget {
   String ?title;
   @override
   Widget build(BuildContext context) {
-    return Text(
-      title!,
-      textAlign: TextAlign.center,
-      style: Theme.of(context).textTheme.headline1,
+    return Padding(
+      padding: const EdgeInsets.only(top: 30),
+      child: Text(
+        title!,
+        textAlign: TextAlign.center,
+        style: Theme.of(context).textTheme.headline1,
+      ),
     );
   }
 }

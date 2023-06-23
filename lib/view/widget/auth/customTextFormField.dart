@@ -13,7 +13,7 @@ class CustomFormField extends StatelessWidget {
   Widget build(BuildContext context) {
     var height = MediaQuery.of(context).size.height;
     return Container(
-      margin: EdgeInsets.only(bottom: height / 19),
+      margin: EdgeInsets.only(bottom: height / 30),
       child: TextFormField(
         controller: textController,
         decoration: InputDecoration(
