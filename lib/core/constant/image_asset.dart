@@ -1,6 +1,9 @@
 class ImageAsset {
   static const String rootImage = "assets/onboard";
-  static const String onBoardingImageOne = "https://growthpad.co.ke/wp-content/uploads/2020/06/193-1936740_ecommerce-website-development-company-illustration-hd-png-download.png";
-  static const String onBoardingImageTwo = "https://sirv.sirv.com/blog/image%20seo/2456071.png";
-  static const String onBoardingImageThree = "https://www.quasa.io/storage/photos/%D0%A4%D0%BE%D1%82%D0%BE%2014/%D0%B1%D0%B5%D0%BA%D0%BE%D0%BC%2012.png";
+  static const String onBoardingImageOne =
+      "https://img.freepik.com/free-vector/ecommerce-web-page-concept-illustration_114360-8204.jpg?w=2000";
+  static const String onBoardingImageTwo =
+      "https://img.freepik.com/free-vector/email-campaign-concept-illustration_114360-1633.jpg?w=740&t=st=1687540671~exp=1687541271~hmac=cad648a2db695748fe93ed444e10a21708edbf088dbb9b7f4ccd30c4e0f2141e";
+  static const String onBoardingImageThree =
+      "https://img.freepik.com/free-vector/text-files-concept-illustration_114360-4402.jpg?w=740&t=st=1687540734~exp=1687541334~hmac=3f51c7badec269061d2d4267c31979978ed6b7b9c9ae56a9355ee13c96c289db";
 }

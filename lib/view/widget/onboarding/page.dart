@@ -24,19 +24,22 @@ class CustomSlider extends GetView<OnBoardingControllerImp> {
           const SizedBox(
             height: 20,
           ),
-          Text(onBoardingList[i].title!,
-              style: Theme.of(context).textTheme.headline1),
           CachedNetworkImage(
               imageUrl: onBoardingList[i].imgUrl!, width: width / 1),
           const SizedBox(
             height: 20,
           ),
-          FittedBox(
-            fit: BoxFit.scaleDown,
-            child: Text(
-              onBoardingList[i].body!,
-              style: Theme.of(context).textTheme.bodyText1,
-              textAlign: TextAlign.center,
+          Text(onBoardingList[i].title!,
+              style: Theme.of(context).textTheme.headline1),
+          Expanded(
+            flex: 2,
+            child: FittedBox(
+              fit: BoxFit.scaleDown,
+              child: Text(
+                onBoardingList[i].body!,
+                style: Theme.of(context).textTheme.bodyText1,
+                textAlign: TextAlign.center,
+              ),
             ),
           ),
         ],

@@ -19,7 +19,8 @@ class ContinueButton extends GetView<OnBoardingControllerImp> {
         onPressed: () {
           controller.next();
         },
-        child: Text("Continue", style: TextStyle(fontSize: width / 15)),
+        child: Text("Continue",
+            style: TextStyle(fontSize: width / 15, color: AppColor.white)),
       ),
     );
   }

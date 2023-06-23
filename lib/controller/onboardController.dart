@@ -17,7 +17,7 @@ class OnBoardingControllerImp extends OnBoardingController {
     currentPage > onBoardingList.length - 1
         ? Get.offAllNamed(AppRoutes.login)
         : pageC.animateToPage(currentPage,
-            duration: Duration(milliseconds: 600), curve: Curves.easeInOut);
+            duration:const Duration(milliseconds: 600), curve: Curves.easeInOut);
     update();
   }
 
@@ -29,7 +29,6 @@ class OnBoardingControllerImp extends OnBoardingController {
 
   @override
   void onInit() {
-    // TODO: implement onInit
     pageC = PageController();
     super.onInit();
   }
