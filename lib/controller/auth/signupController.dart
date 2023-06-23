@@ -1,3 +1,4 @@
+// ignore: file_names
 import 'package:e_commerce/core/constant/nameOfRoutes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -25,7 +26,6 @@ class SignUpControllerImp extends SignUpController {
   
   @override
   void onInit() {
-    // TODO:  onInit
     email = TextEditingController();
     password = TextEditingController();
     phone = TextEditingController();

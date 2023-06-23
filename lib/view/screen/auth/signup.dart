@@ -8,7 +8,7 @@ import 'package:e_commerce/view/widget/auth/signupOrLoginText.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../controller/auth/signup.dart';
+import '../../../controller/auth/signupController.dart';
 
 class SignUp extends StatelessWidget {
   const SignUp({super.key});

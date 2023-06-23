@@ -1,4 +1,3 @@
-import 'package:e_commerce/core/constant/colors.dart';
 import 'package:e_commerce/view/widget/auth/customBottomAuth.dart';
 import 'package:e_commerce/view/widget/auth/customTextBody.dart';
 import 'package:e_commerce/view/widget/auth/customTextFormField.dart';
@@ -8,7 +7,7 @@ import 'package:e_commerce/view/widget/auth/signupOrLoginText.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../controller/auth/login.dart';
+import '../../../controller/auth/loginController.dart';
 
 class Login extends StatelessWidget {
   const Login({super.key});
@@ -38,22 +37,27 @@ class Login extends StatelessWidget {
                   height: height / 33,
                 ),
                 CustomFormField(
-                  textController: control.email,
+                    textController: control.email,
                     title: "E-mail",
                     hintText: "Enter Your Email",
                     icon: Icons.email_outlined),
                 CustomFormField(
-                  textController: control.password,
+                    textController: control.password,
                     title: "Password",
                     hintText: "Enter Your Password",
                     icon: Icons.password_outlined),
-                Text(
-                  "Forgot Password?",
-                  textAlign: TextAlign.center,
-                  style: Theme.of(context)
-                      .textTheme
-                      .bodyText1!
-                      .copyWith(fontSize: 19),
+                InkWell(
+                  onTap: () {
+                    control.goToForgotPassword();
+                  },
+                  child: Text(
+                    "Forgot Password?",
+                    textAlign: TextAlign.center,
+                    style: Theme.of(context)
+                        .textTheme
+                        .bodyText1!
+                        .copyWith(fontSize: 19),
+                  ),
                 ),
                 SizedBox(height: height / 37),
                 CustomBottomAuth(
