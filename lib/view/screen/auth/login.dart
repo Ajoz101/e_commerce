@@ -48,6 +48,7 @@ class Login extends StatelessWidget {
                       hintText: "Enter Your Email",
                       icon: Icons.email_outlined),
                   CustomFormField(
+                      obscureText: true,
                       validator: (p) {
                         return validInput(p!, 3, 100, "password");
                       },
