@@ -23,6 +23,7 @@ class HomePage extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         inputDecorationTheme: InputDecorationTheme(
+          prefixIconColor: AppColor.primary,
           focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(20),
             borderSide: const BorderSide(width: 3, color: AppColor.second),
