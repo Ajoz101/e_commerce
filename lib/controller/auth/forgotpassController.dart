@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../core/constant/colors.dart';
+import '../../core/constant/formKeys.dart';
 
 abstract class ForgotPassController extends GetxController {
   checkEmail();
@@ -11,6 +12,7 @@ abstract class ForgotPassController extends GetxController {
 
 class ForgotPassControllerImp extends ForgotPassController {
   late TextEditingController email;
+  var state = FKeys.forgotPassword;
 
   @override
   checkEmail() {
@@ -24,9 +26,20 @@ class ForgotPassControllerImp extends ForgotPassController {
     super.onInit();
   }
 
+  check() {}
+
   @override
   gotoVerifyCode() {
-    Get.toNamed(AppRoutes.verifyCode);
+    var formData = state.currentState;
+    // if (formData!.validate()) {
+    //   print("VALID");
+    // } else {
+    //   print("Invalid");
+    // }
+    formData!.validate()
+        ? showSnack().then(Future.delayed(
+            Duration(seconds: 2), () => Get.offNamed(AppRoutes.verifyCode)))
+        : print("Invalid");
   }
 
   showSnack() {

@@ -5,7 +5,8 @@ import 'package:e_commerce/view/widget/auth/cutsomTextTitle.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../../controller/auth/forgotpass.dart';
+import '../../../../controller/auth/forgotpassController.dart';
+import '../../../../core/functions/validateInput.dart';
 import '../../../widget/auth/customTextFormField.dart';
 
 class ResetPassword extends StatelessWidget {
@@ -22,35 +23,42 @@ class ResetPassword extends StatelessWidget {
           child: Container(
             margin: const EdgeInsets.symmetric(horizontal: 30),
             padding: const EdgeInsets.all(15),
-            child: ListView(
-              children: [
-                CustomTitle(title: "Reset Password "),
-                SizedBox(
-                  height: height / 30,
-                ),
-                CustomBodyAuth(body: "Enter Your New Password 😊"),
-                SizedBox(
-                  height: height / 33,
-                ),
-                CustomFormField(
-                    validator: (p) {},
-                    textController: controller.password,
-                    title: "Password",
-                    hintText: "Enter Your Password ",
-                    icon: Icons.password_outlined),
-                CustomFormField(
-                    validator: (p) {},
-                    textController: controller.rePassword,
-                    title: "Confirm",
-                    hintText: "Re-Enter Your Password",
-                    icon: Icons.password_outlined),
-                CustomBottomAuth(
-                  text: "Save",
-                  tapped: () {
-                    controller.checkPasswordCompat();
-                  },
-                )
-              ],
+            child: Form(
+              key: controller.state,
+              child: ListView(
+                children: [
+                  CustomTitle(title: "Reset Password "),
+                  SizedBox(
+                    height: height / 30,
+                  ),
+                  CustomBodyAuth(body: "Enter Your New Password 😊"),
+                  SizedBox(
+                    height: height / 33,
+                  ),
+                  CustomFormField(
+                      validator: (p) {
+                        return validInput(p!, 9, 100, "password");
+                      },
+                      textController: controller.password,
+                      title: "Password",
+                      hintText: "Enter Your Password ",
+                      icon: Icons.password_outlined),
+                  CustomFormField(
+                      validator: (p) {
+                        return validInput(p!, 9, 100, "password");
+                      },
+                      textController: controller.rePassword,
+                      title: "Confirm",
+                      hintText: "Re-Enter Your Password",
+                      icon: Icons.password_outlined),
+                  CustomBottomAuth(
+                    text: "Save",
+                    tapped: () {
+                      controller.checkPasswordCompat();
+                    },
+                  )
+                ],
+              ),
             ),
           ),
         ),

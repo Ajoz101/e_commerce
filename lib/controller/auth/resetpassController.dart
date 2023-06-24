@@ -3,6 +3,8 @@ import 'package:e_commerce/core/constant/nameOfRoutes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../core/constant/formKeys.dart';
+
 abstract class ResetPasswordController extends GetxController {
   checkPasswordCompat();
   gotoSuccess();
@@ -11,13 +13,16 @@ abstract class ResetPasswordController extends GetxController {
 class ResetPasswordControllerImp extends ResetPasswordController {
   late TextEditingController password;
   late TextEditingController rePassword;
+  var state = FKeys.resetPasswordKey;
 
   @override
   checkPasswordCompat() {
+    var formData = state.currentState;
+
     if (password.text != rePassword.text) {
       showSnack();
     } else {
-      gotoSuccess();
+      formData!.validate() ? gotoSuccess() : print("Invalid");
     }
   }
 
@@ -38,7 +43,7 @@ class ResetPasswordControllerImp extends ResetPasswordController {
 
   @override
   gotoSuccess() {
-    Get.toNamed(AppRoutes.successReset);
+    Get.offAllNamed(AppRoutes.successReset);
     password.clear();
     rePassword.clear();
   }

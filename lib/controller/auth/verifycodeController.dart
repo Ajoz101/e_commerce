@@ -21,6 +21,6 @@ class VerifyCodeControllerImp extends VerifyCodeController {
 
   @override
   gotoResetPass() {
-    Get.toNamed(AppRoutes.resetPass);
+    Get.offNamed(AppRoutes.resetPass);
   }
 }

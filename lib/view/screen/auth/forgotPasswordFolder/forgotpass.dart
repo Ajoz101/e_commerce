@@ -4,7 +4,8 @@ import 'package:e_commerce/view/widget/auth/cutsomTextTitle.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../../controller/auth/forgotpass.dart';
+import '../../../../controller/auth/forgotpassController.dart';
+import '../../../../core/functions/validateInput.dart';
 import '../../../widget/auth/customTextFormField.dart';
 
 class ForgotPassword extends StatelessWidget {
@@ -21,33 +22,34 @@ class ForgotPassword extends StatelessWidget {
           child: Container(
             margin: const EdgeInsets.symmetric(horizontal: 30),
             padding: const EdgeInsets.all(15),
-            child: ListView(
-              children: [
-                CustomTitle(title: "Forgot Password?"),
-                SizedBox(
-                  height: height / 30,
-                ),
-                CustomBodyAuth(body: "Check E-mail"),
-                SizedBox(
-                  height: height / 33,
-                ),
-                CustomFormField(
-                    validator: (p){
-
-                  },
-                    textController: controller.email,
-                    title: "E-mail",
-                    hintText: "Enter Your Email",
-                    icon: Icons.email_outlined),
-                CustomBottomAuth(
-                  text: "Check",
-                  tapped: () {
-                    controller.showSnack();
-                    Future.delayed(Duration(seconds: 2),
-                        (() => controller.gotoVerifyCode()));
-                  },
-                )
-              ],
+            child: Form(
+              key: controller.state,
+              child: ListView(
+                children: [
+                  CustomTitle(title: "Forgot Password?"),
+                  SizedBox(
+                    height: height / 30,
+                  ),
+                  CustomBodyAuth(body: "Check E-mail"),
+                  SizedBox(
+                    height: height / 33,
+                  ),
+                  CustomFormField(
+                      validator: (p) {
+                        return validInput(p!, 13, 50, "email");
+                      },
+                      textController: controller.email,
+                      title: "E-mail",
+                      hintText: "Enter Your Email",
+                      icon: Icons.email_outlined),
+                  CustomBottomAuth(
+                    text: "Check",
+                    tapped: () {
+                      controller.gotoVerifyCode();
+                    },
+                  )
+                ],
+              ),
             ),
           ),
         ),

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../core/constant/colors.dart';
+import '../../core/constant/formKeys.dart';
 
 abstract class CheckEmailController extends GetxController {
   checkEmail();
@@ -11,6 +12,7 @@ abstract class CheckEmailController extends GetxController {
 
 class CheckEmailControllerImp extends CheckEmailController {
   late TextEditingController email;
+  var state = FKeys.checkEmailKey;
 
   @override
   checkEmail() {
@@ -26,9 +28,14 @@ class CheckEmailControllerImp extends CheckEmailController {
 
   @override
   gotoVerify() {
-    Get.toNamed(AppRoutes.verifySignUP);
+     var formData = state.currentState;
+    // if (formData!.validate()) {
+    //   print("VALID");
+    // } else {
+    //   print("Invalid");
+    // }
+    formData!.validate() ?   Get.toNamed(AppRoutes.verifySignUP) : print("Invalid");
   }
-
   showSnack() {
     const GetSnackBar(
       snackPosition: SnackPosition.TOP,
@@ -39,4 +46,7 @@ class CheckEmailControllerImp extends CheckEmailController {
       message: "A code was sent to You",
     ).show();
   }
-}
+  }
+
+  
+
