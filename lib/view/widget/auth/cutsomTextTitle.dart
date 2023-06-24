@@ -1,8 +1,9 @@
+import 'package:e_commerce/core/constant/colors.dart';
 import 'package:flutter/material.dart';
 
 class CustomTitle extends StatelessWidget {
   CustomTitle({super.key, this.title});
-  String ?title;
+  String? title;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -10,7 +11,10 @@ class CustomTitle extends StatelessWidget {
       child: Text(
         title!,
         textAlign: TextAlign.center,
-        style: Theme.of(context).textTheme.headline1,
+        style: Theme.of(context)
+            .textTheme
+            .headline1!
+            .copyWith(color: AppColor.grey),
       ),
     );
   }

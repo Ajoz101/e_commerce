@@ -1,20 +1,21 @@
-import 'package:e_commerce/controller/auth/resetpassController.dart';
+import 'package:e_commerce/controller/auth/checkemailController.dart';
+import 'package:e_commerce/core/constant/colors.dart';
 import 'package:e_commerce/view/widget/auth/customBottomAuth.dart';
 import 'package:e_commerce/view/widget/auth/customTextBody.dart';
 import 'package:e_commerce/view/widget/auth/cutsomTextTitle.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../controller/auth/forgotpass.dart';
+import '../../../../../controller/auth/forgotpass.dart';
 import '../../widget/auth/customTextFormField.dart';
 
-class ResetPassword extends StatelessWidget {
-  const ResetPassword({super.key});
+class CheckEmail extends StatelessWidget {
+  const CheckEmail({super.key});
 
   @override
   Widget build(BuildContext context) {
     var height = MediaQuery.of(context).size.height;
-    var controller = Get.put(ResetPasswordControllerImp());
+    var controller = Get.put(CheckEmailControllerImp());
     return GestureDetector(
       onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
@@ -24,28 +25,27 @@ class ResetPassword extends StatelessWidget {
             padding: const EdgeInsets.all(15),
             child: ListView(
               children: [
-                CustomTitle(title: "Reset Password "),
+                CustomTitle(title: "Checking Email"),
                 SizedBox(
                   height: height / 30,
                 ),
-                CustomBodyAuth(body: "Enter Your New Password 😊"),
+                LinearProgressIndicator(
+                    backgroundColor: AppColor.primary, color: AppColor.second),
+                CustomBodyAuth(body: "Check E-mail"),
                 SizedBox(
                   height: height / 33,
                 ),
                 CustomFormField(
-                    textController: controller.password,
-                    title: "Password",
-                    hintText: "Enter Your Password ",
-                    icon: Icons.password_outlined),
-                CustomFormField(
-                    textController: controller.rePassword,
-                    title: "Confirm",
-                    hintText: "Re-Enter Your Password",
-                    icon: Icons.password_outlined),
+                    textController: controller.email,
+                    title: "E-mail",
+                    hintText: "Enter Your Email",
+                    icon: Icons.email_outlined),
                 CustomBottomAuth(
-                  text: "Save",
+                  text: "Check",
                   tapped: () {
-                    controller.checkPasswordCompat();
+                    controller.showSnack();
+                    Future.delayed(Duration(seconds: 2),
+                        (() => controller.gotoSuccessSignedUp()));
                   },
                 )
               ],

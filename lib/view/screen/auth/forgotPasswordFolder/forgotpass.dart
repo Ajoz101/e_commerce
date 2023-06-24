@@ -4,8 +4,8 @@ import 'package:e_commerce/view/widget/auth/cutsomTextTitle.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../controller/auth/forgotpass.dart';
-import '../../widget/auth/customTextFormField.dart';
+import '../../../../controller/auth/forgotpass.dart';
+import '../../../widget/auth/customTextFormField.dart';
 
 class ForgotPassword extends StatelessWidget {
   const ForgotPassword({super.key});

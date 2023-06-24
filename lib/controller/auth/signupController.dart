@@ -20,10 +20,9 @@ class SignUpControllerImp extends SignUpController {
 
   @override
   signup() {
-    throw UnimplementedError();
+    Get.toNamed(AppRoutes.checkEmail);
   }
 
-  
   @override
   void onInit() {
     email = TextEditingController();

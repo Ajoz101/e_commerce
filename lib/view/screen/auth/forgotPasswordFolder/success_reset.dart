@@ -1,19 +1,16 @@
-import 'package:e_commerce/controller/auth/signupController.dart';
-import 'package:e_commerce/core/constant/colors.dart';
-import 'package:e_commerce/view/widget/auth/customBottomAuth.dart';
-import 'package:e_commerce/view/widget/auth/customTextBody.dart';
-import 'package:e_commerce/view/widget/auth/cutsomTextTitle.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
-class SuccessSignedUp extends StatelessWidget {
-  const SuccessSignedUp({super.key});
+import '../../../../core/constant/colors.dart';
+import '../../../widget/auth/customBottomAuth.dart';
+import '../../../widget/auth/cutsomTextTitle.dart';
+
+class SuccessResetPassword extends StatelessWidget {
+  const SuccessResetPassword({super.key});
 
   @override
   Widget build(BuildContext context) {
-    var height = MediaQuery.of(context).size.height;
+      var height = MediaQuery.of(context).size.height;
     var width = MediaQuery.of(context).size.width;
-    var controller = Get.put(SignUpControllerImp());
     return Scaffold(
       body: SafeArea(
         child: Container(
@@ -21,7 +18,7 @@ class SuccessSignedUp extends StatelessWidget {
           padding: EdgeInsets.all(15),
           child: Column(
             children: [
-              CustomTitle(title: "Successfully Signed Up!"),
+              CustomTitle(title: "Successfully Reset Password!"),
               SizedBox(
                 height: height / 24,
               ),
@@ -35,11 +32,7 @@ class SuccessSignedUp extends StatelessWidget {
               ),
               SizedBox(height: height / 14),
               Spacer(),
-              CustomBottomAuth(
-                  tapped: () {
-                    controller.goToLogin();
-                  },
-                  text: "Login"),
+              CustomBottomAuth(tapped: () {}, text: "Login"),
               SizedBox(height: height / 14),
             ],
           ),

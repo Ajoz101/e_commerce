@@ -62,7 +62,9 @@ class SignUp extends StatelessWidget {
                 SizedBox(height: height / 37),
                 CustomBottomAuth(
                   text: "Sign Up",
-                  tapped: () {},
+                  tapped: () {
+                    control.signup();
+                  },
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
