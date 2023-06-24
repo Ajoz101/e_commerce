@@ -18,17 +18,19 @@ class SignUpControllerImp extends SignUpController {
 
   //Key
   // GlobalKey<FormState> state = GlobalKey<FormState>();
-    var state = FKeys.signUpKey;
+  var state = FKeys.signUpKey;
 
   @override
   gotoLogin() {
-    Get.toNamed(AppRoutes.login);
+    Get.offNamed(AppRoutes.login);
   }
 
   @override
   signup() {
     var formData = state.currentState;
-    formData!.validate() ? Get.toNamed(AppRoutes.checkEmail) : print("Invalid");
+    formData!.validate()
+        ? Get.offNamed(AppRoutes.checkEmail)
+        : print("Invalid");
   }
 
   @override
@@ -39,6 +41,4 @@ class SignUpControllerImp extends SignUpController {
     username = TextEditingController();
     super.onInit();
   }
-
- 
 }

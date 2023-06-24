@@ -36,6 +36,7 @@ class ResetPassword extends StatelessWidget {
                     height: height / 33,
                   ),
                   CustomFormField(
+                      obscureText: true,
                       validator: (p) {
                         return validInput(p!, 9, 100, "password");
                       },
@@ -44,6 +45,7 @@ class ResetPassword extends StatelessWidget {
                       hintText: "Enter Your Password ",
                       icon: Icons.password_outlined),
                   CustomFormField(
+                      obscureText: true,
                       validator: (p) {
                         return validInput(p!, 9, 100, "password");
                       },
