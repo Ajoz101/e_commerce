@@ -7,4 +7,5 @@ class AppRoutes{
   static const String  successReset= "/success";
   static const String  successSignedUp= "/successSignUp";
   static const String  checkEmail= "/checkemail";
+  static const String  verifySignUP= "/verifysignup";
 }

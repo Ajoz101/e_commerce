@@ -4,17 +4,19 @@ import '../../../core/constant/colors.dart';
 
 class CustomFormField extends StatelessWidget {
   CustomFormField(
-      {super.key, this.title, this.hintText, this.icon, required this.textController});
+      {super.key, this.title, this.hintText, this.icon, required this.textController,required this.validator});
   String? title;
   String? hintText;
   IconData? icon;
   TextEditingController? textController;
+  final String? Function(String?)? validator;
   @override
   Widget build(BuildContext context) {
     var height = MediaQuery.of(context).size.height;
     return Container(
       margin: EdgeInsets.only(bottom: height / 30),
       child: TextFormField(
+        validator: validator ,
         controller: textController,
         decoration: InputDecoration(
           hintStyle: const TextStyle(fontSize: 14),

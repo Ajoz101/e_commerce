@@ -32,6 +32,9 @@ class ForgotPassword extends StatelessWidget {
                   height: height / 33,
                 ),
                 CustomFormField(
+                    validator: (p){
+
+                  },
                     textController: controller.email,
                     title: "E-mail",
                     hintText: "Enter Your Email",

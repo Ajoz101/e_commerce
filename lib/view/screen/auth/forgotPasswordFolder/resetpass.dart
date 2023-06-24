@@ -33,11 +33,13 @@ class ResetPassword extends StatelessWidget {
                   height: height / 33,
                 ),
                 CustomFormField(
+                    validator: (p) {},
                     textController: controller.password,
                     title: "Password",
                     hintText: "Enter Your Password ",
                     icon: Icons.password_outlined),
                 CustomFormField(
+                    validator: (p) {},
                     textController: controller.rePassword,
                     title: "Confirm",
                     hintText: "Re-Enter Your Password",

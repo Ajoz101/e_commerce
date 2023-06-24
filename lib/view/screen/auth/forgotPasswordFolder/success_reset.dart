@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
+import '../../../../controller/auth/success_resetPasswordController.dart';
 import '../../../../core/constant/colors.dart';
 import '../../../widget/auth/customBottomAuth.dart';
 import '../../../widget/auth/cutsomTextTitle.dart';
@@ -9,8 +11,9 @@ class SuccessResetPassword extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-      var height = MediaQuery.of(context).size.height;
+    var height = MediaQuery.of(context).size.height;
     var width = MediaQuery.of(context).size.width;
+    var controller = Get.put(SuccessResetControllerImp());
     return Scaffold(
       body: SafeArea(
         child: Container(
@@ -32,7 +35,11 @@ class SuccessResetPassword extends StatelessWidget {
               ),
               SizedBox(height: height / 14),
               Spacer(),
-              CustomBottomAuth(tapped: () {}, text: "Login"),
+              CustomBottomAuth(
+                  tapped: () {
+                    controller.gotologin();
+                  },
+                  text: "Login"),
               SizedBox(height: height / 14),
             ],
           ),

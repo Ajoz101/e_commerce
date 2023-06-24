@@ -1,4 +1,5 @@
 import 'package:e_commerce/controller/auth/signupController.dart';
+import 'package:e_commerce/controller/auth/success_signupController.dart';
 import 'package:e_commerce/core/constant/colors.dart';
 import 'package:e_commerce/view/widget/auth/customBottomAuth.dart';
 import 'package:e_commerce/view/widget/auth/customTextBody.dart';
@@ -13,7 +14,7 @@ class SuccessSignedUp extends StatelessWidget {
   Widget build(BuildContext context) {
     var height = MediaQuery.of(context).size.height;
     var width = MediaQuery.of(context).size.width;
-    var controller = Get.put(SignUpControllerImp());
+    var controller = Get.put(SuccessResetControllerImp());
     return Scaffold(
       body: SafeArea(
         child: Container(
@@ -29,7 +30,7 @@ class SuccessSignedUp extends StatelessWidget {
                   size: height / 5, color: AppColor.second),
               SizedBox(height: height / 13),
               Text(
-                "Now Just Login with the signed up email",
+                "One More Step!\n Verify The Code Sent To Your Email",
                 textAlign: TextAlign.center,
                 style: TextStyle(fontSize: height / 27),
               ),
@@ -37,9 +38,9 @@ class SuccessSignedUp extends StatelessWidget {
               Spacer(),
               CustomBottomAuth(
                   tapped: () {
-                    controller.goToLogin();
+                    controller.gotologin();
                   },
-                  text: "Login"),
+                  text: "Verify"),
               SizedBox(height: height / 14),
             ],
           ),

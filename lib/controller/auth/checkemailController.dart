@@ -6,7 +6,7 @@ import '../../core/constant/colors.dart';
 
 abstract class CheckEmailController extends GetxController {
   checkEmail();
-  gotoSuccessSignedUp();
+  gotoVerify();
 }
 
 class CheckEmailControllerImp extends CheckEmailController {
@@ -25,8 +25,8 @@ class CheckEmailControllerImp extends CheckEmailController {
   }
 
   @override
-  gotoSuccessSignedUp() {
-    Get.toNamed(AppRoutes.successSignedUp);
+  gotoVerify() {
+    Get.toNamed(AppRoutes.verifySignUP);
   }
 
   showSnack() {

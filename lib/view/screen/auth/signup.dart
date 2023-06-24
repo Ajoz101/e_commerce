@@ -36,24 +36,37 @@ class SignUp extends StatelessWidget {
                   height: height / 33,
                 ),
                 CustomFormField(
+                  validator: (p){
+
+                  },
                   textController: control.username,
                   title: "Username",
                   hintText: "Enter Your Username",
                   icon: Icons.person_outlined,
                 ),
                 CustomFormField(
+                    validator: (p){
+
+                  },
                   textController: control.email,
                   title: "E-mail",
                   hintText: "Enter Your Email",
                   icon: Icons.email_outlined,
                 ),
                 CustomFormField(
+                    validator: (p){
+
+                  },
+
                   textController: control.phone,
                   title: "Phone",
                   hintText: "Enter Your Phone Number",
                   icon: Icons.phone_android_outlined,
                 ),
                 CustomFormField(
+                    validator: (p){
+
+                  },
                   textController: control.password,
                   title: "Password",
                   hintText: "Enter Your Password",
@@ -72,7 +85,7 @@ class SignUp extends StatelessWidget {
                     SignUpOrSigninText(
                       txtone: "Already Have An Account? ",
                       txttwo: " Sign in",
-                      onTap: (() => control.goToLogin()),
+                      onTap: (() => control.gotoVerifySignUp()),
                     )
                   ],
                 ),
