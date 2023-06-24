@@ -1,6 +1,6 @@
 import 'package:e_commerce/core/locale/translation.dart';
 import 'package:e_commerce/routes.dart';
-import 'package:e_commerce/view/screen/onboarding.dart';
+import 'package:e_commerce/view/screen/onboard/onboarding.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
