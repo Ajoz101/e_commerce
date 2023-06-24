@@ -10,6 +10,7 @@ import 'core/services/services.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await initalServices();
+
   runApp(const HomePage());
 }
 
@@ -43,8 +44,9 @@ class HomePage extends StatelessWidget {
         ),
         useMaterial3: true,
       ),
-      home: const OBoarding(),
-      routes: routes,
+      // home: const OBoarding(),
+      // routes: routes,
+      getPages: routes,
     );
   }
 }

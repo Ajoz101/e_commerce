@@ -34,13 +34,15 @@ class CustomFormField extends StatelessWidget {
             prefixIcon: GetBuilder<ObsecureController>(
               builder: ((controller) => obscureText == true
                   ? IconButton(
-                      color: AppColor.primary,
+                      color: controller.isSeen == true
+                          ? AppColor.primary
+                          : AppColor.second,
                       onPressed: () {
                         controller.onClicked();
                       },
                       icon: controller.isSeen == false
-                          ? Icon(Icons.visibility_off_outlined)
-                          : Icon(Icons.visibility_outlined),
+                          ? const Icon(Icons.visibility_off_outlined)
+                          : const Icon(Icons.visibility_outlined),
                     )
                   : SizedBox()),
             ),
