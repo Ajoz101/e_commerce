@@ -44,7 +44,7 @@ class CustomFormField extends StatelessWidget {
                           ? const Icon(Icons.visibility_off_outlined)
                           : const Icon(Icons.visibility_outlined),
                     )
-                  : SizedBox()),
+                  : const SizedBox()),
             ),
             hintStyle: const TextStyle(fontSize: 14),
             hintText: hintText,
