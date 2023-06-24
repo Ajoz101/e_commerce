@@ -20,6 +20,11 @@ validInput(String val, int min, int max, type) {
       return "Not valid number Man!";
     }
   }
+  if (type == "password") {
+    if (val.length < 5) {
+      return "TOO SHORT PASSWORD";
+    }
+  }
   // if (type == "password") {
   //   if (!GetUtils.isUsername(val)) {
   //     return "Not valid Username Man!";

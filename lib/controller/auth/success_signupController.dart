@@ -9,7 +9,7 @@ class SuccessResetControllerImp extends SuccessResetController {
   @override
   gotologin() {
     gotologin() {
-      Get.toNamed(AppRoutes.login);
+      Get.offAllNamed(AppRoutes.login);
     }
   }
 }

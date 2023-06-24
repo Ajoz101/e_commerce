@@ -3,9 +3,11 @@ import 'package:e_commerce/core/constant/nameOfRoutes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../core/constant/formKeys.dart';
+
 abstract class SignUpController extends GetxController {
   signup();
-  gotoVerifySignUp();
+  gotoLogin();
 }
 
 class SignUpControllerImp extends SignUpController {
@@ -13,14 +15,20 @@ class SignUpControllerImp extends SignUpController {
   late TextEditingController password;
   late TextEditingController username;
   late TextEditingController phone;
+
+  //Key
+  // GlobalKey<FormState> state = GlobalKey<FormState>();
+    var state = FKeys.signUpKey;
+
   @override
-  gotoVerifySignUp() {
-    Get.toNamed(AppRoutes.verifySignUP);
+  gotoLogin() {
+    Get.toNamed(AppRoutes.login);
   }
 
   @override
   signup() {
-    Get.toNamed(AppRoutes.checkEmail);
+    var formData = state.currentState;
+    formData!.validate() ? Get.toNamed(AppRoutes.checkEmail) : print("Invalid");
   }
 
   @override
@@ -31,4 +39,6 @@ class SignUpControllerImp extends SignUpController {
     username = TextEditingController();
     super.onInit();
   }
+
+ 
 }

@@ -1,3 +1,4 @@
+import 'package:e_commerce/core/constant/formKeys.dart';
 import 'package:e_commerce/core/constant/nameOfRoutes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -11,7 +12,8 @@ abstract class LoginController extends GetxController {
 class LoginControllerImp extends LoginController {
   late TextEditingController email;
   late TextEditingController password;
-  GlobalKey<FormState> state = GlobalKey<FormState>();
+  // GlobalKey<FormState> state = GlobalKey<FormState>();
+  var state = FKeys.loginKey;
   @override
   login() {
     var formData = state.currentState;
@@ -25,7 +27,7 @@ class LoginControllerImp extends LoginController {
 
   @override
   goToSignUP() {
-    Get.toNamed(AppRoutes.signup);
+    Get.offAllNamed(AppRoutes.signup);
   }
 
   @override
