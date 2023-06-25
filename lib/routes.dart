@@ -15,13 +15,13 @@ import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/routes/get_route.dart';
 
 List<GetPage<dynamic>>? routes = [
-  GetPage(
-      name: "/",
-      page: () => TestApi()),
   // GetPage(
   //     name: "/",
-  //     page: () => const OBoarding(),
-  //     middlewares: [AwesomeMiddleWare()]),
+  //     page: () => TestApi()),
+  GetPage(
+      name: "/",
+      page: () => const OBoarding(),
+      middlewares: [AwesomeMiddleWare()]),
   GetPage(name: AppRoutes.login, page: () => const Login()),
   GetPage(name: AppRoutes.signup, page: () => const SignUp()),
   GetPage(name: AppRoutes.forgotpass, page: () => const ForgotPassword()),
