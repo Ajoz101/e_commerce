@@ -1,24 +1,26 @@
 import 'package:e_commerce/core/functions/checkConnection.dart';
 import 'package:e_commerce/core/locale/translation.dart';
 import 'package:e_commerce/routes.dart';
+import 'package:e_commerce/test_view.dart';
 import 'package:e_commerce/view/screen/onboard/onboarding.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import 'bindings/mybindings.dart';
 import 'core/constant/colors.dart';
 import 'core/services/services.dart';
 
-var res;
+// var res;
 
-initalConnect() async {
-  res = await checkInternet();
-    print(res);
-}
+// initalConnect() async {
+//   res = await checkInternet();
+//     print(res);
+// }
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await initalServices();
-  initalConnect();
+  // initalConnect();
 
   runApp(const HomePage());
 }
@@ -56,6 +58,7 @@ class HomePage extends StatelessWidget {
       // home: const OBoarding(),
       // routes: routes,
       getPages: routes,
+      initialBinding: InitalBindings(),
     );
   }
 }
