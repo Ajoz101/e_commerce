@@ -9,5 +9,7 @@ class ImageAsset {
 
   static const String logo =
       "https://cdn-icons-png.flaticon.com/128/6445/6445290.png";
+  static const String loading =
+      "assets/lottie/loading.json";
 
 }

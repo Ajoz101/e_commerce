@@ -13,10 +13,14 @@ class TestController extends GetxController {
   getData() async {
     statusRequest = StatusRequest.loading;
     var response = await test.getData();
-    
+
     statusRequest = handlingData(response);
     if (StatusRequest.success == statusRequest) {
-      data.addAll(response["data"]);
+      if (response["status"] == "success") {
+        data.addAll(response["data"]);
+      } else {
+        statusRequest = StatusRequest.failure;
+      }
     }
     print(data);
     update();
@@ -25,8 +29,7 @@ class TestController extends GetxController {
   @override
   void onInit() {
     // TODO: implement onInit
-      getData();
+    getData();
     super.onInit();
-  
   }
 }

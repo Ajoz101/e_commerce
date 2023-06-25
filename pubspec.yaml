@@ -48,6 +48,7 @@ dependencies:
   # Animate
   show_up_animation: any
   auto_animated: any
+  lottie: any
   # Google Map
   flutter_polyline_points: ^1.0.0
   google_maps_flutter: any
@@ -106,12 +107,8 @@ flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
-  # assets:
-  #   - assets/onboard/imageOne.jpg
-  #   - assets/onboard/imageTwo.jpg
-  #   - assets/onboard/imageThree.jpg
-  #   - assets/onboard/choose.PNG
-  #   - assets/onboard/track.PNG
+  assets:
+    - assets/lottie/loading.json
     
     
   # An image asset can refer to one or more resolution-specific "variants", see
