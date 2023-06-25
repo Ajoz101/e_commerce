@@ -1,3 +1,4 @@
+import 'package:e_commerce/core/functions/checkConnection.dart';
 import 'package:e_commerce/core/locale/translation.dart';
 import 'package:e_commerce/routes.dart';
 import 'package:e_commerce/view/screen/onboard/onboarding.dart';
@@ -7,9 +8,17 @@ import 'package:get/get.dart';
 import 'core/constant/colors.dart';
 import 'core/services/services.dart';
 
+var res;
+
+initalConnect() async {
+  res = await checkInternet();
+    print(res);
+}
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await initalServices();
+  initalConnect();
 
   runApp(const HomePage());
 }

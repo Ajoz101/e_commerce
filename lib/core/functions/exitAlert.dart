@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:e_commerce/core/functions/checkConnection.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -19,6 +20,7 @@ exitAlert() {
         ),
         MaterialButton(
           onPressed: () {
+            
             Get.back();
           },
           child: Text("Cancel"),
