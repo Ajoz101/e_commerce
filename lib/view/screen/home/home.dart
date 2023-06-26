@@ -56,6 +56,47 @@ class Home extends StatelessWidget {
                     ),
                   ],
                 ),
+              ),
+              Container(
+                margin: EdgeInsets.symmetric(
+                    horizontal: width / 20, vertical: height / 15),
+                child: Stack(
+                  children: [
+                    Container(
+                      decoration: BoxDecoration(
+                          color: AppColor.cards,
+                          borderRadius: BorderRadius.circular(20)),
+                      height: height / 5,
+                      width: double.infinity,
+                      child: ListTile(
+                        // trailing: FaIcon(
+                        //   FontAwesomeIcons.starHalfStroke,
+                        //   color: AppColor.primary,
+                        //   size: width / 12,
+                        // ),
+                        title: Text("Summer Splash",
+                            style: Theme.of(context).textTheme.headline1),
+                        subtitle: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Text(
+                            "GET A DISCOUNT\nNow!",
+                            style: Theme.of(context).textTheme.bodyText1,
+                          ),
+                        ),
+                      ),
+                    ),
+                    Positioned(
+                      top: -40,
+                      right: -50,
+                      child: Container(
+                          width: 160,
+                          height: 160,
+                          decoration: BoxDecoration(
+                              color: AppColor.primary,
+                              borderRadius: BorderRadius.circular(160))),
+                    ),
+                  ],
+                ),
               )
             ],
           )),
