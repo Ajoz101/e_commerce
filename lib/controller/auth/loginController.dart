@@ -1,5 +1,6 @@
 import 'package:e_commerce/core/constant/formKeys.dart';
 import 'package:e_commerce/core/constant/nameOfRoutes.dart';
+import 'package:e_commerce/core/services/services.dart';
 import 'package:e_commerce/data/source/remote/auth/loginData.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -20,6 +21,7 @@ class LoginControllerImp extends LoginController {
   // GlobalKey<FormState> state = GlobalKey<FormState>();
   var state = FKeys.loginKey;
 
+  MyServices services = Get.find();
   StatusRequest? statusRequest;
   LoginData signupData = LoginData(Get.find());
   @override
@@ -38,6 +40,13 @@ class LoginControllerImp extends LoginController {
         if (response["status"] == "success") {
           // data.addAll(response["data"]);
           // data.add(email.text);
+          sharedPref.setString("id", response['data']['users_id']);
+          sharedPref.setString("email",  response['data']['users_email']);
+          sharedPref.setString("username",  response['data']['users_username']);
+          sharedPref.setString("phone",  response['data']['users_phone']);
+          sharedPref.setString("step",  "2");
+
+
           Get.offNamed(AppRoutes.home);
         } else {
           showSnack("Failed Sign In ", "Email or Phone Already are invalid 😒");

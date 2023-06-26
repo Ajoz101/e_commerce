@@ -21,7 +21,7 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await initalServices();
   // initalConnect();
-
+  // sharedPref.remove("seen");
   runApp(const HomePage());
 }
 

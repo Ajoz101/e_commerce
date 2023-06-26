@@ -17,7 +17,7 @@ class OnBoardingControllerImp extends OnBoardingController {
   next() {
     currentPage++;
     if (currentPage > onBoardingList.length - 1) {
-      sharedPref.setBool("seen", true);
+      sharedPref.setString("step", "1");
       Get.offAllNamed(AppRoutes.login);
     } else {
       pageC.animateToPage(currentPage,
