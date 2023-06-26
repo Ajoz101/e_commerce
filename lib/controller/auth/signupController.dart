@@ -46,8 +46,9 @@ class SignUpControllerImp extends SignUpController {
       statusRequest = handlingData(response);
       if (StatusRequest.success == statusRequest) {
         if (response["status"] == "success") {
-          data.addAll(response["data"]);
-          Get.offNamed(AppRoutes.checkEmail);
+          // data.addAll(response["data"]);
+          data.add(email.text);
+          Get.offNamed(AppRoutes.verifySignUP, arguments: {"email": email.text});
         } else {
           showSnack("Failed signing up", "Email or Phone Already in USE");
           statusRequest = StatusRequest.failure;
@@ -75,7 +76,8 @@ class SignUpControllerImp extends SignUpController {
       snackPosition: SnackPosition.TOP,
       borderRadius: 20,
       backgroundColor: AppColor.primary,
-      duration: Duration(seconds: 3),
+      duration: Duration(seconds: 5),
+      dismissDirection: DismissDirection.horizontal,
       title: title,
       message: msg,
     ).show();

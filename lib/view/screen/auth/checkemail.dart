@@ -41,7 +41,7 @@ class CheckEmail extends StatelessWidget {
                   ),
                   CustomFormField(
                       validator: (p) {
-                        return validInput(p!, 30, 50, "email");
+                        return validInput(p!, 6, 50, "email");
                       },
                       textController: controller.email,
                       title: "E-mail",
