@@ -16,7 +16,7 @@ abstract class CheckEmailController extends GetxController {
 class CheckEmailControllerImp extends CheckEmailController {
   late TextEditingController email;
   var state = FKeys.checkEmailKey;
-  late StatusRequest statusRequest;
+   StatusRequest? statusRequest;
 
   CheckEmailData check = CheckEmailData(Get.find());
   @override
@@ -26,6 +26,7 @@ class CheckEmailControllerImp extends CheckEmailController {
     if (formData!.validate()) {
       print("Hello");
       statusRequest = StatusRequest.loading;
+        update();
       var response = await check.post(
         email: email.text,
       );

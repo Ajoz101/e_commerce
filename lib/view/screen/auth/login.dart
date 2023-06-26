@@ -1,3 +1,5 @@
+import 'package:e_commerce/core/class/statusRequest.dart';
+import 'package:e_commerce/core/constant/colors.dart';
 import 'package:e_commerce/core/functions/exitAlert.dart';
 import 'package:e_commerce/core/functions/validateInput.dart';
 import 'package:e_commerce/view/widget/auth/customBottomAuth.dart';
@@ -75,10 +77,19 @@ class Login extends StatelessWidget {
                       ),
                     ),
                     SizedBox(height: height / 37),
-                    CustomBottomAuth(
-                      text: "Sign In",
-                      tapped: () {
-                        control.login();
+                    GetBuilder<LoginControllerImp>(
+                      builder: (controller) {
+                        return controller.statusRequest == StatusRequest.loading
+                            ? const LinearProgressIndicator(
+                                color: AppColor.primary,
+                                backgroundColor: AppColor.second,
+                              )
+                            : CustomBottomAuth(
+                                text: "Sign In",
+                                tapped: () {
+                                  control.login();
+                                },
+                              );
                       },
                     ),
                     SignUpOrSigninText(

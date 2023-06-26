@@ -20,13 +20,14 @@ class LoginControllerImp extends LoginController {
   // GlobalKey<FormState> state = GlobalKey<FormState>();
   var state = FKeys.loginKey;
 
-  late StatusRequest statusRequest;
+  StatusRequest? statusRequest;
   LoginData signupData = LoginData(Get.find());
   @override
   login() async {
     var formData = state.currentState;
     if (formData!.validate()) {
       statusRequest = StatusRequest.loading;
+      update();
       var response = await signupData.post(
         email: email.text,
         password: password.text,
