@@ -7,5 +7,6 @@ class AppLinks {
    */
   static const String signup = "$server/signup.php";
   static const String verify = "$server/verify.php";
+  static const String login = "$server/login.php";
   
 }

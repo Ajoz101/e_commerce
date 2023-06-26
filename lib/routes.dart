@@ -10,6 +10,7 @@ import 'package:e_commerce/view/screen/auth/success_signup.dart';
 import 'package:e_commerce/view/screen/auth/forgotPasswordFolder/verifycode.dart';
 import 'package:e_commerce/view/screen/auth/checkemail.dart';
 import 'package:e_commerce/view/screen/auth/verifycode_signup.dart';
+import 'package:e_commerce/view/screen/home/home.dart';
 import 'package:e_commerce/view/screen/onboard/onboarding.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/routes/get_route.dart';
@@ -33,6 +34,12 @@ List<GetPage<dynamic>>? routes = [
   GetPage(name: AppRoutes.checkEmail, page: () => const CheckEmail()),
   GetPage(
       name: AppRoutes.verifySignUP, page: () => const VerifyCodeForSignUp()),
+
+
+      // Home
+GetPage(
+      name: AppRoutes.home, page: () => const Home()),
+
 ];
 
 // Map<String, Widget Function(BuildContext)> routess = {
