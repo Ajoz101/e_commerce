@@ -30,7 +30,7 @@ class SuccessSignedUp extends StatelessWidget {
                   size: height / 5, color: AppColor.second),
               SizedBox(height: height / 13),
               Text(
-                "One More Step!\n Verify The Code Sent To Your Email",
+                "Congrats now just sign in!\n",
                 textAlign: TextAlign.center,
                 style: TextStyle(fontSize: height / 27),
               ),
@@ -40,7 +40,7 @@ class SuccessSignedUp extends StatelessWidget {
                   tapped: () {
                     controller.gotologin();
                   },
-                  text: "Verify"),
+                  text: "Sign in"),
               SizedBox(height: height / 14),
             ],
           ),
