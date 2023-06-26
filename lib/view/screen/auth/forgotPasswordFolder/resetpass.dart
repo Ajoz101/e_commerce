@@ -1,11 +1,10 @@
-import 'package:e_commerce/controller/auth/resetpassController.dart';
+import 'package:e_commerce/controller/forgotpass/resetpassController.dart';
 import 'package:e_commerce/view/widget/auth/customBottomAuth.dart';
 import 'package:e_commerce/view/widget/auth/customTextBody.dart';
 import 'package:e_commerce/view/widget/auth/cutsomTextTitle.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../../controller/auth/forgotpassController.dart';
 import '../../../../core/functions/validateInput.dart';
 import '../../../widget/auth/customTextFormField.dart';
 

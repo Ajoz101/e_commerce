@@ -1,10 +1,10 @@
+import 'package:e_commerce/controller/forgotpass/checkemailController.dart';
 import 'package:e_commerce/view/widget/auth/customBottomAuth.dart';
 import 'package:e_commerce/view/widget/auth/customTextBody.dart';
 import 'package:e_commerce/view/widget/auth/cutsomTextTitle.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../../controller/auth/forgotpassController.dart';
 import '../../../../core/functions/validateInput.dart';
 import '../../../widget/auth/customTextFormField.dart';
 
@@ -14,7 +14,7 @@ class ForgotPassword extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var height = MediaQuery.of(context).size.height;
-    var controller = Get.put(ForgotPassControllerImp());
+    var controller = Get.put(CheckEmailControllerImp());
     return GestureDetector(
       onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
@@ -43,9 +43,9 @@ class ForgotPassword extends StatelessWidget {
                       hintText: "Enter Your Email",
                       icon: Icons.email_outlined),
                   CustomBottomAuth(
-                    text: "Check",
+                    text: "Send",
                     tapped: () {
-                      controller.gotoVerifyCode();
+                      controller.checkEmail();
                     },
                   )
                 ],
