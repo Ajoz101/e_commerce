@@ -1,5 +1,7 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:e_commerce/controller/home/home_controller.dart';
 import 'package:e_commerce/core/constant/colors.dart';
+import 'package:e_commerce/core/constant/networkImage_links.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
@@ -14,6 +16,7 @@ class Home extends StatelessWidget {
     var width = MediaQuery.of(context).size.width;
     var height = MediaQuery.of(context).size.height;
     var c = Get.put(HomeControllerImp());
+
     return GestureDetector(
       onTap: () => FocusScope.of(context).unfocus(),
       child: WillPopScope(
@@ -104,7 +107,7 @@ class Home extends StatelessWidget {
                 decoration: BoxDecoration(
                     // color: AppColor.cards,
                     borderRadius: BorderRadius.circular(20)),
-                height: height / 5,
+                height: height / 4,
                 width: double.infinity,
                 child: ListView.builder(
                   scrollDirection: Axis.horizontal,
@@ -118,22 +121,44 @@ class Home extends StatelessWidget {
                           borderRadius: BorderRadius.circular(30),
                           color: AppColor.secondLight,
                         ),
-                        width: width / 1.7,
-                        child: ListTile(
-                          title: Text(
-                            c.categories[index]["categories_name"],
-                            style: Theme.of(context)
-                                .textTheme
-                                .headline1!
-                                .copyWith(color: AppColor.primary),
-                          ),
-                          subtitle: Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Text(
-                              c.categories[index]["categories_description"],
-                              style: Theme.of(context).textTheme.bodyText2,
+                        width: width * 2 / 2.5,
+                        height: 200,
+                        child: Stack(
+                          children: [
+                            Positioned(
+                              top: -50,
+                              right: -50,
+                              child: Container(
+                                width: 160,
+                                height: 160,
+                                decoration: BoxDecoration(
+                                
+                                  image:const DecorationImage(
+                                      image: CachedNetworkImageProvider(
+                                        scale: 1.1,
+                                        maxHeight: 200,
+                                          "${ImageLink.headphone}/headphone.jpg")),
+                                  borderRadius: BorderRadius.circular(150),
+                                ),
+                              ),
                             ),
-                          ),
+                            ListTile(
+                              title: Text(
+                                c.categories[index]["categories_name"],
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .headline1!
+                                    .copyWith(color: AppColor.primary),
+                              ),
+                              subtitle: Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Text(
+                                  c.categories[index]["categories_description"],
+                                  style: Theme.of(context).textTheme.bodyText2,
+                                ),
+                              ),
+                            ),
+                          ],
                         ),
                       ),
                     );
