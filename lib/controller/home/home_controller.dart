@@ -1,3 +1,4 @@
+import 'package:e_commerce/core/constant/nameOfRoutes.dart';
 import 'package:e_commerce/core/services/services.dart';
 import 'package:e_commerce/data/source/remote/home/homeData.dart';
 import 'package:get/get.dart';
@@ -8,6 +9,7 @@ import '../../core/functions/handlingData.dart';
 
 abstract class HomeController extends GetxController {
   getData();
+  signOut();
 }
 
 class HomeControllerImp extends HomeController {
@@ -45,5 +47,11 @@ class HomeControllerImp extends HomeController {
   void onInit() {
     getData();
     super.onInit();
+  }
+
+  @override
+  signOut() {
+    sharedPref.remove("user");
+    Get.offAllNamed(AppRoutes.login);
   }
 }

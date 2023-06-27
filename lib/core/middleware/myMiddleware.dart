@@ -10,7 +10,11 @@ class AwesomeMiddleWare extends GetMiddleware {
   @override
   RouteSettings? redirect(String? route) {
     if (sharedPref.getString("step") == "2") {
-      return RouteSettings(name: AppRoutes.home);
+      if (sharedPref.getBool("user") == true) {
+        return RouteSettings(name: AppRoutes.home);
+      } else {
+        return const RouteSettings(name: AppRoutes.login);
+      }
     }
     if (sharedPref.getString("step") == "1") {
       return RouteSettings(name: AppRoutes.login);

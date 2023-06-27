@@ -49,7 +49,9 @@ class Home extends StatelessWidget {
                     ),
                     Container(
                       child: MaterialButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          c.signOut();
+                        },
                         child: FaIcon(FontAwesomeIcons.solidCircleUser,
                             color: AppColor.primary, size: width / 11),
                       ),
@@ -74,7 +76,7 @@ class Home extends StatelessWidget {
                         //   color: AppColor.primary,
                         //   size: width / 12,
                         // ),
-                        title: Text(c.categories[1]['categories_name'],
+                        title: Text("",
                             style: Theme.of(context).textTheme.headline1),
                         subtitle: Padding(
                           padding: const EdgeInsets.all(8.0),
@@ -106,7 +108,8 @@ class Home extends StatelessWidget {
                 width: double.infinity,
                 child: ListView.builder(
                   scrollDirection: Axis.horizontal,
-                  itemCount: c.categories.length,
+                  itemCount:
+                      c.categories.length == null ? 0 : c.categories.length,
                   itemBuilder: (context, index) {
                     return Padding(
                       padding: const EdgeInsets.only(right: 29),

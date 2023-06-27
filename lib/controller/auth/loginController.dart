@@ -4,6 +4,7 @@ import 'package:e_commerce/core/constant/formKeys.dart';
 import 'package:e_commerce/core/constant/nameOfRoutes.dart';
 import 'package:e_commerce/core/services/services.dart';
 import 'package:e_commerce/data/source/remote/auth/loginData.dart';
+import 'package:e_commerce/view/screen/auth/signup.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -43,11 +44,11 @@ class LoginControllerImp extends LoginController {
           // data.addAll(response["data"]);
           // data.add(email.text);
           sharedPref.setString("id", response['data']['users_id']);
-          sharedPref.setString("email",  response['data']['users_email']);
-          sharedPref.setString("username",  response['data']['users_username']);
-          sharedPref.setString("phone",  response['data']['users_phone']);
-          sharedPref.setString("step",  "2");
-
+          sharedPref.setString("email", response['data']['users_email']);
+          sharedPref.setString("username", response['data']['users_username']);
+          sharedPref.setString("phone", response['data']['users_phone']);
+          sharedPref.setString("step", "2");
+          sharedPref.setBool("user", true);
 
           Get.offNamed(AppRoutes.home);
         } else {
@@ -65,7 +66,12 @@ class LoginControllerImp extends LoginController {
 
   @override
   goToSignUP() {
-    Get.offAllNamed(AppRoutes.signup);
+    // Get.offAllNamed(AppRoutes.signup);
+    Get.off(
+      SignUp(),
+      duration: Duration(milliseconds: 1220),
+      transition: Transition.fade,
+    );
   }
 
   @override
