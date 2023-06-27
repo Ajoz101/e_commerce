@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 import 'package:e_commerce/core/constant/formKeys.dart';
 import 'package:e_commerce/core/constant/nameOfRoutes.dart';
 import 'package:e_commerce/core/services/services.dart';
@@ -57,7 +59,7 @@ class LoginControllerImp extends LoginController {
       update();
       // Get.offNamed(AppRoutes.checkEmail);
     } else {
-      print("Invalid");
+      // print("Invalid");
     }
   }
 
@@ -90,7 +92,7 @@ class LoginControllerImp extends LoginController {
       snackPosition: SnackPosition.TOP,
       borderRadius: 20,
       backgroundColor: AppColor.primary,
-      duration: Duration(seconds: 5),
+      duration: const Duration(seconds: 5),
       dismissDirection: DismissDirection.horizontal,
       title: title,
       message: msg,

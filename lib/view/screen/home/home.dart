@@ -74,7 +74,7 @@ class Home extends StatelessWidget {
                         //   color: AppColor.primary,
                         //   size: width / 12,
                         // ),
-                        title: Text("Summer Splash",
+                        title: Text(c.categories[1]['categories_name'],
                             style: Theme.of(context).textTheme.headline1),
                         subtitle: Padding(
                           padding: const EdgeInsets.all(8.0),
@@ -86,7 +86,7 @@ class Home extends StatelessWidget {
                       ),
                     ),
                     Positioned(
-                      top: -40,
+                      top: -50,
                       right: -50,
                       child: Container(
                           width: 160,
@@ -97,7 +97,46 @@ class Home extends StatelessWidget {
                     ),
                   ],
                 ),
-              )
+              ),
+              Container(
+                decoration: BoxDecoration(
+                    // color: AppColor.cards,
+                    borderRadius: BorderRadius.circular(20)),
+                height: height / 5,
+                width: double.infinity,
+                child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: c.categories.length,
+                  itemBuilder: (context, index) {
+                    return Padding(
+                      padding: const EdgeInsets.only(right: 29),
+                      child: Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(30),
+                          color: AppColor.secondLight,
+                        ),
+                        width: width / 1.7,
+                        child: ListTile(
+                          title: Text(
+                            c.categories[index]["categories_name"],
+                            style: Theme.of(context)
+                                .textTheme
+                                .headline1!
+                                .copyWith(color: AppColor.primary),
+                          ),
+                          subtitle: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Text(
+                              c.categories[index]["categories_description"],
+                              style: Theme.of(context).textTheme.bodyText2,
+                            ),
+                          ),
+                        ),
+                      ),
+                    );
+                  },
+                ),
+              ),
             ],
           )),
         ),

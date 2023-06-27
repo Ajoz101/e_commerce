@@ -12,12 +12,23 @@ class Crud {
       print(response.body);
       if (response.statusCode == 200 || response.statusCode == 201) {
         Map responseBody = jsonDecode(response.body);
-          print(responseBody);
+        print(responseBody);
         return Right(responseBody);
       }
     } else {
       return const Left(StatusRequest.offlineFailure);
     }
+    throw Exception();
+  }
+
+  Future<Either<StatusRequest, Map>> getOffline(String url, Map data) async {
+    var response = await http.post(Uri.parse(url), body: data);
+    print(response.body);
+    if (response.statusCode == 200 || response.statusCode == 201) {
+      Map responseBody = jsonDecode(response.body);
+      return Right(responseBody);
+    }
+
     throw Exception();
   }
 }
