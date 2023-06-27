@@ -24,6 +24,7 @@ class HomeControllerImp extends HomeController {
   // Crud crd = Crud();
   HomeData home = HomeData(Get.find());
   List categories = [];
+  List items = [];
   @override
   getData() async {
     statusRequest = StatusRequest.loading;
@@ -33,13 +34,12 @@ class HomeControllerImp extends HomeController {
     if (StatusRequest.success == statusRequest ||
         StatusRequest.offlineFailure == statusRequest) {
       if (response["status"] == "success") {
-        print(response["categories"]);
         categories.addAll(response["categories"]);
+        items.addAll(response["items"]);
       } else {
         statusRequest = StatusRequest.failure;
       }
     }
-    print(categories);
     update();
   }
 
@@ -47,6 +47,7 @@ class HomeControllerImp extends HomeController {
   void onInit() {
     getData();
     super.onInit();
+    update();
   }
 
   @override
