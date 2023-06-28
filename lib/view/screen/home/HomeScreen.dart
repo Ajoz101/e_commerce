@@ -16,6 +16,7 @@ class HomeScreen extends StatelessWidget {
     var size = MediaQuery.of(context).size;
     return GetBuilder<HomeScreenControllerImp>(builder: (controller) {
       return Scaffold(
+        
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         floatingActionButton: FloatingActionButton(
           backgroundColor: AppColor.primary,
