@@ -92,10 +92,10 @@ class HomeListView extends StatelessWidget {
               child: const CustomCategories(),
             ),
             Padding(
-              padding: EdgeInsets.only(top: height / 5.3),
+              padding: EdgeInsets.only(top: height / 10),
               child: GetBuilder<HomeControllerImp>(
                 builder: (controller) => CustomCard(
-                  title: "hey ${controller.username}",
+                  title: "hey ${controller.username} ",
                   subtitle: "GET A DISCOUNT\nNow!",
                   color: AppColor.secondLight,
                 ),

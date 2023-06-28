@@ -22,7 +22,8 @@ class CustomAppButton extends StatelessWidget {
       children: [
         MaterialButton(
           onPressed: onPressed,
-          child: Container(
+          child: AnimatedContainer(
+            duration: Duration(milliseconds: 500),
             decoration: BoxDecoration(
                 color: active == true
                     ? AppColor.primary.withOpacity(0.4)
