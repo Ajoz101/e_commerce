@@ -1,11 +1,9 @@
 import 'package:e_commerce/core/constant/nameOfRoutes.dart';
-import 'package:e_commerce/view/screen/auth/verifycode_signup.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../core/class/statusRequest.dart';
 import '../../core/constant/colors.dart';
-import '../../core/constant/formKeys.dart';
 import '../../core/functions/handlingData.dart';
 import '../../data/source/remote/auth/verifysignup.dart';
 
@@ -55,7 +53,7 @@ class VerifyCodeSignUpControllerImp extends VerifyCodeSignUpController {
       snackPosition: SnackPosition.TOP,
       borderRadius: 20,
       backgroundColor: AppColor.primary,
-      duration: Duration(seconds: 5),
+      duration:const Duration(seconds: 5),
       dismissDirection: DismissDirection.horizontal,
       title: title,
       message: msg,

@@ -68,8 +68,8 @@ class LoginControllerImp extends LoginController {
   goToSignUP() {
     // Get.offAllNamed(AppRoutes.signup);
     Get.off(
-      SignUp(),
-      duration: Duration(milliseconds: 1220),
+      const SignUp(),
+      duration: const Duration(milliseconds: 1220),
       transition: Transition.fade,
     );
   }

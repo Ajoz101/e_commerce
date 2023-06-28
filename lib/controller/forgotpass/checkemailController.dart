@@ -24,7 +24,7 @@ class CheckEmailControllerImp extends CheckEmailController {
     var formData = state.currentState;
 
     if (formData!.validate()) {
-      print("Hello");
+      // print("Hello");
       statusRequest = StatusRequest.loading;
         update();
       var response = await check.post(
@@ -44,7 +44,7 @@ class CheckEmailControllerImp extends CheckEmailController {
       // print(data);
       update();
     } else {
-      print("Invalid");
+      // print("Invalid");
     }
     update();
   }
@@ -67,7 +67,7 @@ class CheckEmailControllerImp extends CheckEmailController {
       snackPosition: SnackPosition.TOP,
       borderRadius: 20,
       backgroundColor: AppColor.primary,
-      duration: Duration(seconds: 5),
+      duration:const Duration(seconds: 5),
       dismissDirection: DismissDirection.horizontal,
       title: title,
       message: msg,

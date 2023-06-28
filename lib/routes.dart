@@ -74,7 +74,7 @@ List<GetPage<dynamic>>? routes = [
   // Home
   GetPage(
     name: AppRoutes.home,
-    page: () =>  Home(),
+    page: () => const Home(),
    transitionDuration:const Duration(milliseconds: 1220),
       transition: Transition.fade,
   ),

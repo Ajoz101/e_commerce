@@ -1,5 +1,4 @@
 import 'package:e_commerce/core/constant/nameOfRoutes.dart';
-import 'package:e_commerce/core/services/services.dart';
 import 'package:e_commerce/data/source/remote/forgot_password/verifyForgotPassData.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
