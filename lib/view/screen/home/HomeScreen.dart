@@ -48,7 +48,7 @@ class HomeScreen extends StatelessWidget {
                         icon: Icons.shopping_cart_outlined)
                   ],
                 ),
-                Spacer(),
+                const Spacer(),
                 Row(
                   children: [
                     CustomAppButton(

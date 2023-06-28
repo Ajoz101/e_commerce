@@ -28,6 +28,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     
     return GetMaterialApp(
+    
       translations: CustomTranslate(),
       debugShowCheckedModeBanner: false,
       theme: ThemeData(

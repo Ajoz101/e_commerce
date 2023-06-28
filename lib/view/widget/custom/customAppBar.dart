@@ -6,7 +6,7 @@ import '../../../controller/home/home_controller.dart';
 import '../../../core/constant/colors.dart';
 
 class CustomAppBar extends StatelessWidget {
-  CustomAppBar({super.key, this.onTapSearch,this.title});
+  CustomAppBar({super.key, this.onTapSearch, this.title});
   void Function()? onTapSearch;
   String? title;
 
@@ -50,7 +50,7 @@ class CustomAppBar extends StatelessWidget {
                 c.signOut();
               },
               icon: FaIcon(FontAwesomeIcons.user,
-                  color: AppColor.primary, size: width / 11),
+                  color: AppColor.white.withOpacity(0.8), size: width / 11),
             ),
           ),
         ],

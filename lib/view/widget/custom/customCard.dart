@@ -16,8 +16,7 @@ class CustomCard extends StatelessWidget {
     var height = MediaQuery.of(context).size.height;
 
     return Container(
-      margin:
-          EdgeInsets.symmetric(horizontal: width / 20, vertical: height / 1),
+      margin: EdgeInsets.only(right: 1, top: height / 1),
       child: Stack(
         children: [
           GetBuilder<HomeControllerImp>(

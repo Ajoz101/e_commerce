@@ -28,6 +28,7 @@ class CustomProds4You extends GetView<HomeControllerImp> {
         height: height / 2,
         width: width / 4,
         child: ListView.separated(
+          shrinkWrap: true,
           separatorBuilder: (context, index) => SizedBox(width: width / 11),
           scrollDirection: Axis.horizontal,
           itemCount: controller.items.length,

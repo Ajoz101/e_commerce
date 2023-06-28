@@ -26,6 +26,7 @@ class CustomCategories extends GetView<HomeControllerImp> {
         margin: EdgeInsets.symmetric(
             horizontal: width / 20, vertical: height / 1.5),
         child: ListView.separated(
+          shrinkWrap: true,
           separatorBuilder: (context, index) => SizedBox(width: width / 11),
           scrollDirection: Axis.horizontal,
           itemCount: controller.categories.length == null
@@ -53,6 +54,7 @@ class CategoriesWidget extends StatelessWidget {
     var width = MediaQuery.of(context).size.width;
     var height = MediaQuery.of(context).size.height;
     return Column(
+      mainAxisSize: MainAxisSize.min,
       children: [
         AnimatedContainer(
           duration: const Duration(milliseconds: 899),

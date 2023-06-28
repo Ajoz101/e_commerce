@@ -2,12 +2,13 @@ import 'package:e_commerce/core/constant/colors.dart';
 import 'package:flutter/material.dart';
 
 class CustomAppButton extends StatelessWidget {
-  CustomAppButton(
-      {super.key,
-      required this.onPressed,
-      required this.icon,
-      this.title,
-      this.active});
+  CustomAppButton({
+    super.key,
+    required this.onPressed,
+    required this.icon,
+    this.title,
+    this.active,
+  });
   IconData? icon;
   String? title;
   bool? active;
@@ -37,7 +38,8 @@ class CustomAppButton extends StatelessWidget {
         ),
         Text(
           title == null ? "" : title!,
-          style: TextStyle(fontWeight: FontWeight.bold),
+          style: TextStyle(
+              fontWeight: active == true ? FontWeight.bold : FontWeight.normal),
         )
       ],
     );
