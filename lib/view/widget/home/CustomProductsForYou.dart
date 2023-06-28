@@ -53,22 +53,29 @@ class ItemsWidget extends StatelessWidget {
     var height = MediaQuery.of(context).size.height;
     return Column(
       children: [
-        AnimatedContainer(
-          duration: Duration(milliseconds: 899),
-          decoration: BoxDecoration(
-            color: AppColor.white,
+        GestureDetector(
+          onTap: () {
+            Get.to(Details(
+              items: items,
+            ));
+          },
+          child: AnimatedContainer(
+            duration: Duration(milliseconds: 899),
+            decoration: BoxDecoration(
+              color: AppColor.white,
 
-            image: DecorationImage(
-              image: CachedNetworkImageProvider(
-                  "${ImageLink.items}${items.itemsImage}"),
+              image: DecorationImage(
+                image: CachedNetworkImageProvider(
+                    "${ImageLink.items}${items.itemsImage}"),
+              ),
+
+              borderRadius: BorderRadius.circular(40),
+              // color:  AppColor.secondLight,
             ),
-
-            borderRadius: BorderRadius.circular(40),
-            // color:  AppColor.secondLight,
+            width: 190,
+            height: 150,
+            child: SizedBox(),
           ),
-          width: 190,
-          height: 150,
-          child: SizedBox(),
         ),
         Text(
           "${items.itemsName}\n ${items.itemsPrice}\$",
@@ -78,6 +85,25 @@ class ItemsWidget extends StatelessWidget {
               .copyWith(color: AppColor.black, fontSize: width / 18),
         ),
       ],
+    );
+  }
+}
+
+class Details extends StatelessWidget {
+  Details({super.key, required this.items});
+  final ItemsModel items;
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: SafeArea(
+          child: Column(
+        children: [
+          Text(
+            items.itemsName.toString(),
+          ),
+          Text(items.categoriesName.toString())
+        ],
+      )),
     );
   }
 }

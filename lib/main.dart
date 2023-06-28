@@ -26,9 +26,10 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    
     return GetMaterialApp(
-    
+      color: AppColor.primary,
+      defaultTransition: Transition.leftToRightWithFade,
+      transitionDuration: Duration(milliseconds: 500),
       translations: CustomTranslate(),
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
