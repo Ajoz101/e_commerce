@@ -16,7 +16,6 @@ class HomeListView extends StatelessWidget {
     var width = MediaQuery.of(context).size.width;
     var height = MediaQuery.of(context).size.height;
     return ListView(
-      primary: true,
       children: [
         Stack(
           fit: StackFit.passthrough,
@@ -101,7 +100,6 @@ class HomeListView extends StatelessWidget {
             ),
           ],
         ),
-
       ],
     );
   }

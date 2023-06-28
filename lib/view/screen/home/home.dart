@@ -14,11 +14,7 @@ class Home extends StatelessWidget {
         onWillPop: () {
           return exitAlert();
         },
-        child: const Scaffold(
-          body: SafeArea(
-            child: HomeListView(),
-          ),
-        ),
+        child: HomeListView(),
       ),
     );
   }
