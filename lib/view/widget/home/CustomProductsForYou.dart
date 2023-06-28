@@ -20,11 +20,13 @@ class CustomProds4You extends StatelessWidget {
     var c = Get.put(HomeControllerImp());
     return GetBuilder<HomeControllerImp>(
       builder: (controller) => Container(
+        margin: EdgeInsets.symmetric(
+            horizontal: width / 20, vertical: height / 3.4),
         decoration: BoxDecoration(
             // color: AppColor.cards,
             borderRadius: BorderRadius.circular(20)),
-        height: height / 4,
-        width: double.infinity,
+        height: height / 2,
+        width: width / 4,
         child: ListView.separated(
           separatorBuilder: (context, index) => SizedBox(width: width / 11),
           scrollDirection: Axis.horizontal,

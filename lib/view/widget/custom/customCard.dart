@@ -5,7 +5,10 @@ import '../../../controller/home/home_controller.dart';
 import '../../../core/constant/colors.dart';
 
 class CustomCard extends StatelessWidget {
-  const CustomCard({super.key});
+  CustomCard({super.key, this.color, this.title, this.subtitle});
+  Color? color;
+  String? title;
+  String? subtitle;
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +17,7 @@ class CustomCard extends StatelessWidget {
 
     return Container(
       margin:
-          EdgeInsets.symmetric(horizontal: width / 20, vertical: height / 15),
+          EdgeInsets.symmetric(horizontal: width / 20, vertical: height / 1),
       child: Stack(
         children: [
           GetBuilder<HomeControllerImp>(
@@ -30,15 +33,16 @@ class CustomCard extends StatelessWidget {
                 //   color: AppColor.primary,
                 //   size: width / 12,
                 // ),
-                title: Text("hey ${controller.username}",
+                title: Text(title!,
                     style: Theme.of(context)
                         .textTheme
                         .headline1!
-                        .copyWith(fontSize: width / 17)),
+                        .copyWith(fontSize: width / 17)
+                        .copyWith(color: AppColor.primary)),
                 subtitle: Padding(
                   padding: const EdgeInsets.only(top: 8.0),
                   child: Text(
-                    "GET A DISCOUNT\nNow!",
+                    subtitle!,
                     style: Theme.of(context).textTheme.bodyText1,
                   ),
                 ),
@@ -52,8 +56,7 @@ class CustomCard extends StatelessWidget {
                 width: 160,
                 height: 160,
                 decoration: BoxDecoration(
-                    color: AppColor.primary,
-                    borderRadius: BorderRadius.circular(160))),
+                    color: color, borderRadius: BorderRadius.circular(160))),
           ),
         ],
       ),

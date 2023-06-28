@@ -22,17 +22,19 @@ class CustomCategories extends StatelessWidget {
             // color: AppColor.cards,
             borderRadius: BorderRadius.circular(20)),
         height: height / 5,
-        width: double.infinity,
+        width: 200,
+        margin: EdgeInsets.symmetric(
+            horizontal: width / 20, vertical: height / 1.5),
         child: ListView.separated(
           separatorBuilder: (context, index) => SizedBox(width: width / 11),
           scrollDirection: Axis.horizontal,
           itemCount: c.categories.length == null ? 0 : c.categories.length,
           itemBuilder: (context, index) {
             return AnimatedContainer(
-              duration: Duration(milliseconds: 899),
+              duration: const Duration(milliseconds: 899),
               decoration: BoxDecoration(
                 gradient: const LinearGradient(
-                    colors: [AppColor.primary, AppColor.secondLight],
+                    colors: [AppColor.primaryLight, AppColor.secondLight],
                     begin: Alignment.topRight,
                     end: Alignment.bottomLeft),
                 borderRadius: BorderRadius.circular(40),

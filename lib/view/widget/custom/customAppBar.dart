@@ -10,12 +10,12 @@ class CustomAppBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-      var width = MediaQuery.of(context).size.width;
+    var width = MediaQuery.of(context).size.width;
     var height = MediaQuery.of(context).size.height;
     var c = Get.put(HomeControllerImp());
     return Container(
       margin: EdgeInsets.only(top: height / 24),
-      padding: EdgeInsets.symmetric(horizontal: width / 60),
+      padding: EdgeInsets.symmetric(horizontal: width / 40),
       child: Row(
         children: [
           Expanded(
@@ -26,7 +26,7 @@ class CustomAppBar extends StatelessWidget {
                   child: const FaIcon(FontAwesomeIcons.magnifyingGlass),
                 ),
                 hintText: "Find product",
-                fillColor: AppColor.secondLight,
+                fillColor: AppColor.secondLight.withOpacity(0.3),
                 filled: true,
                 border: OutlineInputBorder(
                   borderSide: BorderSide.none,
@@ -35,12 +35,16 @@ class CustomAppBar extends StatelessWidget {
               ),
             ),
           ),
+          SizedBox(width: 20),
           Container(
-            child: MaterialButton(
+            decoration: BoxDecoration(
+                color: AppColor.primary.withOpacity(0.1),
+                borderRadius: BorderRadius.circular(20)),
+            child: IconButton(
               onPressed: () {
                 c.signOut();
               },
-              child: FaIcon(FontAwesomeIcons.solidCircleUser,
+              icon: FaIcon(FontAwesomeIcons.user,
                   color: AppColor.primary, size: width / 11),
             ),
           ),
