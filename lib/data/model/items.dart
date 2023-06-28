@@ -1,5 +1,5 @@
 
-class Items {
+class ItemsModel {
   String? itemsId;
   String? itemsName;
   String? itemsDescription;
@@ -16,9 +16,9 @@ class Items {
   String? categoriesImage;
   String? categoriesTimecreated;
 
-  Items({this.itemsId, this.itemsName, this.itemsDescription, this.itemsTime, this.itemsImage, this.itemsCount, this.itemesActive, this.itemsPrice, this.itemsDiscount, this.itemsCate, this.categoriesId, this.categoriesName, this.categoriesDescription, this.categoriesImage, this.categoriesTimecreated});
+  ItemsModel({this.itemsId, this.itemsName, this.itemsDescription, this.itemsTime, this.itemsImage, this.itemsCount, this.itemesActive, this.itemsPrice, this.itemsDiscount, this.itemsCate, this.categoriesId, this.categoriesName, this.categoriesDescription, this.categoriesImage, this.categoriesTimecreated});
 
-  Items.fromJson(Map<String, dynamic> json) {
+  ItemsModel.fromJson(Map<String, dynamic> json) {
     itemsId = json["items_id"];
     itemsName = json["items_name"];
     itemsDescription = json["items_description"];

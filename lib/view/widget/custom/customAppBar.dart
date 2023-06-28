@@ -6,7 +6,9 @@ import '../../../controller/home/home_controller.dart';
 import '../../../core/constant/colors.dart';
 
 class CustomAppBar extends StatelessWidget {
-  const CustomAppBar({super.key});
+  CustomAppBar({super.key, this.onTapSearch,this.title});
+  void Function()? onTapSearch;
+  String? title;
 
   @override
   Widget build(BuildContext context) {
@@ -23,9 +25,12 @@ class CustomAppBar extends StatelessWidget {
               decoration: InputDecoration(
                 prefixIcon: Padding(
                   padding: EdgeInsets.all(height / 40),
-                  child: const FaIcon(FontAwesomeIcons.magnifyingGlass),
+                  child: GestureDetector(
+                      onTap: onTapSearch,
+                      child: FaIcon(FontAwesomeIcons.magnifyingGlass)),
                 ),
-                hintText: "Find product",
+                hintText: title,
+                hintStyle: TextStyle(color: AppColor.white),
                 fillColor: AppColor.secondLight.withOpacity(0.3),
                 filled: true,
                 border: OutlineInputBorder(

@@ -1,17 +1,17 @@
 
-class Categories {
-  List<Categories1>? categories;
+class CategoriesModel {
+  List<Categories1>? cate;
 
-  Categories({this.categories});
+  CategoriesModel({this.cate});
 
-  Categories.fromJson(Map<String, dynamic> json) {
-    categories = json["categories"] == null ? null : (json["categories"] as List).map((e) => Categories1.fromJson(e)).toList();
+  CategoriesModel.fromJson(Map<String, dynamic> json) {
+    cate = json["categories"] == null ? null : (json["categories"] as List).map((e) => Categories1.fromJson(e)).toList();
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> _data = <String, dynamic>{};
-    if(categories != null) {
-      _data["categories"] = categories?.map((e) => e.toJson()).toList();
+    if(cate != null) {
+      _data["categories"] = cate?.map((e) => e.toJson()).toList();
     }
     return _data;
   }
