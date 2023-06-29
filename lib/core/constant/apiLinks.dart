@@ -1,6 +1,7 @@
 class AppLinks {
   static const String server = "https://ahmed101.000webhostapp.com";
   static const String test = "$server/test.php";
+  // static const String root = "https://ahmed101.000webhostapp.com";
   static const String root = "http://10.0.2.2/ecommerce_backend";
   /*
    * Auth
@@ -18,11 +19,8 @@ class AppLinks {
   static const String verifyForgotPass =
       "$server/forgotpass/verifyforgotpass.php";
 
-
-      /*
+  /*
        * Home
        */
-        static const String homePage = "$root/home.php";
-
-
+  static const String homePage = "$server/home.php";
 }

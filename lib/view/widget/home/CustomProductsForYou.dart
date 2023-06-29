@@ -98,10 +98,25 @@ class Details extends StatelessWidget {
       body: SafeArea(
           child: Column(
         children: [
-          Text(
-            items.itemsName.toString(),
+          Container(
+            color: AppColor.secondLight,
+            child: Card(
+              child: Column(
+                children: [
+                  Text(
+                    items.itemsName.toString(),
+                    style: TextStyle(fontSize: 30),
+                  ),
+                  Text(items.categoriesName.toString()),
+                  Text(items.itemsCount.toString()),
+                  Text(
+                    "price is ${items.itemsPrice.toString()}\$ 😍",
+                    style: TextStyle(fontSize: 25),
+                  )
+                ],
+              ),
+            ),
           ),
-          Text(items.categoriesName.toString())
         ],
       )),
     );

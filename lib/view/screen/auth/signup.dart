@@ -46,7 +46,7 @@ class SignUp extends StatelessWidget {
                     ),
                     CustomFormField(
                       validator: (p) {
-                        return validInput(p!, 5, 20, "username");
+                        return validInput(p!, 5, 50, "username");
                       },
                       textController: control.username,
                       title: "Username",
