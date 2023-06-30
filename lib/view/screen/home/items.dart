@@ -4,13 +4,10 @@ import 'package:e_commerce/core/constant/image_asset.dart';
 import 'package:e_commerce/core/constant/networkImage_links.dart';
 import 'package:e_commerce/view/widget/custom/customAppBar.dart';
 import 'package:e_commerce/view/widget/items/listcategories.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
+import 'package:fluttericon/iconic_icons.dart';
 import 'package:get/get.dart';
 
-import '../../../controller/home/home_controller.dart';
 import '../../../core/constant/colors.dart';
 
 class ItemsPage extends GetView<ItemsControllerImp> {
@@ -64,9 +61,31 @@ class ItemsPage extends GetView<ItemsControllerImp> {
                                   fontWeight: FontWeight.bold,
                                   fontSize: size.width / 17),
                             ),
-                            Text("Description of product",
+                            const Text("Description of product",
                                 textAlign: TextAlign.center),
-                            const Text("Price", textAlign: TextAlign.center)
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text(
+                                    "200\$",
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(
+                                        color: AppColor.primary,
+                                        fontSize: size.width / 18,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                  IconButton(
+                                      onPressed: () {},
+                                      icon: Icon(
+                                        Icons.favorite_border,
+                                        color: AppColor.primary,
+                                      ))
+                                ],
+                              ),
+                            )
                           ],
                         ),
                       ),
