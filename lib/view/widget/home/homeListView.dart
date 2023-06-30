@@ -37,7 +37,7 @@ class HomeListView extends StatelessWidget {
                 ),
               ),
             ),
-            CustomAppBar(title: "Find Product"),
+            CustomAppBar(title: "Find Product", height: 24, width: 40),
             Container(
               margin: EdgeInsets.symmetric(vertical: height / 5.4),
               child: GetBuilder<HomeControllerImp>(

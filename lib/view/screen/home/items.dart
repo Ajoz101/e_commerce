@@ -1,3 +1,4 @@
+import 'package:e_commerce/controller/home/items_controller.dart';
 import 'package:e_commerce/view/widget/custom/customAppBar.dart';
 import 'package:e_commerce/view/widget/items/listcategories.dart';
 import 'package:flutter/cupertino.dart';
@@ -9,57 +10,26 @@ import 'package:get/get.dart';
 import '../../../controller/home/home_controller.dart';
 import '../../../core/constant/colors.dart';
 
-class ItemsPage extends StatelessWidget {
+class ItemsPage extends GetView<ItemsControllerImp> {
   const ItemsPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    var size = MediaQuery.of(context).size;
+    // var size = MediaQuery.of(context).size;
 
     return Scaffold(
+      backgroundColor: AppColor.cards,
       body: ListView(
+        scrollDirection: Axis.vertical,
         children: [
-          Stack(
-            fit: StackFit.passthrough,
-            children: [
-              Positioned(
-                top: -70,
-                right: -25,
-                child: Container(
-                  width: size.width / 0.9,
-                  height: 400,
-                  decoration: const BoxDecoration(
-                    gradient: LinearGradient(
-                        colors: [AppColor.primaryLight, AppColor.second]),
-                    borderRadius: BorderRadius.only(
-                      bottomLeft: Radius.circular(160),
-                      bottomRight: Radius.circular(160),
-                    ),
-                  ),
-                ),
-              ),
-              CustomAppBar(title: "Search Product", onTapSearch: () {}),
-              Container(
-                margin: EdgeInsets.symmetric(vertical: size.height / 5.4),
-                child: GetBuilder<HomeControllerImp>(
-                  builder: (controller) {
-                    return Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Text(
-                        "Hello ${controller.username}",
-                        style: Theme.of(context)
-                            .textTheme
-                            .headline1!
-                            .copyWith(color: AppColor.white),
-                        textAlign: TextAlign.center,
-                      ),
-                    );
-                  },
-                ),
-              ),
-              CustomCategoriesItems()
-            ],
+          CustomAppBar(
+            title: "Search Product",
+            onTapSearch: () {},
+            color: AppColor.black.withOpacity(0.8),
+            height: 1,
+            width: 20,
           ),
+          CustomCategoriesItems(),
         ],
       ),
     );

@@ -1,66 +1,70 @@
-import 'package:cached_network_image/cached_network_image.dart';
+import 'package:e_commerce/controller/home/home_controller.dart';
+import 'package:e_commerce/controller/home/items_controller.dart';
 import 'package:e_commerce/data/model/categories.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import 'package:get/get.dart';
 
-import '../../../controller/home/home_controller.dart';
 import '../../../core/constant/colors.dart';
-import '../../../core/constant/networkImage_links.dart';
 
-class CustomCategoriesItems extends GetView<HomeControllerImp> {
+class CustomCategoriesItems extends GetView<ItemsControllerImp> {
   const CustomCategoriesItems({super.key});
 
   @override
   Widget build(BuildContext context) {
+    Get.put(ItemsControllerImp());
     var width = MediaQuery.of(context).size.width;
     var height = MediaQuery.of(context).size.height;
-    return GetBuilder<HomeControllerImp>(
-      builder: (controller) => Container(
-        decoration: BoxDecoration(
-            // color: AppColor.cards,
-            borderRadius: BorderRadius.circular(20)),
-        height: height / 5,
-        width: 200,
-        margin: EdgeInsets.symmetric(
-            horizontal: width / 20, vertical: height / 1.5),
-        child: ListView.separated(
-          shrinkWrap: true,
-          separatorBuilder: (context, index) => SizedBox(width: width / 11),
-          scrollDirection: Axis.horizontal,
-          itemCount: controller.categories.length == null
-              ? 0
-              : controller.categories.length,
-          itemBuilder: (context, index) {
-            int i = index;
-            return CategoriesWidget(
-              category: Categories1.fromJson(
-                controller.categories[index],
-              ),
-              i: i,
-            );
-          },
-        ),
+    return Container(
+      decoration: BoxDecoration(
+          // color: AppColor.cards,
+          borderRadius: BorderRadius.circular(20)),
+      height: height / 1,
+      width: width / 1,
+      margin:
+          EdgeInsets.symmetric(horizontal: width / 20, vertical: height / 5),
+      child: GridView.builder(
+        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 2, mainAxisSpacing: 20),
+        shrinkWrap: true,
+        // separatorBuilder: (context, index) => SizedBox(width: width / 11),
+        scrollDirection: Axis.vertical,
+        itemCount: controller.categories.length == null
+            ? 0
+            : controller.categories.length,
+
+        itemBuilder: (context, index) {
+          // int i = index;
+          return CategoriesWidget(
+            category: Categories1.fromJson(
+              controller.categories[index],
+            ),
+            i: index,
+          );
+        },
       ),
     );
   }
 }
 
-class CategoriesWidget extends GetView<HomeControllerImp> {
-  CategoriesWidget({super.key, required this.category, required this.i});
+class CategoriesWidget extends GetView<ItemsControllerImp> {
+  CategoriesWidget({super.key, required this.category, this.i});
   final Categories1 category;
-  final int i;
+  final int? i;
   @override
   Widget build(BuildContext context) {
     var width = MediaQuery.of(context).size.width;
     var height = MediaQuery.of(context).size.height;
-    return InkWell(
-      onTap: () {
-        controller.gotToItems(controller.categories, i);
-      },
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
+    return Container(
+      width: width / 5,
+      height: height / 2,
+      child: GridView(
+        shrinkWrap: true,
+        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 1, crossAxisSpacing: 15, mainAxisSpacing: 20),
+        padding: EdgeInsets.all(20),
+        // mainAxisSize: MainAxisSize.min,
         children: [
           AnimatedContainer(
             duration: const Duration(milliseconds: 899),
@@ -72,10 +76,10 @@ class CategoriesWidget extends GetView<HomeControllerImp> {
               borderRadius: BorderRadius.circular(40),
               // color: AppColor.secondLight,
             ),
-            width: 190,
-            height: height / 5,
+            width: width / 4,
+            height: height / 2,
             child: Stack(
-              alignment: Alignment.bottomCenter,
+              alignment: Alignment.center,
               children: [
                 Positioned(
                   top: -30,
@@ -83,13 +87,6 @@ class CategoriesWidget extends GetView<HomeControllerImp> {
                   child: Container(
                     width: 160,
                     height: 160,
-                    decoration: BoxDecoration(
-                      image: DecorationImage(
-                          image: CachedNetworkImageProvider(
-                              maxHeight: 200,
-                              "${ImageLink.categories}${category.categoriesImage}")),
-                      borderRadius: BorderRadius.circular(150),
-                    ),
                   ),
                 ),
                 Positioned(
@@ -105,12 +102,13 @@ class CategoriesWidget extends GetView<HomeControllerImp> {
                 ),
                 Padding(
                   padding: const EdgeInsets.only(bottom: 6),
-                  child: Text(
-                    category.categoriesName.toString(),
-                    style: Theme.of(context)
-                        .textTheme
-                        .headline2!
-                        .copyWith(color: AppColor.white, fontSize: width / 18),
+                  child: FittedBox(
+                    fit: BoxFit.scaleDown,
+                    child: Text(
+                      category.categoriesName.toString(),
+                      style: Theme.of(context).textTheme.headline2!.copyWith(
+                          color: AppColor.white, fontSize: width / 18),
+                    ),
                   ),
                 ),
               ],

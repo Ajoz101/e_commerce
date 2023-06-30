@@ -10,5 +10,5 @@ class AppColor {
   static const Color secondLight = Color.fromARGB(255, 178, 192, 215);
   static const Color forGradient = Color.fromARGB(255, 124, 144, 176);
   static const Color cards = Color.fromARGB(255, 229, 232, 248);
-  static const Color black = Color.fromARGB(255, 31, 27, 43);
+  static const Color black = Color.fromARGB(255, 25, 24, 36);
 }

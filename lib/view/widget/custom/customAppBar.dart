@@ -6,18 +6,27 @@ import '../../../controller/home/home_controller.dart';
 import '../../../core/constant/colors.dart';
 
 class CustomAppBar extends StatelessWidget {
-  CustomAppBar({super.key, this.onTapSearch, this.title});
+  CustomAppBar(
+      {super.key,
+      this.onTapSearch,
+      this.title,
+      this.color,
+      this.height,
+      this.width});
   void Function()? onTapSearch;
   String? title;
 
+  Color? color;
+  double? height;
+  double? width;
   @override
   Widget build(BuildContext context) {
     var width = MediaQuery.of(context).size.width;
     var height = MediaQuery.of(context).size.height;
     var c = Get.put(HomeControllerImp());
     return Container(
-      margin: EdgeInsets.only(top: height / 24),
-      padding: EdgeInsets.symmetric(horizontal: width / 40),
+      margin: EdgeInsets.only(top: height / height),
+      padding: EdgeInsets.symmetric(horizontal: width / width),
       child: Row(
         children: [
           Expanded(
@@ -31,7 +40,7 @@ class CustomAppBar extends StatelessWidget {
                 ),
                 hintText: title,
                 hintStyle: TextStyle(color: AppColor.white),
-                fillColor: AppColor.secondLight.withOpacity(0.3),
+                fillColor: color ?? AppColor.secondLight.withOpacity(0.3),
                 filled: true,
                 border: OutlineInputBorder(
                   borderSide: BorderSide.none,
