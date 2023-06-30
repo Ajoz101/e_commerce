@@ -63,7 +63,7 @@ class CategoriesWidget extends GetView<ItemsControllerImp> {
           duration: const Duration(milliseconds: 100),
           decoration: controller.selectedCategories == i
               ? BoxDecoration(
-                  color: AppColor.black,
+                  color: AppColor.primary,
                   borderRadius: BorderRadius.circular(40),
                   // color: AppColor.secondLight,
                 )

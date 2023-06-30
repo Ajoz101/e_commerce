@@ -59,15 +59,16 @@ class CustomCard extends StatelessWidget {
                   style: TextStyle(
                       fontWeight: FontWeight.bold, fontSize: size.width / 17),
                 ),
-                Text(itemsModel!.itemsDescription.toString(),
-                    textAlign: TextAlign.center),
+                Text("Quantity : ${itemsModel!.itemsCount.toString()}",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(fontSize: size.width / 20)),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        itemsModel!.itemsPrice.toString(),
+                        "${itemsModel!.itemsPrice.toString()}\$",
                         textAlign: TextAlign.center,
                         style: TextStyle(
                             color: AppColor.primary,
@@ -76,7 +77,7 @@ class CustomCard extends StatelessWidget {
                       ),
                       IconButton(
                           onPressed: () {},
-                          icon: Icon(
+                          icon: const Icon(
                             Icons.favorite_border,
                             color: AppColor.primary,
                           ))
