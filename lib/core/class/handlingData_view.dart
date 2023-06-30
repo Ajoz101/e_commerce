@@ -26,8 +26,10 @@ class HandleDataView extends StatelessWidget {
                   )
                 : statusRequest == StatusRequest.failure
                     ? Center(
-                        child: Text("Theres no Data 😅",
-                            style: Theme.of(context).textTheme.headline1),
+                        child: Lottie.asset(
+                          ImageAsset.noResult,
+                        
+                        ),
                       )
                     : widget;
   }

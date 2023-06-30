@@ -7,8 +7,8 @@ import '../../core/functions/handlingData.dart';
 
 abstract class ItemsController extends GetxController {
   initalData();
-  changeCat(val);
-  getItems();
+  changeCat(val, String cat_id);
+  getItems(String cate_id);
 }
 
 class ItemsControllerImp extends ItemsController {
@@ -19,13 +19,14 @@ class ItemsControllerImp extends ItemsController {
   StatusRequest? statusRequest;
   Crud crd = Crud();
 
+  String? catId;
+
   @override
-  getItems() async {
+  getItems(cate_id) async {
     statusRequest = StatusRequest.loading;
-    var response = await items.getData();
+    var response = await items.getData(cate_id);
     update();
 
-    print(response);
     statusRequest = handlingData(response);
     update();
     if (StatusRequest.success == statusRequest ||
@@ -43,20 +44,24 @@ class ItemsControllerImp extends ItemsController {
   initalData() {
     categories = Get.arguments['categories'];
     selectedCategories = Get.arguments['selectedCate'];
+    // categories.insert(0, categories);
+    catId = Get.arguments['category_id'];
     // update();
   }
 
   @override
   void onInit() {
     initalData();
-    getItems();
+    getItems(catId!);
     update();
     super.onInit();
   }
 
   @override
-  changeCat(val) {
+  changeCat(val, String cat_id) {
     selectedCategories = val;
+    data.clear();
+    getItems(cat_id.toString());
     update();
   }
 }

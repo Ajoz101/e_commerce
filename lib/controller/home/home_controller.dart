@@ -10,7 +10,7 @@ import '../../core/functions/handlingData.dart';
 abstract class HomeController extends GetxController {
   getData();
   signOut();
-  gotToItems(List categories, int selectedcate);
+  gotToItems(List categories, int selectedcate, String cate_id);
 }
 
 class HomeControllerImp extends HomeController {
@@ -58,8 +58,11 @@ class HomeControllerImp extends HomeController {
   }
 
   @override
-  gotToItems(List categories, int selectedcate) {
-    Get.toNamed(AppRoutes.items,
-        arguments: {"categories": categories, "selectedCate": selectedcate});
+  gotToItems(List categories, int selectedcate, cate_id) {
+    Get.toNamed(AppRoutes.items, arguments: {
+      "categories": categories,
+      "selectedCate": selectedcate,
+    "category_id" : cate_id
+    });
   }
 }

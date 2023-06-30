@@ -23,9 +23,10 @@ class CustomCategories extends GetView<HomeControllerImp> {
             borderRadius: BorderRadius.circular(20)),
         height: height / 5,
         width: 200,
-        margin: EdgeInsets.symmetric(
-            horizontal: width / 20, vertical: height / 1.5),
+        margin:
+            EdgeInsets.symmetric(horizontal: width / 20, vertical: height / 20),
         child: ListView.separated(
+          physics: BouncingScrollPhysics(),
           shrinkWrap: true,
           separatorBuilder: (context, index) => SizedBox(width: width / 11),
           scrollDirection: Axis.horizontal,
@@ -57,7 +58,7 @@ class CategoriesWidget extends GetView<HomeControllerImp> {
     var height = MediaQuery.of(context).size.height;
     return InkWell(
       onTap: () {
-        controller.gotToItems(controller.categories, i);
+        controller.gotToItems(controller.categories, i, category.categoriesId!);
       },
       child: Column(
         mainAxisSize: MainAxisSize.min,

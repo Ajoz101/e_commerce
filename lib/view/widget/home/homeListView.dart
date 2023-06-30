@@ -16,6 +16,9 @@ class HomeListView extends StatelessWidget {
     var width = MediaQuery.of(context).size.width;
     var height = MediaQuery.of(context).size.height;
     return ListView(
+      shrinkWrap: true,
+      physics: BouncingScrollPhysics(),
+
       /// Removes the padding from all sides.
       children: [
         Stack(
@@ -38,6 +41,8 @@ class HomeListView extends StatelessWidget {
               ),
             ),
             CustomAppBar(title: "Find Product", height: 24, width: 40),
+
+            //
             Container(
               margin: EdgeInsets.symmetric(vertical: height / 5.4),
               child: GetBuilder<HomeControllerImp>(
@@ -56,51 +61,41 @@ class HomeListView extends StatelessWidget {
                 },
               ),
             ),
-            Container(
-              margin: EdgeInsets.symmetric(
-                  horizontal: width / 20, vertical: height / 2.4),
-              child: Text(
-                "For You",
-                style: Theme.of(context)
-                    .textTheme
-                    .headline1!
-                    .copyWith(color: AppColor.black),
-              ),
-            ),
-            Padding(
-              padding: EdgeInsets.only(top: height / 5.3),
-              child: const CustomProds4You(),
-            ),
-            Padding(
-              padding: EdgeInsets.only(top: height / 5.3),
-              child: Container(
-                margin: EdgeInsets.symmetric(
-                    horizontal: width / 20, vertical: height / 1.7),
-                child: Text(
-                  "Categories",
-                  style: Theme.of(context)
-                      .textTheme
-                      .headline1!
-                      .copyWith(color: AppColor.black),
-                ),
-              ),
-            ),
-            Padding(
-              padding: EdgeInsets.only(top: height / 5.3),
-              child: const CustomCategories(),
-            ),
-            Padding(
-              padding: EdgeInsets.only(top: height / 10),
-              child: GetBuilder<HomeControllerImp>(
-                builder: (controller) => CustomCard(
-                  title: "hey ${controller.username} ",
-                  subtitle: "GET A DISCOUNT\nNow!",
-                  color: AppColor.secondLight,
-                ),
-              ),
-            ),
+
+            // Padding(
+            //   padding: EdgeInsets.only(top: height / 10),
+            //   child: GetBuilder<HomeControllerImp>(
+            //     builder: (controller) => CustomCard(
+            //       title: "hey ${controller.username} ",
+            //       subtitle: "GET A DISCOUNT\nNow!",
+            //       color: AppColor.secondLight,
+            //     ),
+            //   ),
+            // ),
           ],
         ),
+        Container(
+          margin: EdgeInsets.symmetric(horizontal: width / 20),
+          child: Text(
+            "For You",
+            style: Theme.of(context)
+                .textTheme
+                .headline1!
+                .copyWith(color: AppColor.black),
+          ),
+        ),
+        const CustomProds4You(),
+        Container(
+          margin: EdgeInsets.symmetric(horizontal: width / 20),
+          child: Text(
+            "Categories",
+            style: Theme.of(context)
+                .textTheme
+                .headline1!
+                .copyWith(color: AppColor.black),
+          ),
+        ),
+        const CustomCategories(),
       ],
     );
   }

@@ -21,14 +21,15 @@ class CustomProds4You extends GetView<HomeControllerImp> {
     var height = MediaQuery.of(context).size.height;
     return GetBuilder<HomeControllerImp>(
       builder: (controller) => Container(
-        margin: EdgeInsets.symmetric(
-            horizontal: width / 20, vertical: height / 3.4),
+        margin:
+            EdgeInsets.symmetric(horizontal: width / 20, vertical: height / 30),
         decoration: BoxDecoration(
             // color: AppColor.cards,
             borderRadius: BorderRadius.circular(20)),
-        height: height / 2,
+        height: height / 3,
         width: width / 4,
         child: ListView.separated(
+          physics: BouncingScrollPhysics(),
           shrinkWrap: true,
           separatorBuilder: (context, index) => SizedBox(width: width / 11),
           scrollDirection: Axis.horizontal,
@@ -84,40 +85,6 @@ class ItemsWidget extends StatelessWidget {
               .copyWith(color: AppColor.black, fontSize: width / 18),
         ),
       ],
-    );
-  }
-}
-
-class Details extends StatelessWidget {
-  Details({super.key, required this.items});
-  final ItemsModel items;
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: SafeArea(
-          child: Column(
-        children: [
-          Container(
-            color: AppColor.secondLight,
-            child: Card(
-              child: Column(
-                children: [
-                  Text(
-                    items.itemsName.toString(),
-                    style: TextStyle(fontSize: 30),
-                  ),
-                  Text(items.categoriesName.toString()),
-                  Text(items.itemsCount.toString()),
-                  Text(
-                    "price is ${items.itemsPrice.toString()}\$ 😍",
-                    style: TextStyle(fontSize: 25),
-                  )
-                ],
-              ),
-            ),
-          ),
-        ],
-      )),
     );
   }
 }

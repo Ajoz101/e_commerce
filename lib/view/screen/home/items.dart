@@ -36,15 +36,16 @@ class ItemsPage extends GetView<ItemsControllerImp> {
                 width: 20,
               ),
             ),
+            CustomCategoriesItems(),
             GetBuilder<ItemsControllerImp>(
               builder: (controller) {
                 return HandleDataView(
                   statusRequest: controller.statusRequest!,
-                  widget: CustomCategoriesItems(),
+                  widget: CustomListItems(),
                 );
               },
             ),
-            CustomListItems()
+            // CustomListItems(),
           ],
         ),
       ),

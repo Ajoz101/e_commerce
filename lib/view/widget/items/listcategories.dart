@@ -24,9 +24,7 @@ class CustomCategoriesItems extends GetView<ItemsControllerImp> {
       child: ListView.builder(
         shrinkWrap: true,
         scrollDirection: Axis.horizontal,
-        itemCount: controller.categories.length == null
-            ? 0
-            : controller.categories.length,
+        itemCount: controller.categories.length,
         itemBuilder: (context, index) {
           // int i = index;
           return Padding(
@@ -57,7 +55,7 @@ class CategoriesWidget extends GetView<ItemsControllerImp> {
     return GetBuilder<ItemsControllerImp>(builder: (controller) {
       return InkWell(
         onTap: () {
-          controller.changeCat(i);
+          controller.changeCat(i, category.categoriesId!);
         },
         child: AnimatedContainer(
           duration: const Duration(milliseconds: 100),
