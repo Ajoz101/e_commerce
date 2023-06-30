@@ -1,6 +1,6 @@
 import 'package:e_commerce/controller/home/home_controller.dart';
 import 'package:e_commerce/core/constant/colors.dart';
-import 'package:e_commerce/view/widget/home/customappButton.dart';
+import 'package:e_commerce/view/widget/customappButton.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';

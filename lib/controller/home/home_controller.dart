@@ -10,6 +10,7 @@ import '../../core/functions/handlingData.dart';
 abstract class HomeController extends GetxController {
   getData();
   signOut();
+  gotToItems(List categories, int selectedcate);
 }
 
 class HomeControllerImp extends HomeController {
@@ -54,5 +55,10 @@ class HomeControllerImp extends HomeController {
   signOut() {
     sharedPref.remove("user");
     Get.offAllNamed(AppRoutes.login);
+  }
+
+  @override
+  gotToItems(List categories, int selectedcate) {
+    Get.toNamed(AppRoutes.items,arguments: {"categories": categories, "selectedCate": selectedcate});
   }
 }

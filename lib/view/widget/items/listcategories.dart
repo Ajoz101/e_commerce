@@ -9,8 +9,8 @@ import '../../../controller/home/home_controller.dart';
 import '../../../core/constant/colors.dart';
 import '../../../core/constant/networkImage_links.dart';
 
-class CustomCategories extends GetView<HomeControllerImp> {
-  const CustomCategories({super.key});
+class CustomCategoriesItems extends GetView<HomeControllerImp> {
+  const CustomCategoriesItems({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -10,6 +10,7 @@ import 'package:e_commerce/view/screen/auth/forgotPasswordFolder/verifycode.dart
 import 'package:e_commerce/view/screen/auth/verifycode_signup.dart';
 import 'package:e_commerce/view/screen/home/HomeScreen.dart';
 import 'package:e_commerce/view/screen/home/home.dart';
+import 'package:e_commerce/view/screen/home/items.dart';
 import 'package:e_commerce/view/screen/onboard/onboarding.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/routes/get_route.dart';
@@ -76,6 +77,12 @@ List<GetPage<dynamic>>? routes = [
   GetPage(
     name: AppRoutes.home,
     page: () => const HomeScreen(),
+    transitionDuration: const Duration(milliseconds: 1220),
+    transition: Transition.fade,
+  ),
+   GetPage(
+    name: AppRoutes.items,
+    page: () => const ItemsPage(),
     transitionDuration: const Duration(milliseconds: 1220),
     transition: Transition.fade,
   ),

@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 
 import '../../../controller/home/HomeScreen_controller.dart';
 import '../../../core/constant/colors.dart';
-import '../home/customappButton.dart';
+import '../customappButton.dart';
 
 class CustomBottomAppButton extends StatelessWidget {
   const CustomBottomAppButton({super.key});

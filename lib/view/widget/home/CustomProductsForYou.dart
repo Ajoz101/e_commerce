@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:e_commerce/core/constant/nameOfRoutes.dart';
 import 'package:e_commerce/data/model/items.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -55,9 +56,7 @@ class ItemsWidget extends StatelessWidget {
       children: [
         GestureDetector(
           onTap: () {
-            Get.to(Details(
-              items: items,
-            ));
+            // Get.toNamed(AppRoutes.itemsPage, arguments: {"items": items});
           },
           child: AnimatedContainer(
             duration: Duration(milliseconds: 899),
