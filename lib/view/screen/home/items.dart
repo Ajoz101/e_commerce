@@ -1,8 +1,11 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:e_commerce/controller/home/items_controller.dart';
+import 'package:e_commerce/core/class/handlingData_view.dart';
+import 'package:e_commerce/core/class/statusRequest.dart';
 import 'package:e_commerce/core/constant/image_asset.dart';
 import 'package:e_commerce/core/constant/networkImage_links.dart';
 import 'package:e_commerce/view/widget/custom/customAppBar.dart';
+import 'package:e_commerce/view/widget/items/customListItems.dart';
 import 'package:e_commerce/view/widget/items/listcategories.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttericon/iconic_icons.dart';
@@ -16,7 +19,7 @@ class ItemsPage extends GetView<ItemsControllerImp> {
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
-
+    Get.put(ItemsControllerImp());
     return SafeArea(
       child: Scaffold(
         backgroundColor: AppColor.cards,
@@ -33,67 +36,15 @@ class ItemsPage extends GetView<ItemsControllerImp> {
                 width: 20,
               ),
             ),
-            const CustomCategoriesItems(),
-            GridView.builder(
-              itemCount: 2,
-              shrinkWrap: true,
-              physics: const NeverScrollableScrollPhysics(),
-              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  childAspectRatio: 0.7, crossAxisCount: 2),
-              itemBuilder: (context, index) {
-                return InkWell(
-                  child: Container(
-                    padding: EdgeInsets.all(5),
-                    height: 200,
-                    child: Card(
-                      child: SingleChildScrollView(
-                        child: Column(
-                          children: [
-                            CachedNetworkImage(
-                              imageUrl: "${ImageLink.items}/jbl_headphone.png",
-                              width: size.width / 3,
-                              fit: BoxFit.contain,
-                            ),
-                            Text(
-                              "Product",
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: size.width / 17),
-                            ),
-                            const Text("Description of product",
-                                textAlign: TextAlign.center),
-                            Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Text(
-                                    "200\$",
-                                    textAlign: TextAlign.center,
-                                    style: TextStyle(
-                                        color: AppColor.primary,
-                                        fontSize: size.width / 18,
-                                        fontWeight: FontWeight.bold),
-                                  ),
-                                  IconButton(
-                                      onPressed: () {},
-                                      icon: Icon(
-                                        Icons.favorite_border,
-                                        color: AppColor.primary,
-                                      ))
-                                ],
-                              ),
-                            )
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
+            GetBuilder<ItemsControllerImp>(
+              builder: (controller) {
+                return HandleDataView(
+                  statusRequest: controller.statusRequest!,
+                  widget: CustomCategoriesItems(),
                 );
               },
-            )
+            ),
+            CustomListItems()
           ],
         ),
       ),

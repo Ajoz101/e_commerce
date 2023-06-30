@@ -23,4 +23,10 @@ class AppLinks {
        * Home
        */
   static const String homePage = "$root/home.php";
+
+  /**
+   * Items
+   */
+    static const String items = "$root/items/items_view.php";
+
 }

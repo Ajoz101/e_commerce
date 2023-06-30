@@ -23,19 +23,10 @@ class CustomCategoriesItems extends GetView<ItemsControllerImp> {
           EdgeInsets.symmetric(horizontal: width / 30, vertical: height / 10),
       child: ListView.builder(
         shrinkWrap: true,
-        // gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-        //   crossAxisCount: 2,
-        //   mainAxisSpacing: 20,
-        //   crossAxisSpacing: 20,
-        // ),
-        // shrinkWrap: true,
-
-        // separatorBuilder: (context, index) => SizedBox(width: width / 11),
         scrollDirection: Axis.horizontal,
         itemCount: controller.categories.length == null
             ? 0
             : controller.categories.length,
-
         itemBuilder: (context, index) {
           // int i = index;
           return Padding(
