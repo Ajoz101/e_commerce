@@ -29,7 +29,7 @@ class HomePage extends StatelessWidget {
     return GetMaterialApp(
       color: AppColor.primary,
       defaultTransition: Transition.leftToRightWithFade,
-      transitionDuration: Duration(milliseconds: 500),
+      transitionDuration: Duration(milliseconds: 200),
       translations: CustomTranslate(),
       debugShowCheckedModeBanner: false,
       theme: ThemeData(

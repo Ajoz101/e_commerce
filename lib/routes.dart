@@ -27,49 +27,49 @@ List<GetPage<dynamic>>? routes = [
   GetPage(
     name: AppRoutes.login,
     page: () => const Login(),
-    transitionDuration: const Duration(milliseconds: 1220),
+    transitionDuration: const Duration(milliseconds: 500),
     transition: Transition.fade,
   ),
   GetPage(
     name: AppRoutes.signup,
     page: () => const SignUp(),
-    transitionDuration: const Duration(milliseconds: 1220),
+    transitionDuration: const Duration(milliseconds: 500),
     transition: Transition.fade,
   ),
   GetPage(
     name: AppRoutes.forgotpass,
     page: () => const ForgotPassword(),
-    transitionDuration: const Duration(milliseconds: 1220),
+    transitionDuration: const Duration(milliseconds: 500),
     transition: Transition.fade,
   ),
   GetPage(
     name: AppRoutes.resetPass,
     page: () => const ResetPassword(),
-    transitionDuration: const Duration(milliseconds: 1220),
+    transitionDuration: const Duration(milliseconds: 500),
     transition: Transition.fade,
   ),
   GetPage(
     name: AppRoutes.verifyCode,
     page: () => const VerifyCode(),
-    transitionDuration: const Duration(milliseconds: 1220),
+    transitionDuration: const Duration(milliseconds: 500),
     transition: Transition.fade,
   ),
   GetPage(
     name: AppRoutes.successReset,
     page: () => const SuccessResetPassword(),
-    transitionDuration: const Duration(milliseconds: 1220),
+    transitionDuration: const Duration(milliseconds: 500),
     transition: Transition.fade,
   ),
   GetPage(
     name: AppRoutes.successSignedUp,
     page: () => const SuccessSignedUp(),
-    transitionDuration: const Duration(milliseconds: 1220),
+    transitionDuration: const Duration(milliseconds: 500),
     transition: Transition.fade,
   ),
   GetPage(
     name: AppRoutes.verifySignUP,
     page: () => const VerifyCodeForSignUp(),
-    transitionDuration: const Duration(milliseconds: 1220),
+    transitionDuration: const Duration(milliseconds: 500),
     transition: Transition.fade,
   ),
 
@@ -77,13 +77,13 @@ List<GetPage<dynamic>>? routes = [
   GetPage(
     name: AppRoutes.home,
     page: () => const HomeScreen(),
-    transitionDuration: const Duration(milliseconds: 1220),
+    transitionDuration: const Duration(milliseconds: 400),
     transition: Transition.fade,
   ),
-   GetPage(
+  GetPage(
     name: AppRoutes.items,
     page: () => const ItemsPage(),
-    transitionDuration: const Duration(milliseconds: 1220),
-    transition: Transition.fade,
+    transitionDuration: const Duration(milliseconds: 500),
+    transition: Transition.fadeIn,
   ),
 ];

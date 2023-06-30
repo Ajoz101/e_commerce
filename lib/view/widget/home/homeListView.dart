@@ -77,17 +77,6 @@ class HomeListView extends StatelessWidget {
         Container(
           margin: EdgeInsets.symmetric(horizontal: width / 20),
           child: Text(
-            "For You",
-            style: Theme.of(context)
-                .textTheme
-                .headline1!
-                .copyWith(color: AppColor.black),
-          ),
-        ),
-        const CustomProds4You(),
-        Container(
-          margin: EdgeInsets.symmetric(horizontal: width / 20),
-          child: Text(
             "Categories",
             style: Theme.of(context)
                 .textTheme
@@ -96,6 +85,17 @@ class HomeListView extends StatelessWidget {
           ),
         ),
         const CustomCategories(),
+        Container(
+          margin: EdgeInsets.symmetric(horizontal: width / 20),
+          child: Text(
+            "For You",
+            style: Theme.of(context)
+                .textTheme
+                .headline1!
+                .copyWith(color: AppColor.black),
+          ),
+        ),
+        const CustomProds4You(),
       ],
     );
   }

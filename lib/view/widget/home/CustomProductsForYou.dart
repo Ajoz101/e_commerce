@@ -62,6 +62,9 @@ class ItemsWidget extends StatelessWidget {
           child: AnimatedContainer(
             duration: Duration(milliseconds: 899),
             decoration: BoxDecoration(
+              boxShadow: [
+                BoxShadow(color: AppColor.black, offset: Offset(2, 3))
+              ],
               color: AppColor.white,
 
               image: DecorationImage(
