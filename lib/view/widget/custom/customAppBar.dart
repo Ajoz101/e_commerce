@@ -59,7 +59,7 @@ class CustomAppBar extends StatelessWidget {
                 c.signOut();
               },
               icon: FaIcon(FontAwesomeIcons.user,
-                  color: AppColor.white.withOpacity(0.8), size: width / 11),
+                  color: AppColor.black.withOpacity(0.8), size: width / 11),
             ),
           ),
         ],
