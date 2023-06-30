@@ -22,5 +22,5 @@ class AppLinks {
   /*
        * Home
        */
-  static const String homePage = "$server/home.php";
+  static const String homePage = "$root/home.php";
 }

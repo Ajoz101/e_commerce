@@ -9,6 +9,6 @@ class AppColor {
   static const Color shadedWhite = Color.fromARGB(24, 37, 38, 40);
   static const Color secondLight = Color.fromARGB(255, 178, 192, 215);
   static const Color forGradient = Color.fromARGB(255, 124, 144, 176);
-  static const Color cards = Color.fromARGB(255, 248, 231, 229);
+  static const Color cards = Color.fromARGB(255, 229, 232, 248);
   static const Color black = Color.fromARGB(255, 31, 27, 43);
 }

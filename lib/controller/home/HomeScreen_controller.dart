@@ -15,6 +15,14 @@ class HomeScreenControllerImp extends HomeScreenController {
     Center(child: Text("Fave")),
     Center(child: Text("Profile")),
   ];
+
+  List pageInfo = ['Home', 'Cart', "Faverite", 'Profile'];
+  List<IconData> icons = [
+    Icons.home_outlined,
+    Icons.shopping_cart_outlined,
+    Icons.favorite_border,
+    Icons.person_outline
+  ];
   @override
   changePage(int current) {
     currentPage = current;
