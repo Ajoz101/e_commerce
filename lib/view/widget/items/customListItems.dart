@@ -38,10 +38,43 @@ class CustomCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
-
+    var controller = Get.put(ItemsControllerImp());
     return InkWell(
+      onTap: () {
+        controller.gotoDetails();
+        // Get.bottomSheet(
+
+        //   enterBottomSheetDuration:const Duration(milliseconds: 300),
+        //   Container(
+        //     decoration: BoxDecoration(
+        //       borderRadius: BorderRadius.circular(20),
+        //       color: AppColor.white,
+        //     ),
+        //     child: Container(
+        //       margin: EdgeInsets.all(20),
+        //       child: Column(
+        //         crossAxisAlignment: CrossAxisAlignment.start,
+        //         children: [
+        //           Text(
+        //             "Item Description :\n",
+        //             style: TextStyle(fontSize: size.width / 18),
+        //           ),
+        //           Container(
+        //               margin: const EdgeInsets.only(bottom: 40),
+        //               child: Text(itemsModel!.itemsDescription.toString())),
+        //           Text(
+        //               itemsModel!.itemsDiscount == "0"
+        //                   ? "No Discount"
+        //                   : " Discount ${itemsModel!.itemsDiscount}%",
+        //               style: TextStyle(fontSize: size.width / 18)),
+        //         ],
+        //       ),
+        //     ),
+        //   ),
+        // );
+      },
       child: Container(
-        padding: EdgeInsets.all(5),
+        padding: const EdgeInsets.all(5),
         height: 200,
         child: Card(
           child: SingleChildScrollView(

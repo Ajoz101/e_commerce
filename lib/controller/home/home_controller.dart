@@ -30,7 +30,6 @@ class HomeControllerImp extends HomeController {
   getData() async {
     statusRequest = StatusRequest.loading;
     var response = await home.getData();
-    print(response);
     statusRequest = handlingData(response);
     if (StatusRequest.success == statusRequest ||
         StatusRequest.offlineFailure == statusRequest) {

@@ -10,4 +10,5 @@ class AppRoutes{
   static const String  verifySignUP= "/verifysignup";
   static const String  home= "/home";
   static const String  items= "/items";
+  static const String  itemsDetails= "/itemsDetails";
 }
