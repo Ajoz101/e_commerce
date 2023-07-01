@@ -1,36 +1,19 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:e_commerce/controller/home/itemsDetails_controller.dart';
-import 'package:e_commerce/core/constant/networkImage_links.dart';
 import 'package:e_commerce/data/model/items.dart';
+import 'package:e_commerce/view/widget/items/addToCartButton.dart';
+import 'package:e_commerce/view/widget/items/details_header.dart';
+import 'package:e_commerce/view/widget/items/itemDescAndQuan.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
-
 import '../../../core/constant/colors.dart';
-
 class ItemsDetails extends StatelessWidget {
   const ItemsDetails({super.key, this.items});
   final ItemsModel? items;
   @override
   Widget build(BuildContext context) {
-    var size = MediaQuery.of(context).size;
-    var controller = Get.put(DetailsItemsControllerImp());
-
     return Scaffold(
-      bottomNavigationBar: SizedBox(
-        height: 100,
-        child: ActionChip(
-          backgroundColor: AppColor.cards,
-          label: const Text("Add To Cart",
-              style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                  color: AppColor.primary)),
-          onPressed: () {},
-          avatar: const FaIcon(FontAwesomeIcons.cartArrowDown,
-              color: AppColor.primary),
-        ),
-      ),
+      backgroundColor: AppColor.white,
+      bottomNavigationBar: const AddToCart(),
       body: SafeArea(
         child: Container(
           decoration: BoxDecoration(
@@ -40,129 +23,16 @@ class ItemsDetails extends StatelessWidget {
           child: ListView(
             // crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Stack(
-                clipBehavior: Clip.none,
-                children: [
-                  Container(
-                    height: size.height / 3.2,
-                    decoration: const BoxDecoration(
-                      color: AppColor.primary,
-                      borderRadius: BorderRadius.vertical(
-                        bottom: Radius.circular(50),
-                      ),
-                    ),
-                  ),
-                  Positioned(
-                    top: 90,
-                    right: Get.width / 4,
-                    left: Get.width / 4,
-                    child: Hero(
-                      tag: controller.items.itemsId.toString(),
-                      child: Container(
-                        child: CachedNetworkImage(
-                            width: Get.width / 1,
-                            height: Get.height / 4,
-                            fit: BoxFit.scaleDown,
-                            imageUrl:
-                                "${ImageLink.items}/${controller.items.itemsImage}"),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
+              //THE STACK IS HERE
+              const ItemsHeader(),
               Container(
                 margin:
                     EdgeInsets.only(top: Get.height / 15, left: Get.width / 14),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Flexible(
-                          child: Text(
-                            controller.items.itemsName.toString(),
-                            style: Theme.of(context)
-                                .textTheme
-                                .headline1!
-                                .copyWith(color: AppColor.black),
-                          ),
-                        ),
-                        Flexible(
-                          child: SizedBox(
-                            width: Get.width / 3,
-                            height: Get.height / 14,
-                            child: Text(
-                              "${controller.items.itemsPrice}\$",
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .headline1!
-                                  .copyWith(color: AppColor.black),
-                              textAlign: TextAlign.center,
-                            ),
-                          ),
-                        )
-                      ],
-                    ),
-                    SizedBox(
-                      height: Get.height / 25,
-                    ),
-                    Text(
-                      controller.items.itemsDescription.toString(),
-                      style: Theme.of(context)
-                          .textTheme
-                          .bodyText1!
-                          .copyWith(color: AppColor.black),
-                    ),
-                    SizedBox(
-                      height: Get.height / 25,
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        GetBuilder<DetailsItemsControllerImp>(
-                            builder: (controller) {
-                          return Container(
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(20),
-                              color: AppColor.primary,
-                            ),
-                            width: Get.width / 2.4,
-                            height: Get.height / 15,
-                            child: FittedBox(
-                              fit: BoxFit.scaleDown,
-                              child: Text(
-                                "Quantity: ${controller.count}",
-                                style: TextStyle(
-                                    fontSize: Get.width / 16,
-                                    color: AppColor.white),
-                              ),
-                            ),
-                          );
-                        }),
-                        Row(
-                          children: [
-                            IconButton(
-                              onPressed: () {
-                                controller.returnBack();
-                              },
-                              icon: const FaIcon(FontAwesomeIcons.minus),
-                            ),
-                            IconButton(
-                              onPressed: () {
-                                controller.buy();
-                              },
-                              icon: const FaIcon(FontAwesomeIcons.plus),
-                            ),
-                          ],
-                        )
-                      ],
-                    ),
-                    SizedBox(
-                      height: Get.height / 25,
-                    ),
-                  ],
-                ),
+                child:
+                    /*
+                 * IMPORTANT: The title and price are inside the ItemDescriptionAndQuantity()
+                 */
+                    const ItemDescriptionAndQuantity(),
               ),
             ],
           ),
