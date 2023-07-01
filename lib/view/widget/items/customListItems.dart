@@ -42,36 +42,6 @@ class CustomCard extends StatelessWidget {
     return InkWell(
       onTap: () {
         controller.gotoDetails(itemsModel!);
-        // Get.bottomSheet(
-
-        //   enterBottomSheetDuration:const Duration(milliseconds: 300),
-        //   Container(
-        //     decoration: BoxDecoration(
-        //       borderRadius: BorderRadius.circular(20),
-        //       color: AppColor.white,
-        //     ),
-        //     child: Container(
-        //       margin: EdgeInsets.all(20),
-        //       child: Column(
-        //         crossAxisAlignment: CrossAxisAlignment.start,
-        //         children: [
-        //           Text(
-        //             "Item Description :\n",
-        //             style: TextStyle(fontSize: size.width / 18),
-        //           ),
-        //           Container(
-        //               margin: const EdgeInsets.only(bottom: 40),
-        //               child: Text(itemsModel!.itemsDescription.toString())),
-        //           Text(
-        //               itemsModel!.itemsDiscount == "0"
-        //                   ? "No Discount"
-        //                   : " Discount ${itemsModel!.itemsDiscount}%",
-        //               style: TextStyle(fontSize: size.width / 18)),
-        //         ],
-        //       ),
-        //     ),
-        //   ),
-        // );
       },
       child: Container(
         padding: const EdgeInsets.all(5),
@@ -80,11 +50,14 @@ class CustomCard extends StatelessWidget {
           child: SingleChildScrollView(
             child: Column(
               children: [
-                CachedNetworkImage(
-                  imageUrl:
-                      "${ImageLink.items}/${itemsModel!.itemsImage.toString()}",
-                  width: size.width / 3,
-                  fit: BoxFit.contain,
+                Hero(
+                  tag: "${itemsModel!.itemsId}",
+                  child: CachedNetworkImage(
+                    imageUrl:
+                        "${ImageLink.items}/${itemsModel!.itemsImage.toString()}",
+                    width: size.width / 3,
+                    fit: BoxFit.contain,
+                  ),
                 ),
                 Text(
                   itemsModel!.itemsName.toString(),

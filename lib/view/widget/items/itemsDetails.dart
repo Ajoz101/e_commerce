@@ -39,28 +39,89 @@ class ItemsDetails extends StatelessWidget {
                   ),
                   Positioned(
                     top: 90,
-                    child: CachedNetworkImage(
-                        width: size.width / 1,
-                        height: size.height / 4,
-                        fit: BoxFit.scaleDown,
-                        imageUrl:
-                            "${ImageLink.items}/${controller.items.itemsImage}"),
-                  ),
-                  Text(
-                    controller.items.itemsName!,
-                    style: TextStyle(color: AppColor.white),
+                    right: Get.width / 4,
+                    left: Get.width / 4,
+                    child: Hero(
+                      tag: controller.items.itemsId.toString(),
+                      child: CachedNetworkImage(
+                          width: Get.width / 1,
+                          height: Get.height / 4,
+                          fit: BoxFit.scaleDown,
+                          imageUrl:
+                              "${ImageLink.items}/${controller.items.itemsImage}"),
+                    ),
                   ),
                 ],
               ),
-              // Text(
-              //   "Item Description :\n",
-              //   style: TextStyle(fontSize: size.width / 18),
-              // ),
-              // Container(
-              //   margin: const EdgeInsets.only(bottom: 40),
-              //   child: Text(""),
-              // ),
-              // Text("", style: TextStyle(fontSize: size.width / 18)),
+              Container(
+                margin:
+                    EdgeInsets.only(top: Get.height / 15, left: Get.width / 14),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Flexible(
+                          child: Text(
+                            controller.items.itemsName.toString(),
+                            style: Theme.of(context)
+                                .textTheme
+                                .headline1!
+                                .copyWith(color: AppColor.black),
+                          ),
+                        ),
+                        Flexible(
+                          child: SizedBox(
+                            width: Get.width / 3,
+                            height: Get.height / 14,
+                            child: Text(
+                              "${controller.items.itemsPrice}\$",
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .headline1!
+                                  .copyWith(color: AppColor.black),
+                              textAlign: TextAlign.center,
+                            ),
+                          ),
+                        )
+                      ],
+                    ),
+                    SizedBox(
+                      height: Get.height / 25,
+                    ),
+                    Text(
+                      controller.items.itemsDescription.toString(),
+                      style: Theme.of(context)
+                          .textTheme
+                          .bodyText1!
+                          .copyWith(color: AppColor.black),
+                    ),
+                    SizedBox(
+                      height: Get.height / 25,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        GetBuilder<DetailsItemsControllerImp>(
+                            builder: (controller) {
+                          return Text(
+                            "Quantity: ${controller.items.itemsCount}",
+                            style: TextStyle(fontSize: Get.width / 16),
+                          );
+                        }),
+                        IconButton(
+                          onPressed: () {},
+                          icon: Icon(Icons.add),
+                        )
+                      ],
+                    ),
+                    SizedBox(
+                      height: Get.height / 25,
+                    ),
+                  ],
+                ),
+              ),
             ],
           ),
         ),

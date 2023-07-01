@@ -10,10 +10,16 @@ abstract class ItemsDetailsController extends GetxController {
 
 class DetailsItemsControllerImp extends ItemsDetailsController {
   late ItemsModel items;
+  int count = 0;
 
   @override
   initalData() {
     items = Get.arguments['itemsmodel'];
+  }
+
+  buy() {
+     int.parse(items.itemsCount!);
+     
   }
 
   @override

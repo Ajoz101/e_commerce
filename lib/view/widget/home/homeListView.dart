@@ -74,6 +74,11 @@ class HomeListView extends StatelessWidget {
             // ),
           ],
         ),
+        // CustomCard(
+        //   title: "Get a Discount",
+        //   subtitle: "really ",
+        //   color: AppColor.primary,
+        // ),
         Container(
           margin: EdgeInsets.symmetric(horizontal: width / 20),
           child: Text(
