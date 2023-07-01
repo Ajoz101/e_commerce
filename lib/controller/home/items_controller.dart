@@ -1,4 +1,5 @@
 import 'package:e_commerce/core/constant/nameOfRoutes.dart';
+import 'package:e_commerce/data/model/items.dart';
 import 'package:e_commerce/data/source/remote/items.dart';
 import 'package:get/get.dart';
 
@@ -10,7 +11,7 @@ abstract class ItemsController extends GetxController {
   initalData();
   changeCat(val, String cat_id);
   getItems(String cate_id);
-  gotoDetails();
+  gotoDetails(ItemsModel itemsMod);
 }
 
 class ItemsControllerImp extends ItemsController {
@@ -68,7 +69,7 @@ class ItemsControllerImp extends ItemsController {
   }
 
   @override
-  gotoDetails() {
-    Get.toNamed(AppRoutes.itemsDetails);
+  gotoDetails(ItemsModel itemsMod) {
+    Get.toNamed(AppRoutes.itemsDetails,arguments: {"itemsmodel": itemsMod});
   }
 }

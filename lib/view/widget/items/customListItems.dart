@@ -41,7 +41,7 @@ class CustomCard extends StatelessWidget {
     var controller = Get.put(ItemsControllerImp());
     return InkWell(
       onTap: () {
-        controller.gotoDetails();
+        controller.gotoDetails(itemsModel!);
         // Get.bottomSheet(
 
         //   enterBottomSheetDuration:const Duration(milliseconds: 300),

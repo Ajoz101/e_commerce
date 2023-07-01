@@ -25,6 +25,9 @@ List<GetPage<dynamic>>? routes = [
       name: "/",
       page: () => const OBoarding(),
       middlewares: [AwesomeMiddleWare()]),
+  // GetPage(
+  //     name: "/",
+  //     page: () => const ItemsDetails()),
   GetPage(
     name: AppRoutes.login,
     page: () => const Login(),
