@@ -12,7 +12,7 @@ import 'package:e_commerce/view/screen/home/HomeScreen.dart';
 import 'package:e_commerce/view/screen/home/home.dart';
 import 'package:e_commerce/view/screen/home/items.dart';
 import 'package:e_commerce/view/screen/onboard/onboarding.dart';
-import 'package:e_commerce/view/widget/items/itemsDetails.dart';
+import 'package:e_commerce/view/screen/items/itemsDetails.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/routes/get_route.dart';
 import 'package:get/get_navigation/src/routes/transitions_type.dart';

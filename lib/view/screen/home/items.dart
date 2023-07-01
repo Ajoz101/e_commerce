@@ -6,7 +6,7 @@ import 'package:e_commerce/core/constant/image_asset.dart';
 import 'package:e_commerce/core/constant/networkImage_links.dart';
 import 'package:e_commerce/view/widget/custom/customAppBar.dart';
 import 'package:e_commerce/view/widget/items/customListItems.dart';
-import 'package:e_commerce/view/widget/items/listcategories.dart';
+import 'package:e_commerce/view/screen/items/listcategories.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttericon/iconic_icons.dart';
 import 'package:get/get.dart';

@@ -3,6 +3,7 @@ import 'package:e_commerce/controller/home/itemsDetails_controller.dart';
 import 'package:e_commerce/core/constant/networkImage_links.dart';
 import 'package:e_commerce/data/model/items.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 
 import '../../../core/constant/colors.dart';
@@ -16,6 +17,20 @@ class ItemsDetails extends StatelessWidget {
     var controller = Get.put(DetailsItemsControllerImp());
 
     return Scaffold(
+      bottomNavigationBar: SizedBox(
+        height: 100,
+        child: ActionChip(
+          backgroundColor: AppColor.cards,
+          label: const Text("Add To Cart",
+              style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                  color: AppColor.primary)),
+          onPressed: () {},
+          avatar: const FaIcon(FontAwesomeIcons.cartArrowDown,
+              color: AppColor.primary),
+        ),
+      ),
       body: SafeArea(
         child: Container(
           decoration: BoxDecoration(
@@ -117,7 +132,7 @@ class ItemsDetails extends StatelessWidget {
                             child: FittedBox(
                               fit: BoxFit.scaleDown,
                               child: Text(
-                                "Quantity: ${controller.items.itemsCount}",
+                                "Quantity: ${controller.count}",
                                 style: TextStyle(
                                     fontSize: Get.width / 16,
                                     color: AppColor.white),
@@ -125,9 +140,21 @@ class ItemsDetails extends StatelessWidget {
                             ),
                           );
                         }),
-                        IconButton(
-                          onPressed: () {},
-                          icon: Icon(Icons.add),
+                        Row(
+                          children: [
+                            IconButton(
+                              onPressed: () {
+                                controller.returnBack();
+                              },
+                              icon: const FaIcon(FontAwesomeIcons.minus),
+                            ),
+                            IconButton(
+                              onPressed: () {
+                                controller.buy();
+                              },
+                              icon: const FaIcon(FontAwesomeIcons.plus),
+                            ),
+                          ],
                         )
                       ],
                     ),

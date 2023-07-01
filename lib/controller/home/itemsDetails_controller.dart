@@ -1,3 +1,4 @@
+import 'package:e_commerce/core/constant/colors.dart';
 import 'package:e_commerce/data/model/items.dart';
 import 'package:get/get.dart';
 
@@ -18,13 +19,30 @@ class DetailsItemsControllerImp extends ItemsDetailsController {
   }
 
   buy() {
-     int.parse(items.itemsCount!);
-     
+    if (count <= 0) {
+      Get.snackbar("Out of Stock!", "Please stand by for more UPDATES",
+          backgroundColor: AppColor.cards, snackPosition: SnackPosition.BOTTOM);
+    } else {
+      count--;
+    }
+    // items.itemsCount = count.toString();
+    update();
+  }
+
+  returnBack() {
+    if (count >= int.parse(items.itemsCount!)) {
+    } else {
+      count++;
+    }
+    // items.itemsCount = count.toString();
+    update();
   }
 
   @override
   void onInit() {
     initalData();
+
+    count = int.parse(items.itemsCount!);
     super.onInit();
   }
 }
