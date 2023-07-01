@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:e_commerce/controller/home/items_controller.dart';
 import 'package:e_commerce/core/constant/nameOfRoutes.dart';
 import 'package:e_commerce/data/model/items.dart';
 import 'package:flutter/material.dart';
@@ -53,17 +54,22 @@ class ItemsWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     var width = MediaQuery.of(context).size.width;
     var height = MediaQuery.of(context).size.height;
+    // var controller = Get.put(ItemsControllerImp());
     return Column(
       children: [
         GestureDetector(
           onTap: () {
             // Get.toNamed(AppRoutes.itemsPage, arguments: {"items": items});
+            // controller.gotoDetails(items);
           },
           child: AnimatedContainer(
-            duration: Duration(milliseconds: 899),
+            duration: const Duration(milliseconds: 899),
             decoration: BoxDecoration(
-              boxShadow: [
-                BoxShadow(color: AppColor.black, offset: Offset(2, 3))
+              boxShadow: const [
+                BoxShadow(
+                  color: AppColor.black,
+                  offset: Offset(2, 3),
+                ),
               ],
               color: AppColor.white,
 

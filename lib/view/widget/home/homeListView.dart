@@ -32,7 +32,7 @@ class HomeListView extends StatelessWidget {
                 height: 400,
                 decoration: const BoxDecoration(
                   gradient: LinearGradient(
-                      colors: [AppColor.primaryLight, AppColor.second]),
+                      colors: [AppColor.primary, AppColor.second]),
                   borderRadius: BorderRadius.only(
                     bottomLeft: Radius.circular(160),
                     bottomRight: Radius.circular(160),

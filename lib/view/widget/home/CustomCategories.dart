@@ -67,7 +67,7 @@ class CategoriesWidget extends GetView<HomeControllerImp> {
             duration: const Duration(milliseconds: 899),
             decoration: BoxDecoration(
               gradient: const LinearGradient(
-                  colors: [AppColor.primaryLight, AppColor.secondLight],
+                  colors: [AppColor.black, AppColor.secondLight],
                   begin: Alignment.bottomLeft,
                   end: Alignment.topRight),
               borderRadius: BorderRadius.circular(40),

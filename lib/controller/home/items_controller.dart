@@ -70,6 +70,6 @@ class ItemsControllerImp extends ItemsController {
 
   @override
   gotoDetails(ItemsModel itemsMod) {
-    Get.toNamed(AppRoutes.itemsDetails,arguments: {"itemsmodel": itemsMod});
+    Get.toNamed(AppRoutes.itemsDetails, arguments: {"itemsmodel": itemsMod});
   }
 }

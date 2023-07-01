@@ -43,12 +43,14 @@ class ItemsDetails extends StatelessWidget {
                     left: Get.width / 4,
                     child: Hero(
                       tag: controller.items.itemsId.toString(),
-                      child: CachedNetworkImage(
-                          width: Get.width / 1,
-                          height: Get.height / 4,
-                          fit: BoxFit.scaleDown,
-                          imageUrl:
-                              "${ImageLink.items}/${controller.items.itemsImage}"),
+                      child: Container(
+                        child: CachedNetworkImage(
+                            width: Get.width / 1,
+                            height: Get.height / 4,
+                            fit: BoxFit.scaleDown,
+                            imageUrl:
+                                "${ImageLink.items}/${controller.items.itemsImage}"),
+                      ),
                     ),
                   ),
                 ],
@@ -105,9 +107,22 @@ class ItemsDetails extends StatelessWidget {
                       children: [
                         GetBuilder<DetailsItemsControllerImp>(
                             builder: (controller) {
-                          return Text(
-                            "Quantity: ${controller.items.itemsCount}",
-                            style: TextStyle(fontSize: Get.width / 16),
+                          return Container(
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(20),
+                              color: AppColor.primary,
+                            ),
+                            width: Get.width / 2.4,
+                            height: Get.height / 15,
+                            child: FittedBox(
+                              fit: BoxFit.scaleDown,
+                              child: Text(
+                                "Quantity: ${controller.items.itemsCount}",
+                                style: TextStyle(
+                                    fontSize: Get.width / 16,
+                                    color: AppColor.white),
+                              ),
+                            ),
                           );
                         }),
                         IconButton(
