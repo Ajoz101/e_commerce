@@ -20,7 +20,7 @@ class CustomListItems extends StatelessWidget {
         shrinkWrap: true,
         physics: const NeverScrollableScrollPhysics(),
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            childAspectRatio: 0.6, crossAxisCount: 2),
+            childAspectRatio: 0.7, crossAxisCount: 2),
         itemBuilder: (context, index) {
           return CustomCard(
             itemsModel: ItemsModel.fromJson(controller.data[index]),
@@ -47,6 +47,8 @@ class CustomCard extends StatelessWidget {
         padding: const EdgeInsets.all(5),
         height: 200,
         child: Card(
+          color: AppColor.primary.withOpacity(0.1),
+          elevation: 20,
           child: SingleChildScrollView(
             child: Column(
               children: [

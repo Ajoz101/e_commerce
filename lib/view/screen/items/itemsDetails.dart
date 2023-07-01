@@ -6,11 +6,14 @@ import 'package:e_commerce/view/widget/items/itemDescAndQuan.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../core/constant/colors.dart';
+
 class ItemsDetails extends StatelessWidget {
   const ItemsDetails({super.key, this.items});
   final ItemsModel? items;
   @override
   Widget build(BuildContext context) {
+    var controller = Get.put(DetailsItemsControllerImp());
+
     return Scaffold(
       backgroundColor: AppColor.white,
       bottomNavigationBar: const AddToCart(),
@@ -32,7 +35,19 @@ class ItemsDetails extends StatelessWidget {
                     /*
                  * IMPORTANT: The title and price are inside the ItemDescriptionAndQuantity()
                  */
-                    const ItemDescriptionAndQuantity(),
+                    GetBuilder<DetailsItemsControllerImp>(
+                        builder: (controller) {
+                  return ItemDescriptionAndQuantity(
+                    description: controller.items.itemsDescription.toString(),
+                    onRemove: () {
+                      controller.returnBack();
+                    },
+                    onAdd: () {
+                      controller.buy();
+                    },
+                    quantity: controller.count.toString(),
+                  );
+                }),
               ),
             ],
           ),
