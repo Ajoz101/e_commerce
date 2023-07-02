@@ -75,12 +75,12 @@ class CustomCard extends StatelessWidget {
                   style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: size.width / 20,
-                      color: AppColor.white),
+                      color: AppColor.second),
                 ),
                 Text("Quantity : ${itemsModel!.itemsCount.toString()}",
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                        fontSize: size.width / 20, color: AppColor.white)),
+                        fontSize: size.width / 20, color: AppColor.second)),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Row(
