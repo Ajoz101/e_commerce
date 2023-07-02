@@ -13,14 +13,23 @@ class FavoritesScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var controller = Get.put(FavoriteController());
-    return ListView.builder(
-      itemCount: controller.data.length,
-      itemBuilder: (context, index) {
-        return CustomCard(
-          favoritesModel: FavoritesModel.fromJson(controller.data[index]),
-        );
-      },
-    );
+    // controller.display();
+    return GetBuilder<FavoriteController>(builder: (controller) {
+      return ListView.builder(
+        itemCount: controller.data.isNotEmpty ? controller.data.length : 0,
+        itemBuilder: (context, index) {
+          return controller.data.isNotEmpty
+              ? CustomCard(
+                  favoritesModel:
+                      FavoritesModel.fromJson(controller.data[index]),
+                )
+              : const Center(
+                  child: Text("You have no favorites 🙁",
+                      style: TextStyle(fontSize: 50, color: AppColor.black)),
+                );
+        },
+      );
+    });
   }
 }
 
@@ -35,7 +44,7 @@ class CustomCard extends StatelessWidget {
     return GetBuilder<FavoriteController>(builder: (controller) {
       return InkWell(
         onTap: () {
-          // controller.gotoDetails(favoritesModel!);
+          // controller.display();
         },
         child: Container(
           padding: const EdgeInsets.all(5),

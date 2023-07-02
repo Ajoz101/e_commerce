@@ -1,3 +1,4 @@
+import 'package:e_commerce/controller/favorites/favorites_controller.dart';
 import 'package:e_commerce/view/screen/favorites/favorites.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -10,10 +11,11 @@ abstract class HomeScreenController extends GetxController {
 
 class HomeScreenControllerImp extends HomeScreenController {
   int currentPage = 0;
+  FavoriteController fav = Get.put(FavoriteController());
   List<Widget> page = [
     Home(),
     Center(child: Text("Cart")),
-    const FavoritesScreen(),
+    FavoritesScreen(),
     Center(child: Text("Profile")),
   ];
 
@@ -27,6 +29,9 @@ class HomeScreenControllerImp extends HomeScreenController {
   @override
   changePage(int current) {
     currentPage = current;
+    if (currentPage == 2) {
+      fav.display();
+    }
     update();
   }
 }

@@ -59,20 +59,21 @@ class FavoriteController extends GetxController {
       if (response["status"] == "success") {
         // data.addAll(response["data"]);
         // print(data);
+        data.clear();
         showSnack("Removed", "$itemName Was removed");
       } else {
         statusRequest = StatusRequest.failure;
       }
     }
+    display();
     update();
   }
 
   display() async {
-    data.clear();
     if (Get.currentRoute != AppRoutes.items) {
+      data.clear();
       statusRequest = StatusRequest.loading;
       var response = await fave.displayFave(userId: sharedPref.getString('id'));
-      update();
 
       statusRequest = handlingData(response);
       update();
@@ -81,8 +82,9 @@ class FavoriteController extends GetxController {
         print(statusRequest);
         if (response["status"] == "success") {
           data.addAll(response["data"]);
-          // print(data);
+          print(data);
           // showSnack("Removed", "$itemName Was removed");
+
         } else {
           statusRequest = StatusRequest.failure;
         }
