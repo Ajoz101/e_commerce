@@ -46,6 +46,7 @@ class ItemsPage extends GetView<ItemsControllerImp> {
               },
             ),
             // CustomListItems(),
+            Padding(padding: EdgeInsets.only(top: 30)),
           ],
         ),
       ),

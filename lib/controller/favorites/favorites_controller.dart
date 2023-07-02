@@ -1,4 +1,5 @@
 import 'package:e_commerce/core/constant/colors.dart';
+import 'package:e_commerce/core/constant/nameOfRoutes.dart';
 import 'package:e_commerce/core/services/services.dart';
 import 'package:e_commerce/data/source/remote/favorite/favorite_data.dart';
 import 'package:get/get.dart';
@@ -13,14 +14,11 @@ class FavoriteController extends GetxController {
 
   setFavorite(id, val) {
     isFavorite[id] = val;
-    // val == "1" ? addFave(val) : removeFave(val);
-    // print("id " + id + "\n" + val);
-    print("id" + isFavorite.keys.toString());
     update();
   }
 
   FavoriteData fave = FavoriteData(Get.find());
-  // List data = [];
+  List data = [];
   StatusRequest? statusRequest;
 
   addFave(String itemId) async {
@@ -69,8 +67,44 @@ class FavoriteController extends GetxController {
     update();
   }
 
+  display() async {
+    data.clear();
+    if (Get.currentRoute != AppRoutes.items) {
+      statusRequest = StatusRequest.loading;
+      var response = await fave.displayFave(userId: sharedPref.getString('id'));
+      update();
+
+      statusRequest = handlingData(response);
+      update();
+      if (StatusRequest.success == statusRequest ||
+          StatusRequest.offlineFailure == statusRequest) {
+        print(statusRequest);
+        if (response["status"] == "success") {
+          data.addAll(response["data"]);
+          // print(data);
+          // showSnack("Removed", "$itemName Was removed");
+        } else {
+          statusRequest = StatusRequest.failure;
+        }
+      }
+    }
+    update();
+  }
+
   showSnack(String title, String sub) {
     Get.snackbar(title, sub,
         backgroundColor: AppColor.primary, colorText: AppColor.white);
+  }
+
+  @override
+  void onInit() {
+    display();
+    super.onInit();
+  }
+
+  @override
+  void onClose() {
+    dispose();
+    super.onClose();
   }
 }

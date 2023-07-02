@@ -1,3 +1,4 @@
+import 'package:e_commerce/view/screen/favorites/favorites.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -12,7 +13,7 @@ class HomeScreenControllerImp extends HomeScreenController {
   List<Widget> page = [
     Home(),
     Center(child: Text("Cart")),
-    Center(child: Text("Fave")),
+    const FavoritesScreen(),
     Center(child: Text("Profile")),
   ];
 

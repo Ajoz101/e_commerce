@@ -1,5 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:e_commerce/controller/auth/favorites_controller.dart';
+import 'package:e_commerce/controller/favorites/favorites_controller.dart';
 import 'package:e_commerce/controller/home/items_controller.dart';
 import 'package:e_commerce/data/model/items.dart';
 import 'package:flutter/material.dart';
@@ -22,7 +22,7 @@ class CustomListItems extends StatelessWidget {
         shrinkWrap: true,
         physics: const NeverScrollableScrollPhysics(),
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            childAspectRatio: 0.7, crossAxisCount: 2),
+            childAspectRatio: 0.8, crossAxisCount: 2),
         itemBuilder: (context, index) {
           faveController.isFavorite[controller.data[index]["items_id"]] =
               controller.data[index]["favorite"];
@@ -51,25 +51,29 @@ class CustomCard extends StatelessWidget {
         padding: const EdgeInsets.all(5),
         height: 200,
         child: Card(
-          color: AppColor.primary.withOpacity(0.1),
-          elevation: 20,
+          color: AppColor.white.withOpacity(0.5),
+          elevation: 40,
           child: SingleChildScrollView(
             child: Column(
               children: [
                 Hero(
                   tag: "${itemsModel!.itemsId}",
-                  child: CachedNetworkImage(
-                    imageUrl:
-                        "${ImageLink.items}/${itemsModel!.itemsImage.toString()}",
-                    width: size.width / 4,
-                    fit: BoxFit.scaleDown,
+                  child: Container(
+                    width: Get.width / 5,
+                    child: CachedNetworkImage(
+                      imageUrl:
+                          "${ImageLink.items}/${itemsModel!.itemsImage.toString()}",
+                      // width: size.width / 4,
+                      fit: BoxFit.contain,
+                      height: Get.height / 11,
+                    ),
                   ),
                 ),
                 Text(
                   itemsModel!.itemsName.toString(),
                   textAlign: TextAlign.center,
                   style: TextStyle(
-                      fontWeight: FontWeight.bold, fontSize: size.width / 17),
+                      fontWeight: FontWeight.bold, fontSize: size.width / 20),
                 ),
                 Text("Quantity : ${itemsModel!.itemsCount.toString()}",
                     textAlign: TextAlign.center,
@@ -100,9 +104,8 @@ class CustomCard extends StatelessWidget {
                                 controller.setFavorite(
                                     itemsModel!.itemsId, "0");
                                 controller.removeFave(
-                                  itemsModel!.itemsId.toString(),
-                                itemsModel!.itemsName.toString()
-                                );
+                                    itemsModel!.itemsId.toString(),
+                                    itemsModel!.itemsName.toString());
                               }
                               print(itemsModel!.itemsId);
                             },

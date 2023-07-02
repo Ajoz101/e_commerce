@@ -36,4 +36,5 @@ class AppLinks {
 
       static const String faveAdd = "$root/favorites/add.php";
       static const String faveRemove = "$root/favorites/delete.php";
+      static const String faveDisplay = "$root/favorites/display_fave.php";
 }
