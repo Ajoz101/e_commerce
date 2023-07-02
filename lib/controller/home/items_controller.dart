@@ -1,6 +1,7 @@
 import 'package:e_commerce/core/constant/nameOfRoutes.dart';
+import 'package:e_commerce/core/services/services.dart';
 import 'package:e_commerce/data/model/items.dart';
-import 'package:e_commerce/data/source/remote/items.dart';
+import 'package:e_commerce/data/source/remote/items_data.dart';
 import 'package:get/get.dart';
 
 import '../../core/class/crud.dart';
@@ -24,18 +25,21 @@ class ItemsControllerImp extends ItemsController {
 
   String? catId;
 
+  bool? isFave;
   @override
   getItems(cate_id) async {
     statusRequest = StatusRequest.loading;
-    var response = await items.getData(cate_id);
+    var response = await items.getData(cate_id, sharedPref.getString('id')!);
     update();
 
     statusRequest = handlingData(response);
     update();
     if (StatusRequest.success == statusRequest ||
         StatusRequest.offlineFailure == statusRequest) {
+      print(statusRequest);
       if (response["status"] == "success") {
         data.addAll(response["data"]);
+        // print(data);
       } else {
         statusRequest = StatusRequest.failure;
       }
@@ -49,6 +53,7 @@ class ItemsControllerImp extends ItemsController {
     selectedCategories = Get.arguments['selectedCate'];
     // categories.insert(0, categories);
     catId = Get.arguments['category_id'];
+
     // update();
   }
 
@@ -57,6 +62,7 @@ class ItemsControllerImp extends ItemsController {
     initalData();
     getItems(catId!);
     update();
+
     super.onInit();
   }
 

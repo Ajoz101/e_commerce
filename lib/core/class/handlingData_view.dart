@@ -3,7 +3,6 @@ import 'package:e_commerce/core/constant/image_asset.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 
-import '../constant/colors.dart';
 
 class HandleDataView extends StatelessWidget {
   HandleDataView(

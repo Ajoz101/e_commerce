@@ -1,4 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:e_commerce/controller/auth/favorites_controller.dart';
 import 'package:e_commerce/controller/home/items_controller.dart';
 import 'package:e_commerce/data/model/items.dart';
 import 'package:flutter/material.dart';
@@ -14,6 +15,7 @@ class CustomListItems extends StatelessWidget {
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     var controller = Get.put(ItemsControllerImp());
+    var faveController = Get.put(FavoriteController());
     return GetBuilder<ItemsControllerImp>(builder: (controller) {
       return GridView.builder(
         itemCount: controller.data.length,
@@ -22,6 +24,8 @@ class CustomListItems extends StatelessWidget {
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
             childAspectRatio: 0.7, crossAxisCount: 2),
         itemBuilder: (context, index) {
+          faveController.isFavorite[controller.data[index]["items_id"]] =
+              controller.data[index]["favorite"];
           return CustomCard(
             itemsModel: ItemsModel.fromJson(controller.data[index]),
           );
@@ -57,8 +61,8 @@ class CustomCard extends StatelessWidget {
                   child: CachedNetworkImage(
                     imageUrl:
                         "${ImageLink.items}/${itemsModel!.itemsImage.toString()}",
-                    width: size.width / 3,
-                    fit: BoxFit.contain,
+                    width: size.width / 4,
+                    fit: BoxFit.scaleDown,
                   ),
                 ),
                 Text(
@@ -83,12 +87,26 @@ class CustomCard extends StatelessWidget {
                             fontSize: size.width / 18,
                             fontWeight: FontWeight.bold),
                       ),
-                      IconButton(
-                          onPressed: () {},
-                          icon: const Icon(
-                            Icons.favorite_border,
-                            color: AppColor.primary,
-                          ))
+                      GetBuilder<FavoriteController>(builder: (controller) {
+                        return IconButton(
+                            onPressed: () {
+                              if (controller.isFavorite[itemsModel!.itemsId] ==
+                                  "1") {
+                                controller.setFavorite(
+                                    itemsModel!.itemsId, "0");
+                              } else {
+                                controller.setFavorite(
+                                    itemsModel!.itemsId, "1");
+                              }
+                              print(itemsModel!.itemsId);
+                            },
+                            icon: Icon(
+                              controller.isFavorite[itemsModel!.itemsId] == "0"
+                                  ? Icons.favorite_border
+                                  : Icons.favorite,
+                              color: AppColor.primary,
+                            ));
+                      })
                     ],
                   ),
                 )
