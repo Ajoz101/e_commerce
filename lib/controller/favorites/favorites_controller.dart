@@ -2,6 +2,7 @@ import 'package:e_commerce/core/constant/colors.dart';
 import 'package:e_commerce/core/constant/nameOfRoutes.dart';
 import 'package:e_commerce/core/services/services.dart';
 import 'package:e_commerce/data/source/remote/favorite/favorite_data.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
 import '../../core/class/statusRequest.dart';
@@ -95,7 +96,10 @@ class FavoriteController extends GetxController {
 
   showSnack(String title, String sub) {
     Get.snackbar(title, sub,
-        backgroundColor: AppColor.primary, colorText: AppColor.white);
+        backgroundColor: AppColor.primary,
+        colorText: AppColor.white,
+        dismissDirection: DismissDirection.horizontal,
+        duration: Duration(milliseconds: 700));
   }
 
   @override
