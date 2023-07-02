@@ -1,3 +1,4 @@
+import 'package:e_commerce/core/constant/colors.dart';
 import 'package:e_commerce/core/services/services.dart';
 import 'package:e_commerce/data/source/remote/favorite/favorite_data.dart';
 import 'package:get/get.dart';
@@ -13,14 +14,15 @@ class FavoriteController extends GetxController {
   setFavorite(id, val) {
     isFavorite[id] = val;
     // val == "1" ? addFave(val) : removeFave(val);
-    // print("id "+ id + "\n" + val);
-    print("id" + isFavorite.values.toList().toString());
+    // print("id " + id + "\n" + val);
+    print("id" + isFavorite.keys.toString());
     update();
   }
 
   FavoriteData fave = FavoriteData(Get.find());
-  List data = [];
+  // List data = [];
   StatusRequest? statusRequest;
+
   addFave(String itemId) async {
     statusRequest = StatusRequest.loading;
     var response =
@@ -33,8 +35,11 @@ class FavoriteController extends GetxController {
         StatusRequest.offlineFailure == statusRequest) {
       print(statusRequest);
       if (response["status"] == "success") {
-        data.addAll(response["data"]);
+        // Get.snackbar("Added", "To Favorites");
+        showSnack("Added", "To Favorites");
+        // data.addAll(response["data"]);
         // print(data);
+
       } else {
         statusRequest = StatusRequest.failure;
       }
@@ -42,10 +47,10 @@ class FavoriteController extends GetxController {
     update();
   }
 
-  removeFave(String itemId) async {
+  removeFave(String itemId, String itemName) async {
     statusRequest = StatusRequest.loading;
-    var response =
-        await fave.addFave(userId: sharedPref.getString('id'), itemId: itemId);
+    var response = await fave.removeFave(
+        userId: sharedPref.getString('id'), itemId: itemId);
     update();
 
     statusRequest = handlingData(response);
@@ -54,12 +59,18 @@ class FavoriteController extends GetxController {
         StatusRequest.offlineFailure == statusRequest) {
       print(statusRequest);
       if (response["status"] == "success") {
-        data.addAll(response["data"]);
+        // data.addAll(response["data"]);
         // print(data);
+        showSnack("Removed", "$itemName Was removed");
       } else {
         statusRequest = StatusRequest.failure;
       }
     }
     update();
+  }
+
+  showSnack(String title, String sub) {
+    Get.snackbar(title, sub,
+        backgroundColor: AppColor.primary, colorText: AppColor.white);
   }
 }

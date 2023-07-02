@@ -91,19 +91,25 @@ class CustomCard extends StatelessWidget {
                         return IconButton(
                             onPressed: () {
                               if (controller.isFavorite[itemsModel!.itemsId] ==
-                                  "1") {
-                                controller.setFavorite(
-                                    itemsModel!.itemsId, "0");
-                              } else {
+                                  "0") {
                                 controller.setFavorite(
                                     itemsModel!.itemsId, "1");
+                                controller
+                                    .addFave(itemsModel!.itemsId.toString());
+                              } else {
+                                controller.setFavorite(
+                                    itemsModel!.itemsId, "0");
+                                controller.removeFave(
+                                  itemsModel!.itemsId.toString(),
+                                itemsModel!.itemsName.toString()
+                                );
                               }
                               print(itemsModel!.itemsId);
                             },
                             icon: Icon(
-                              controller.isFavorite[itemsModel!.itemsId] == "0"
-                                  ? Icons.favorite_border
-                                  : Icons.favorite,
+                              controller.isFavorite[itemsModel!.itemsId] == "1"
+                                  ? Icons.favorite
+                                  : Icons.favorite_border,
                               color: AppColor.primary,
                             ));
                       })
