@@ -50,7 +50,7 @@ class CustomCard extends StatelessWidget {
           padding: const EdgeInsets.all(5),
           height: 200,
           child: Card(
-            color: AppColor.white.withOpacity(0.5),
+            color: AppColor.black.withOpacity(0.8),
             elevation: 40,
             child: SingleChildScrollView(
               child: Column(
@@ -72,23 +72,29 @@ class CustomCard extends StatelessWidget {
                     favoritesModel!.itemsName.toString(),
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                        fontWeight: FontWeight.bold, fontSize: size.width / 20),
+                        fontWeight: FontWeight.bold,
+                        fontSize: size.width / 20,
+                        color: AppColor.white),
                   ),
-                  Text("Quantity : ${favoritesModel!.itemsCount.toString()}",
-                      textAlign: TextAlign.center,
-                      style: TextStyle(fontSize: size.width / 20)),
+                  Text(
+                    "${favoritesModel!.itemsPrice.toString()}\$",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                        color: AppColor.second,
+                        fontSize: size.width / 18,
+                        fontWeight: FontWeight.bold),
+                  ),
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          "${favoritesModel!.itemsPrice.toString()}\$",
+                          "Quantity : ${favoritesModel!.itemsCount.toString()}",
                           textAlign: TextAlign.center,
                           style: TextStyle(
-                              color: AppColor.primary,
-                              fontSize: size.width / 18,
-                              fontWeight: FontWeight.bold),
+                              fontSize: size.width / 20,
+                              color: AppColor.secondLight),
                         ),
                         GetBuilder<FavoriteController>(builder: (controller) {
                           return IconButton(
@@ -115,7 +121,7 @@ class CustomCard extends StatelessWidget {
                                         "1"
                                     ? Icons.favorite
                                     : Icons.favorite_border,
-                                color: AppColor.primary,
+                                color: AppColor.second,
                               ));
                         })
                       ],
