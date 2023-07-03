@@ -21,63 +21,56 @@ class HomeListView extends StatelessWidget {
 
       /// Removes the padding from all sides.
       children: [
-        Stack(
-          fit: StackFit.passthrough,
-          children: [
-            Positioned(
-              top: -70,
-              right: -25,
-              child: Container(
-                width: width / 0.9,
-                height: 400,
-                decoration: const BoxDecoration(
-                  gradient: LinearGradient(
-                      colors: [AppColor.primary, AppColor.second]),
-                  borderRadius: BorderRadius.only(
-                    bottomLeft: Radius.circular(160),
-                    bottomRight: Radius.circular(160),
-                  ),
-                ),
-              ),
-            ),
-            CustomAppBar(title: "Find Product", height: 24, width: 40),
-
-            //
-            Container(
-              margin: EdgeInsets.symmetric(vertical: height / 5.4),
-              child: GetBuilder<HomeControllerImp>(
-                builder: (controller) {
-                  return Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Text(
-                      "Hello ${controller.username}",
-                      style: Theme.of(context)
-                          .textTheme
-                          .headline1!
-                          .copyWith(color: AppColor.white),
-                      textAlign: TextAlign.center,
-                    ),
-                  );
-                },
-              ),
-            ),
-
-            // Padding(
-            //   padding: EdgeInsets.only(top: height / 10),
-            //   child: GetBuilder<HomeControllerImp>(
-            //     builder: (controller) => CustomCard(
-            //       title: "hey ${controller.username} ",
-            //       subtitle: "GET A DISCOUNT\nNow!",
-            //       color: AppColor.secondLight,
-            //     ),
-            //   ),
-            // ),
-          ],
+        CustomAppBar(
+          title: "Search",
+          height: 24,
+          width: 40,
+          color: AppColor.primary.withOpacity(0.7),
+          showRow: true,
         ),
-        // CustomCard(
-        //   title: "Get a Discount",
-        //   subtitle: "really ",
-        //   color: AppColor.primary,
+        SizedBox(height: Get.height / 12),
+        // Stack(
+        //   fit: StackFit.passthrough,
+        //   children: [
+        //     Positioned(
+        //       top: -70,
+        //       right: -25,
+        //       child: Container(
+        //         width: width / 0.9,
+        //         height: 400,
+        //         decoration: const BoxDecoration(
+        //           gradient: LinearGradient(
+        //               colors: [AppColor.primary, AppColor.second]),
+        //           borderRadius: BorderRadius.only(
+        //             bottomLeft: Radius.circular(160),
+        //             bottomRight: Radius.circular(160),
+        //           ),
+        //         ),
+        //       ),
+        //     ),
+        //     CustomAppBar(title: "Find Product", height: 24, width: 40),
+
+        //     //
+        //     Container(
+        //       margin: EdgeInsets.symmetric(vertical: height / 5.4),
+        //       child: GetBuilder<HomeControllerImp>(
+        //         builder: (controller) {
+        //           return Padding(
+        //             padding: const EdgeInsets.all(8.0),
+        //             child: Text(
+        //               "Hello ${controller.username}",
+        //               style: Theme.of(context)
+        //                   .textTheme
+        //                   .headline1!
+        //                   .copyWith(color: AppColor.white),
+        //               textAlign: TextAlign.center,
+        //             ),
+        //           );
+        //         },
+        //       ),
+        //     ),
+
+        //   ],
         // ),
         Container(
           margin: EdgeInsets.symmetric(horizontal: width / 20),

@@ -6,19 +6,22 @@ import '../../../controller/home/home_controller.dart';
 import '../../../core/constant/colors.dart';
 
 class CustomAppBar extends StatelessWidget {
-  CustomAppBar(
-      {super.key,
-      this.onTapSearch,
-      this.title,
-      this.color,
-      this.height,
-      this.width});
+  CustomAppBar({
+    super.key,
+    this.onTapSearch,
+    this.title,
+    this.color,
+    this.height,
+    this.width,
+    this.showRow,
+  });
   void Function()? onTapSearch;
   String? title;
 
   Color? color;
   double? height;
   double? width;
+  bool? showRow;
   @override
   Widget build(BuildContext context) {
     var width = MediaQuery.of(context).size.width;
@@ -31,12 +34,16 @@ class CustomAppBar extends StatelessWidget {
         children: [
           Expanded(
             child: TextFormField(
+              style: TextStyle(color: AppColor.white),
               decoration: InputDecoration(
                 prefixIcon: Padding(
                   padding: EdgeInsets.all(height / 40),
                   child: GestureDetector(
                       onTap: onTapSearch,
-                      child: FaIcon(FontAwesomeIcons.magnifyingGlass)),
+                      child: FaIcon(
+                        FontAwesomeIcons.magnifyingGlass,
+                        color: AppColor.secondLight,
+                      )),
                 ),
                 hintText: title,
                 hintStyle: TextStyle(color: AppColor.white),
@@ -50,18 +57,39 @@ class CustomAppBar extends StatelessWidget {
             ),
           ),
           SizedBox(width: 20),
-          Container(
-            decoration: BoxDecoration(
-                color: AppColor.primary.withOpacity(0.1),
-                borderRadius: BorderRadius.circular(20)),
-            child: IconButton(
-              onPressed: () {
-                c.signOut();
-              },
-              icon: FaIcon(FontAwesomeIcons.user,
-                  color: AppColor.black.withOpacity(0.8), size: width / 11),
-            ),
-          ),
+          showRow == true
+              ? Row(
+                  children: [
+                    Container(
+                      decoration: BoxDecoration(
+                          color: AppColor.primary.withOpacity(0.1),
+                          borderRadius: BorderRadius.circular(20)),
+                      child: IconButton(
+                        onPressed: () {
+                          c.signOut();
+                        },
+                        icon: FaIcon(FontAwesomeIcons.user,
+                            color: AppColor.black.withOpacity(0.8),
+                            size: width / 11),
+                      ),
+                    ),
+                    SizedBox(width: 10),
+                    Container(
+                      decoration: BoxDecoration(
+                          color: AppColor.primary.withOpacity(0.1),
+                          borderRadius: BorderRadius.circular(20)),
+                      child: IconButton(
+                        onPressed: () {
+                          c.gotoFvortites();
+                        },
+                        icon: FaIcon(FontAwesomeIcons.heart,
+                            color: AppColor.black.withOpacity(0.8),
+                            size: width / 11),
+                      ),
+                    ),
+                  ],
+                )
+              : SizedBox(),
         ],
       ),
     );

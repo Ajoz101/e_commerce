@@ -11,11 +11,11 @@ abstract class HomeScreenController extends GetxController {
 
 class HomeScreenControllerImp extends HomeScreenController {
   int currentPage = 0;
-  FavoriteController fav = Get.put(FavoriteController());
   List<Widget> page = [
     Home(),
     Center(child: Text("Cart")),
-    FavoritesScreen(),
+    Center(child: Text("s")),
+    // FavoritesScreen(),
     Center(child: Text("Profile")),
   ];
 
@@ -29,9 +29,9 @@ class HomeScreenControllerImp extends HomeScreenController {
   @override
   changePage(int current) {
     currentPage = current;
-    if (currentPage == 2) {
-      fav.display();
-    }
+    // if (currentPage == 2) {
+    //   fav.display();
+    // }
     update();
   }
 }

@@ -8,6 +8,7 @@ import 'package:e_commerce/view/screen/auth/forgotPasswordFolder/success_reset.d
 import 'package:e_commerce/view/screen/auth/success_signup.dart';
 import 'package:e_commerce/view/screen/auth/forgotPasswordFolder/verifycode.dart';
 import 'package:e_commerce/view/screen/auth/verifycode_signup.dart';
+import 'package:e_commerce/view/screen/favorites/favorites.dart';
 import 'package:e_commerce/view/screen/home/HomeScreen.dart';
 import 'package:e_commerce/view/screen/home/home.dart';
 import 'package:e_commerce/view/screen/home/items.dart';
@@ -93,6 +94,12 @@ List<GetPage<dynamic>>? routes = [
   GetPage(
     name: AppRoutes.itemsDetails,
     page: () => const ItemsDetails(),
+    transitionDuration: const Duration(milliseconds: 500),
+    transition: Transition.fadeIn,
+  ),
+  GetPage(
+    name: AppRoutes.favorites,
+    page: () => const FavoritesScreen(),
     transitionDuration: const Duration(milliseconds: 500),
     transition: Transition.fadeIn,
   ),

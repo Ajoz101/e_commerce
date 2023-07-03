@@ -14,22 +14,27 @@ class FavoritesScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     var controller = Get.put(FavoriteController());
     // controller.display();
-    return GetBuilder<FavoriteController>(builder: (controller) {
-      return ListView.builder(
-        itemCount: controller.data.isNotEmpty ? controller.data.length : 0,
-        itemBuilder: (context, index) {
-          return controller.data.isNotEmpty
-              ? CustomCard(
-                  favoritesModel:
-                      FavoritesModel.fromJson(controller.data[index]),
-                )
-              : const Center(
-                  child: Text("You have no favorites 🙁",
-                      style: TextStyle(fontSize: 50, color: AppColor.black)),
-                );
-        },
-      );
-    });
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Your Bookmark"),
+      ),
+      body: GetBuilder<FavoriteController>(builder: (controller) {
+        return ListView.builder(
+          itemCount: controller.data.isNotEmpty ? controller.data.length : 0,
+          itemBuilder: (context, index) {
+            return controller.data.isNotEmpty
+                ? CustomCard(
+                    favoritesModel:
+                        FavoritesModel.fromJson(controller.data[index]),
+                  )
+                : const Center(
+                    child: Text("You have no favorites 🙁",
+                        style: TextStyle(fontSize: 50, color: AppColor.black)),
+                  );
+          },
+        );
+      }),
+    );
   }
 }
 
@@ -99,28 +104,16 @@ class CustomCard extends StatelessWidget {
                         GetBuilder<FavoriteController>(builder: (controller) {
                           return IconButton(
                               onPressed: () {
-                                if (controller
-                                        .isFavorite[favoritesModel!.itemsId] ==
-                                    "0") {
-                                  controller.setFavorite(
-                                      favoritesModel!.itemsId, "1");
-                                  controller.addFave(
-                                      favoritesModel!.itemsId.toString());
-                                } else {
-                                  controller.setFavorite(
-                                      favoritesModel!.itemsId, "0");
-                                  controller.removeFave(
-                                      favoritesModel!.itemsId.toString(),
-                                      favoritesModel!.itemsName.toString());
-                                }
+                                controller.setFavorite(
+                                    favoritesModel!.itemsId, "0");
+                                controller.removeFave(
+                                    favoritesModel!.itemsId.toString(),
+                                    favoritesModel!.itemsName.toString());
+
                                 print(favoritesModel!.itemsId);
                               },
-                              icon: Icon(
-                                controller.isFavorite[
-                                            favoritesModel!.itemsId] ==
-                                        "1"
-                                    ? Icons.favorite
-                                    : Icons.favorite_border,
+                              icon: const Icon(
+                                Icons.remove_circle,
                                 color: AppColor.second,
                               ));
                         })

@@ -11,6 +11,7 @@ abstract class HomeController extends GetxController {
   getData();
   signOut();
   gotToItems(List categories, int selectedcate, String cate_id);
+  gotoFvortites();
 }
 
 class HomeControllerImp extends HomeController {
@@ -61,7 +62,12 @@ class HomeControllerImp extends HomeController {
     Get.toNamed(AppRoutes.items, arguments: {
       "categories": categories,
       "selectedCate": selectedcate,
-    "category_id" : cate_id
+      "category_id": cate_id
     });
+  }
+
+  @override
+  gotoFvortites() {
+    Get.toNamed(AppRoutes.favorites);
   }
 }

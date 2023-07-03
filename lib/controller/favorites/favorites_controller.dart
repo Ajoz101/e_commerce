@@ -107,10 +107,4 @@ class FavoriteController extends GetxController {
     display();
     super.onInit();
   }
-
-  @override
-  void onClose() {
-    dispose();
-    super.onClose();
-  }
 }
