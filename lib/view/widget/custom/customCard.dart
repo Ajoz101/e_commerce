@@ -4,8 +4,8 @@ import 'package:get/get.dart';
 import '../../../controller/home/home_controller.dart';
 import '../../../core/constant/colors.dart';
 
-class CustomCard extends StatelessWidget {
-  CustomCard({super.key, this.color, this.title, this.subtitle});
+class CustomCardOffer extends StatelessWidget {
+  CustomCardOffer({super.key, this.color, this.title, this.subtitle});
   Color? color;
   String? title;
   String? subtitle;

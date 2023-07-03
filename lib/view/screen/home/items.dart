@@ -18,7 +18,6 @@ class ItemsPage extends GetView<ItemsControllerImp> {
 
   @override
   Widget build(BuildContext context) {
-    var size = MediaQuery.of(context).size;
     Get.put(ItemsControllerImp());
     return SafeArea(
       child: Scaffold(
@@ -36,17 +35,18 @@ class ItemsPage extends GetView<ItemsControllerImp> {
                 width: 20,
               ),
             ),
-            CustomCategoriesItems(),
+
+          const  CustomCategoriesItems(),
             GetBuilder<ItemsControllerImp>(
               builder: (controller) {
                 return HandleDataView(
                   statusRequest: controller.statusRequest!,
-                  widget: CustomListItems(),
+                  widget: const CustomListItems(),
                 );
               },
             ),
             // CustomListItems(),
-            Padding(padding: EdgeInsets.only(top: 30)),
+           const Padding(padding: EdgeInsets.only(top: 30)),
           ],
         ),
       ),
