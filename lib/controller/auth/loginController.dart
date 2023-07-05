@@ -43,14 +43,20 @@ class LoginControllerImp extends LoginController {
         if (response["status"] == "success") {
           // data.addAll(response["data"]);
           // data.add(email.text);
-          sharedPref.setString("id", response['data']['users_id']);
-          sharedPref.setString("email", response['data']['users_email']);
-          sharedPref.setString("username", response['data']['users_username']);
-          sharedPref.setString("phone", response['data']['users_phone']);
-          sharedPref.setString("step", "2");
-          sharedPref.setBool("user", true);
+          if ((response["data"]["users_aproove"] == "1")) {
+            sharedPref.setString("id", response['data']['users_id']);
+            sharedPref.setString("email", response['data']['users_email']);
+            sharedPref.setString(
+                "username", response['data']['users_username']);
+            sharedPref.setString("phone", response['data']['users_phone']);
+            sharedPref.setString("step", "2");
+            sharedPref.setBool("user", true);
 
-          Get.offNamed(AppRoutes.home);
+            Get.offNamed(AppRoutes.home);
+          } else {
+            Get.offNamed(AppRoutes.verifySignUP,
+                arguments: {"email": email.text});
+          }
         } else {
           showSnack("Failed Sign In ", "Email or Phone Already are invalid 😒");
           statusRequest = StatusRequest.failure;

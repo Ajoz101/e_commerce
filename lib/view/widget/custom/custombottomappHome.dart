@@ -31,8 +31,8 @@ class CustomBottomAppButton extends StatelessWidget {
                         onPressed: () {
                           controller.changePage(i);
                         },
-                        icon: controller.icons[i],
-                        title: controller.pageInfo[i],
+                        icon: controller.bottaoppBarData[i]['icon'],
+                        title: controller.bottaoppBarData[i]["title"],
                         active: controller.currentPage == i ? true : false,
                       );
               }),

@@ -68,7 +68,7 @@ class CustomAppBar extends StatelessWidget {
                         onPressed: () {
                           c.signOut();
                         },
-                        icon: FaIcon(FontAwesomeIcons.user,
+                        icon: FaIcon(FontAwesomeIcons.laptopCode,
                             color: AppColor.black.withOpacity(0.8),
                             size: width / 11),
                       ),
