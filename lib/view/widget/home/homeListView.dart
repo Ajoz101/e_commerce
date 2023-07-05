@@ -15,6 +15,7 @@ class HomeListView extends StatelessWidget {
   Widget build(BuildContext context) {
     var width = MediaQuery.of(context).size.width;
     var height = MediaQuery.of(context).size.height;
+    var controller = Get.put(HomeControllerImp());
     return ListView(
       shrinkWrap: true,
       physics: BouncingScrollPhysics(),
@@ -29,49 +30,12 @@ class HomeListView extends StatelessWidget {
           showRow: true,
         ),
         SizedBox(height: Get.height / 12),
-        // Stack(
-        //   fit: StackFit.passthrough,
-        //   children: [
-        //     Positioned(
-        //       top: -70,
-        //       right: -25,
-        //       child: Container(
-        //         width: width / 0.9,
-        //         height: 400,
-        //         decoration: const BoxDecoration(
-        //           gradient: LinearGradient(
-        //               colors: [AppColor.primary, AppColor.second]),
-        //           borderRadius: BorderRadius.only(
-        //             bottomLeft: Radius.circular(160),
-        //             bottomRight: Radius.circular(160),
-        //           ),
-        //         ),
-        //       ),
-        //     ),
-        //     CustomAppBar(title: "Find Product", height: 24, width: 40),
-
-        //     //
-        //     Container(
-        //       margin: EdgeInsets.symmetric(vertical: height / 5.4),
-        //       child: GetBuilder<HomeControllerImp>(
-        //         builder: (controller) {
-        //           return Padding(
-        //             padding: const EdgeInsets.all(8.0),
-        //             child: Text(
-        //               "Hello ${controller.username}",
-        //               style: Theme.of(context)
-        //                   .textTheme
-        //                   .headline1!
-        //                   .copyWith(color: AppColor.white),
-        //               textAlign: TextAlign.center,
-        //             ),
-        //           );
-        //         },
-        //       ),
-        //     ),
-
-        //   ],
-        // ),
+        CustomCardOffer(
+          title: "Get a discount now\n ${controller.username}",
+          subtitle: "Take a look for latest\n products",
+          color: AppColor.primary,
+        ),
+        SizedBox(height: Get.height / 12),
         Container(
           margin: EdgeInsets.symmetric(horizontal: width / 20),
           child: Text(

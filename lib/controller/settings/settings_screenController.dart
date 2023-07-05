@@ -8,7 +8,7 @@ import '../../core/services/services.dart';
 
 class SettingsController extends GetxController {
   signOut() {
-    sharedPref.remove("user");
+    sharedPref.clear();
     Get.offAllNamed(AppRoutes.login);
   }
 

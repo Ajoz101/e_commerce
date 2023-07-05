@@ -33,7 +33,8 @@ class CustomAppButton extends StatelessWidget {
             height: size.height / 18,
             child: Icon(
               icon,
-              size: size.height / 25,
+              size: size.height / 30,
+              color: AppColor.primary,
             ),
           ),
         ),

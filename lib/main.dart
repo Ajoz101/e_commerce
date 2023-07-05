@@ -40,6 +40,7 @@ class HomePage extends StatelessWidget {
             borderSide: const BorderSide(width: 3, color: AppColor.second),
           ),
         ),
+        cardColor: AppColor.white,
         fontFamily: "PlayfairDisplay",
         textTheme: const TextTheme(
           headline1: TextStyle(

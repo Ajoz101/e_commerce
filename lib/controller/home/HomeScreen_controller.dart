@@ -23,8 +23,8 @@ class HomeScreenControllerImp extends HomeScreenController {
 
   // List pageInfo = ['Home', 'Cart', "Faverite", 'Profile'];
   List bottaoppBarData = [
-    {"title": "Home", "icon": Icons.home_outlined},
-    {"title": "Cart", "icon": Icons.card_travel_outlined},
+    {"title": "Home", "icon": FontAwesomeIcons.house},
+    {"title": "Recent", "icon": FontAwesomeIcons.recycle},
     {"title": "Settings", "icon": Icons.settings},
     {"title": "Profile", "icon": FontAwesomeIcons.userAstronaut},
   ];

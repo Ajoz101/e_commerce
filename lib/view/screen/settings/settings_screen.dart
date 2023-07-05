@@ -60,18 +60,17 @@ class SettingScreen extends StatelessWidget {
           SizedBox(
             height: Get.width / 3,
           ),
-          SizedBox(
-            height: Get.width / 4,
-            child: Card(
-              color: AppColor.white,
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  ListTile(
-                    title: Text("About us"),
-                  ),
-                ],
-              ),
+          Card(
+            color: AppColor.white,
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: const [
+                ListTile(
+                  trailing:
+                      Icon(FontAwesomeIcons.question, color: AppColor.primary),
+                  title: Text("About us"),
+                ),
+              ],
             ),
           ),
           Card(
@@ -97,7 +96,8 @@ class SettingScreen extends StatelessWidget {
                   onTap: () {
                     controller.exitAlert();
                   },
-                  trailing: Icon(Icons.exit_to_app),
+                  trailing: Icon(FontAwesomeIcons.arrowRightFromBracket,
+                      color: AppColor.primary),
                   title: Text("Sign out"),
                 ),
               ],

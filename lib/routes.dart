@@ -8,6 +8,7 @@ import 'package:e_commerce/view/screen/auth/forgotPasswordFolder/success_reset.d
 import 'package:e_commerce/view/screen/auth/success_signup.dart';
 import 'package:e_commerce/view/screen/auth/forgotPasswordFolder/verifycode.dart';
 import 'package:e_commerce/view/screen/auth/verifycode_signup.dart';
+import 'package:e_commerce/view/screen/cart/cart_screen.dart';
 import 'package:e_commerce/view/screen/favorites/favorites.dart';
 import 'package:e_commerce/view/screen/home/HomeScreen.dart';
 import 'package:e_commerce/view/screen/home/home.dart';
@@ -19,13 +20,13 @@ import 'package:get/get_navigation/src/routes/get_route.dart';
 import 'package:get/get_navigation/src/routes/transitions_type.dart';
 
 List<GetPage<dynamic>>? routes = [
-  // GetPage(
-  //     name: "/",
-  //     page: () => TestApi()),
   GetPage(
       name: "/",
-      page: () => const OBoarding(),
-      middlewares: [AwesomeMiddleWare()]),
+      page: () => CartScreen()),
+  // GetPage(
+  //     name: "/",
+  //     page: () => const OBoarding(),
+  //     middlewares: [AwesomeMiddleWare()]),
   // GetPage(
   //     name: "/",
   //     page: () => const ItemsDetails()),

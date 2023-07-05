@@ -21,10 +21,10 @@ class HomeScreen extends StatelessWidget {
           backgroundColor: AppColor.primary,
           onPressed: () {},
           child: const Icon(
-            Icons.add,
+            Icons.add_to_drive,
           ),
         ),
-        bottomNavigationBar:const  CustomBottomAppButton(),
+        bottomNavigationBar: const CustomBottomAppButton(),
         body: controller.page.elementAt(controller.currentPage),
       );
     });
