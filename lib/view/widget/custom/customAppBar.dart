@@ -66,7 +66,7 @@ class CustomAppBar extends StatelessWidget {
                           borderRadius: BorderRadius.circular(20)),
                       child: IconButton(
                         onPressed: () {
-                          c.signOut();
+                          // c.signOut();
                         },
                         icon: FaIcon(FontAwesomeIcons.laptopCode,
                             color: AppColor.black.withOpacity(0.8),

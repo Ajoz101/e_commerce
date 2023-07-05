@@ -9,7 +9,6 @@ import '../../core/functions/handlingData.dart';
 
 abstract class HomeController extends GetxController {
   getData();
-  signOut();
   gotToItems(List categories, int selectedcate, String cate_id);
   gotoFvortites();
 }
@@ -51,11 +50,7 @@ class HomeControllerImp extends HomeController {
     update();
   }
 
-  @override
-  signOut() {
-    sharedPref.remove("user");
-    Get.offAllNamed(AppRoutes.login);
-  }
+  
 
   @override
   gotToItems(List categories, int selectedcate, cate_id) {
