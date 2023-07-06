@@ -19,10 +19,27 @@ class CartScreen extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text("Total : ", style: TextStyle(fontSize: Get.width / 14)),
-              Text("600 \$", style: TextStyle(fontSize: Get.width / 14)),
+              Container(
+                  margin: EdgeInsets.symmetric(horizontal: Get.width / 15),
+                  child: Text("Total : ",
+                      style: TextStyle(fontSize: Get.width / 16))),
+              Container(
+                width: Get.width / 3,
+                decoration: BoxDecoration(
+                    color: AppColor.primary,
+                    borderRadius: BorderRadius.circular(20)),
+                margin: EdgeInsets.symmetric(horizontal: Get.width / 15),
+                child: Text(
+                  textAlign: TextAlign.center,
+                  "600 \$",
+                  style: TextStyle(
+                      fontSize: Get.width / 16,
+                      color: AppColor.white,
+                      fontFamily: "sans"),
+                ),
+              ),
             ],
           ),
           const CutomOrderButton(),
@@ -30,12 +47,34 @@ class CartScreen extends StatelessWidget {
       ),
       body: ListView(
         children: [
+          Row(
+            children: [
+              IconButton(onPressed: () {}, icon: Icon(Icons.arrow_back)),
+              Container(
+                alignment: Alignment.center,
+                child: Text(
+                  "My Cart",
+                  style: TextStyle(fontSize: Get.width / 10),
+                ),
+              ),
+            ],
+          ),
+          SizedBox(
+            height: Get.width / 19,
+          ),
           Container(
-            alignment: Alignment.center,
-            child: Text(
-              "Cart",
-              style: TextStyle(fontSize: Get.width / 10),
-            ),
+            margin: EdgeInsets.symmetric(horizontal: 15),
+            height: Get.width / 10,
+            padding: const EdgeInsets.only(top: 5),
+            decoration: BoxDecoration(
+                color: AppColor.primary,
+                borderRadius: BorderRadius.circular(20)),
+            child: Text("You have 2 Items in the cart",
+                textAlign: TextAlign.center,
+                style: Theme.of(context)
+                    .textTheme
+                    .bodyText1!
+                    .copyWith(color: AppColor.white)),
           ),
           Container(
             padding: EdgeInsets.all(10),
