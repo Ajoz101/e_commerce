@@ -1,3 +1,4 @@
+import 'package:e_commerce/controller/cart/cart_controller.dart';
 import 'package:e_commerce/core/constant/colors.dart';
 import 'package:e_commerce/data/model/items.dart';
 import 'package:get/get.dart';
@@ -13,6 +14,7 @@ class DetailsItemsControllerImp extends ItemsDetailsController {
   late ItemsModel items;
   int count = 0;
 
+  CartController cartC = Get.put(CartController());
   @override
   initalData() {
     items = Get.arguments['itemsmodel'];

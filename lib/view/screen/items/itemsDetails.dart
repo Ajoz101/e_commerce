@@ -16,7 +16,7 @@ class ItemsDetails extends StatelessWidget {
 
     return Scaffold(
       backgroundColor: AppColor.white,
-      bottomNavigationBar: const AddToCart(),
+      bottomNavigationBar: AddToCart(onPressed: () {}),
       body: SafeArea(
         child: Container(
           decoration: BoxDecoration(
@@ -40,10 +40,10 @@ class ItemsDetails extends StatelessWidget {
                   return ItemDescriptionAndQuantity(
                     description: controller.items.itemsDescription.toString(),
                     onRemove: () {
-                      controller.returnBack();
+                      controller.cartC.remove(controller.items.itemsId!);
                     },
                     onAdd: () {
-                      controller.buy();
+                      controller.cartC.add(controller.items.itemsId!);
                     },
                     quantity: controller.count.toString(),
                   );

@@ -20,13 +20,13 @@ import 'package:get/get_navigation/src/routes/get_route.dart';
 import 'package:get/get_navigation/src/routes/transitions_type.dart';
 
 List<GetPage<dynamic>>? routes = [
-  GetPage(
-      name: "/",
-      page: () => CartScreen()),
   // GetPage(
   //     name: "/",
-  //     page: () => const OBoarding(),
-  //     middlewares: [AwesomeMiddleWare()]),
+  //     page: () => CartScreen()),
+  GetPage(
+      name: "/",
+      page: () => const OBoarding(),
+      middlewares: [AwesomeMiddleWare()]),
   // GetPage(
   //     name: "/",
   //     page: () => const ItemsDetails()),

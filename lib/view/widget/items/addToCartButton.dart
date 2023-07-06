@@ -4,8 +4,8 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../../../core/constant/colors.dart';
 
 class AddToCart extends StatelessWidget {
-  const AddToCart({super.key});
-
+   AddToCart({super.key,this.onPressed});
+  Function()? onPressed;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -18,7 +18,7 @@ class AddToCart extends StatelessWidget {
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
                 color: AppColor.primary)),
-        onPressed: () {},
+        onPressed:onPressed,
         avatar: const FaIcon(FontAwesomeIcons.cartArrowDown,
             color: AppColor.primary),
       ),
