@@ -13,7 +13,7 @@ class AddToCart extends StatelessWidget {
       child: ActionChip(
         elevation: 20,
         backgroundColor: AppColor.cards,
-        label: const Text("Add To Cart",
+        label: const Text("Go To Cart",
             style: TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.bold,

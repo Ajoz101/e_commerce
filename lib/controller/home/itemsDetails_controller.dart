@@ -12,29 +12,37 @@ abstract class ItemsDetailsController extends GetxController {
 
 class DetailsItemsControllerImp extends ItemsDetailsController {
   late ItemsModel items;
-  int count = 0;
+  var count = 0;
 
   CartController cartC = Get.put(CartController());
   @override
-  initalData() {
+  initalData() async {
     items = Get.arguments['itemsmodel'];
-  }
-
-  buy() {
-    if (count <= 0) {
-      Get.snackbar("Out of Stock!", "Please stand by for more UPDATES",
-          backgroundColor: AppColor.cards, snackPosition: SnackPosition.BOTTOM);
-    } else {
-      count--;
-    }
-    // items.itemsCount = count.toString();
+    count = await cartC.getCount(items.itemsId!);
     update();
   }
 
-  returnBack() {
+  buy() {
     if (count >= int.parse(items.itemsCount!)) {
+      Get.snackbar("Out of Stock!", "Please stand by for more UPDATES",
+          backgroundColor: AppColor.cards, snackPosition: SnackPosition.TOP);
+      count;
     } else {
+      // Get.snackbar("Out of Stock!", "Please stand by for more UPDATES",
+      //   backgroundColor: AppColor.cards, snackPosition: SnackPosition.BOTTOM);
       count++;
+      cartC.add(items.itemsId!);
+    }
+    // count = count.toString();
+    update();
+  }
+
+  remove() {
+    if (count > 0) {
+      count--;
+      cartC.remove(items.itemsId!);
+    } else {
+      count;
     }
     // items.itemsCount = count.toString();
     update();
@@ -44,7 +52,8 @@ class DetailsItemsControllerImp extends ItemsDetailsController {
   void onInit() {
     initalData();
 
-    count = int.parse(items.itemsCount!);
+    // count = int.parse(items.itemsCount!);
+    update();
     super.onInit();
   }
 }

@@ -48,6 +48,7 @@ class AppLinks {
       static const String cartAdd = "$root/cart/addToCart.php";
       static const String cartRemove = "$root/cart/removeFromCart.php";
       static const String cartDisplay = "$root/cart/view.php";
+      static const String cartgetCount = "$root/cart/getItemsCount.php";
 
 
 

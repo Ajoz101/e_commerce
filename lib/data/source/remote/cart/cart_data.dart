@@ -26,4 +26,11 @@ class CartData {
     });
     return resp.fold((l) => l, (r) => r);
   }
+   getCount({String? userId, String? itemsId}) async {
+    var resp = await crud.getOffline(AppLinks.cartgetCount, {
+      "user": userId,
+      "item": itemsId,
+    });
+    return resp.fold((l) => l, (r) => r);
+  }
 }

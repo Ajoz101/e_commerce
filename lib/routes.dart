@@ -104,4 +104,11 @@ List<GetPage<dynamic>>? routes = [
     transitionDuration: const Duration(milliseconds: 500),
     transition: Transition.fadeIn,
   ),
+
+GetPage(
+    name: AppRoutes.cart,
+    page: () => const CartScreen(),
+    transitionDuration: const Duration(milliseconds: 500),
+    transition: Transition.fade,
+  ),
 ];

@@ -1,4 +1,5 @@
 import 'package:e_commerce/controller/home/itemsDetails_controller.dart';
+import 'package:e_commerce/core/constant/nameOfRoutes.dart';
 import 'package:e_commerce/data/model/items.dart';
 import 'package:e_commerce/view/widget/items/addToCartButton.dart';
 import 'package:e_commerce/view/widget/items/details_header.dart';
@@ -16,7 +17,9 @@ class ItemsDetails extends StatelessWidget {
 
     return Scaffold(
       backgroundColor: AppColor.white,
-      bottomNavigationBar: AddToCart(onPressed: () {}),
+      bottomNavigationBar: AddToCart(onPressed: () {
+        Get.toNamed(AppRoutes.cart);
+      }),
       body: SafeArea(
         child: Container(
           decoration: BoxDecoration(
@@ -40,10 +43,10 @@ class ItemsDetails extends StatelessWidget {
                   return ItemDescriptionAndQuantity(
                     description: controller.items.itemsDescription.toString(),
                     onRemove: () {
-                      controller.cartC.remove(controller.items.itemsId!);
+                      controller.remove();
                     },
                     onAdd: () {
-                      controller.cartC.add(controller.items.itemsId!);
+                      controller.buy();
                     },
                     quantity: controller.count.toString(),
                   );
