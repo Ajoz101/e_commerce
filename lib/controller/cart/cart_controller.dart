@@ -102,10 +102,10 @@ class CartController extends GetxController {
         Map dataCountAndPrice = response["countAndPrice"];
         totalCountItems = int.parse(dataCountAndPrice['counts']);
         priceOrders = double.parse(dataCountAndPrice['itemstotal']);
-
-        // print("DATA ${data.first}");
-      } else {
-        statusRequest = StatusRequest.failure;
+      }
+      // print("DATA ${data.first}");
+      else {
+        statusRequest = StatusRequest.empty;
       }
     }
     update();
@@ -130,5 +130,22 @@ class CartController extends GetxController {
   refreshPage() {
     resetItem();
     view();
+  }
+
+  /*
+   * Cart card additions
+   */
+
+  double heightOfContainer = Get.width / 3.3;
+  bool isReadMore = false;
+  readMore() {
+    isReadMore = !isReadMore;
+    if (isReadMore == true) {
+      heightOfContainer = Get.width / 2.2;
+    } else {
+      heightOfContainer = Get.width / 3.3;
+    }
+
+    update(null, true);
   }
 }

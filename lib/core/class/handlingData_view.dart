@@ -3,7 +3,6 @@ import 'package:e_commerce/core/constant/image_asset.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 
-
 class HandleDataView extends StatelessWidget {
   HandleDataView(
       {super.key, required this.statusRequest, required this.widget});
@@ -27,9 +26,23 @@ class HandleDataView extends StatelessWidget {
                     ? Center(
                         child: Lottie.asset(
                           ImageAsset.noResult,
-                        
                         ),
                       )
-                    : widget;
+                    : statusRequest == StatusRequest.empty
+                        ? Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text("You haven't added anything to cart ",
+                                  textAlign: TextAlign.center,
+                                  style: Theme.of(context).textTheme.headline5),
+                              Center(
+                                child: Lottie.asset(
+                                  reverse: true,
+                                  ImageAsset.empty,
+                                ),
+                              ),
+                            ],
+                          )
+                        : widget;
   }
 }

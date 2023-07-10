@@ -11,6 +11,7 @@ class ImageAsset {
       "https://cdn-icons-png.flaticon.com/128/6445/6445290.png";
   static const String loading = "assets/lottie/loading.json";
   static const String noResult = "assets/lottie/no_data.json";
+  static const String empty = "assets/lottie/empty.json";
 
 
   
