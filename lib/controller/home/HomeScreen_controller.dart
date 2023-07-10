@@ -3,15 +3,17 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 
+import '../../core/constant/nameOfRoutes.dart';
 import '../../view/screen/home/home.dart';
 
 abstract class HomeScreenController extends GetxController {
   changePage(int current);
+  gotoCart();
 }
 
 class HomeScreenControllerImp extends HomeScreenController {
   int currentPage = 0;
-  List<Widget> page = const[
+  List<Widget> page = const [
     Home(),
     Center(child: Text("Cart")),
     SettingScreen(),
@@ -33,5 +35,10 @@ class HomeScreenControllerImp extends HomeScreenController {
     //   fav.display();
     // }
     update();
+  }
+
+  @override
+  gotoCart() {
+    Get.toNamed(AppRoutes.cart);
   }
 }

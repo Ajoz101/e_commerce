@@ -21,7 +21,7 @@ class HomeScreen extends StatelessWidget {
         floatingActionButton: FloatingActionButton(
           backgroundColor: AppColor.primary,
           onPressed: () {
-            Get.toNamed(AppRoutes.cart);
+            controller.gotoCart();
           },
           child: const Icon(
             Icons.add_to_drive,

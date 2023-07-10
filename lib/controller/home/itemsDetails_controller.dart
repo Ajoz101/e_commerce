@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../core/class/statusRequest.dart';
+import '../../core/constant/nameOfRoutes.dart';
 import '../../core/functions/handlingData.dart';
 import '../../core/services/services.dart';
 import '../../data/model/cart_model.dart';
@@ -15,6 +16,7 @@ abstract class ItemsDetailsController extends GetxController {
   // changeCat(val, String cat_id);
   // getItems(String cate_id);
   // gotoDetails();
+  gotoCart();
 }
 
 class DetailsItemsControllerImp extends ItemsDetailsController {
@@ -29,7 +31,8 @@ class DetailsItemsControllerImp extends ItemsDetailsController {
     count = await getCount(items.itemsId!);
     update();
   }
-getCount(String itemId) async {
+
+  getCount(String itemId) async {
     statusRequest = StatusRequest.loading;
     var response = await cart.getCount(
         userId: sharedPref.getString('id'), itemsId: itemId);
@@ -53,6 +56,7 @@ getCount(String itemId) async {
     // display();
     update();
   }
+
   buy() {
     if (count >= int.parse(items.itemsCount!)) {
       Get.snackbar("Out of Stock!", "Please stand by for more UPDATES",
@@ -90,7 +94,7 @@ getCount(String itemId) async {
 
   StatusRequest? statusRequest;
 
-add(String itemId) async {
+  add(String itemId) async {
     statusRequest = StatusRequest.loading;
     var response =
         await cart.addCart(userId: sharedPref.getString('id'), itemId: itemId);
@@ -130,52 +134,19 @@ add(String itemId) async {
         statusRequest = StatusRequest.failure;
       }
     }
-    // display();
     update();
   }
 
-   showSnack(String title, String sub) {
+  showSnack(String title, String sub) {
     Get.snackbar(title, sub,
         backgroundColor: AppColor.primary,
         colorText: AppColor.white,
         dismissDirection: DismissDirection.horizontal,
         duration: Duration(milliseconds: 700));
   }
-List<CartModel> data = [];
 
-  double priceOrders = 0;
-  int totalCountItems = 0;
-  resetItem() {
-    priceOrders = 0.0;
-    totalCountItems = 0;
-    data.clear();
+  @override
+  gotoCart() {
+    Get.toNamed(AppRoutes.cart);
   }
-
-  refreshPage() {
-    resetItem();
-    view();
-  }
-  view() async {
-    statusRequest = StatusRequest.loading;
-    update();
-    var response = await cart.displayCart(userId: sharedPref.getString('id'));
-    statusRequest = handlingData(response);
-    update();
-    if (StatusRequest.success == statusRequest ||
-        StatusRequest.offlineFailure == statusRequest) {
-      if (response["status"] == "success") {
-        List dataResp = response['datacart'];
-        data.addAll(dataResp.map((e) => CartModel.fromJson(e)));
-        Map dataCountAndPrice = response["countAndPrice"];
-        totalCountItems = int.parse(dataCountAndPrice['counts']);
-        priceOrders = double.parse(dataCountAndPrice['itemstotal']);
-      }
-      // print("DATA ${data.first}");
-      else {
-        statusRequest = StatusRequest.empty;
-      }
-    }
-    update();
-  }
-
 }
