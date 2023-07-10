@@ -22,13 +22,12 @@ class TestController extends GetxController {
         statusRequest = StatusRequest.failure;
       }
     }
-    print(data);
+    // print(data);
     update();
   }
 
   @override
   void onInit() {
-    // TODO: implement onInit
     getData();
     super.onInit();
   }

@@ -32,7 +32,7 @@ class FavoriteController extends GetxController {
     update();
     if (StatusRequest.success == statusRequest ||
         StatusRequest.offlineFailure == statusRequest) {
-      print(statusRequest);
+      // print(statusRequest);
       if (response["status"] == "success") {
         // Get.snackbar("Added", "To Favorites");
         showSnack("Added", "To Favorites");
@@ -56,7 +56,7 @@ class FavoriteController extends GetxController {
     update();
     if (StatusRequest.success == statusRequest ||
         StatusRequest.offlineFailure == statusRequest) {
-      print(statusRequest);
+      // print(statusRequest);
       if (response["status"] == "success") {
         // data.addAll(response["data"]);
         // print(data);
@@ -80,10 +80,10 @@ class FavoriteController extends GetxController {
       update();
       if (StatusRequest.success == statusRequest ||
           StatusRequest.offlineFailure == statusRequest) {
-        print(statusRequest);
+        // print(statusRequest);
         if (response["status"] == "success") {
           data.addAll(response["data"]);
-          print(data);
+          // print(data);
           // showSnack("Removed", "$itemName Was removed");
 
         } else {
@@ -99,7 +99,7 @@ class FavoriteController extends GetxController {
         backgroundColor: AppColor.primary,
         colorText: AppColor.white,
         dismissDirection: DismissDirection.horizontal,
-        duration: Duration(milliseconds: 700));
+        duration: const Duration(milliseconds: 700));
   }
 
   @override

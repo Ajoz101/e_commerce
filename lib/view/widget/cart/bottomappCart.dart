@@ -5,8 +5,8 @@ import '../../../core/constant/colors.dart';
 import 'orderbutton.dart';
 
 class BottomAppCart extends StatelessWidget {
-  const BottomAppCart({super.key});
-
+   BottomAppCart({super.key, this.total});
+  String ?total;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -27,7 +27,7 @@ class BottomAppCart extends StatelessWidget {
               margin: EdgeInsets.symmetric(horizontal: Get.width / 15),
               child: Text(
                 textAlign: TextAlign.center,
-                "600 \$",
+                "$total \$",
                 style: TextStyle(
                     fontSize: Get.width / 16,
                     color: AppColor.white,

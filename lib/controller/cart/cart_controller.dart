@@ -1,3 +1,4 @@
+import 'package:e_commerce/data/model/cart_model.dart';
 import 'package:e_commerce/data/source/remote/cart/cart_data.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -11,7 +12,6 @@ class CartController extends GetxController {
   CartData cart = CartData(Get.find());
   StatusRequest? statusRequest;
   add(String itemId) async {
-    print("hi");
     statusRequest = StatusRequest.loading;
     var response =
         await cart.addCart(userId: sharedPref.getString('id'), itemId: itemId);
@@ -23,11 +23,7 @@ class CartController extends GetxController {
         StatusRequest.offlineFailure == statusRequest) {
       print(statusRequest);
       if (response["status"] == "success") {
-        // Get.snackbar("Added", "To Favorites");
-        print(response);
         showSnack("Added", "To Cart");
-        // data.addAll(response["data"]);
-        // print(data);
       } else {
         statusRequest = StatusRequest.failure;
       }
@@ -58,8 +54,6 @@ class CartController extends GetxController {
     // display();
     update();
   }
-
-  view() {}
 
   getCount(String itemId) async {
     statusRequest = StatusRequest.loading;
@@ -92,5 +86,37 @@ class CartController extends GetxController {
         colorText: AppColor.white,
         dismissDirection: DismissDirection.horizontal,
         duration: Duration(milliseconds: 700));
+  }
+
+  view() async {
+    statusRequest = StatusRequest.loading;
+    // update();
+    var response = await cart.displayCart(userId: sharedPref.getString('id'));
+    statusRequest = handlingData(response);
+    if (StatusRequest.success == statusRequest ||
+        StatusRequest.offlineFailure == statusRequest) {
+      if (response["status"] == "success") {
+        List dataResp = response['datacart'];
+        data.addAll(dataResp.map((e) => CartModel.fromJson(e)));
+        Map dataCountAndPrice = response["countAndPrice"];
+        totalCountItems = int.parse(dataCountAndPrice['counts']);
+        priceOrders = double.parse(dataCountAndPrice['itemstotal']);
+        print(data.toList());
+        print(priceOrders);
+        // print("DATA ${data.first}");
+      } else {
+        statusRequest = StatusRequest.failure;
+      }
+    }
+  }
+
+  List<CartModel> data = [];
+
+  double priceOrders = 0;
+  int totalCountItems = 0;
+  @override
+  void onInit() {
+    view();
+    super.onInit();
   }
 }

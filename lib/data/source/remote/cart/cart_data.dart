@@ -12,6 +12,7 @@ class CartData {
     return resp.fold((l) => l, (r) => r);
   }
 
+  //remove from cart
   removeCart({String? itemId, String? userId}) async {
     var resp = await crud.getOffline(AppLinks.cartRemove, {
       "item_id": itemId,
@@ -20,12 +21,15 @@ class CartData {
     return resp.fold((l) => l, (r) => r);
   }
 
+  //view
   displayCart({String? userId}) async {
     var resp = await crud.getOffline(AppLinks.cartDisplay, {
-      "user_id": userId,
+      "id": userId,
     });
     return resp.fold((l) => l, (r) => r);
   }
+
+  //get quantity added
    getCount({String? userId, String? itemsId}) async {
     var resp = await crud.getOffline(AppLinks.cartgetCount, {
       "user": userId,
