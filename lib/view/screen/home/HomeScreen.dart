@@ -3,6 +3,7 @@ import 'package:e_commerce/core/constant/colors.dart';
 import 'package:e_commerce/core/constant/nameOfRoutes.dart';
 import 'package:e_commerce/view/widget/customappButton.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttericon/iconic_icons.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 
@@ -23,8 +24,8 @@ class HomeScreen extends StatelessWidget {
           onPressed: () {
             controller.gotoCart();
           },
-          child: const Icon(
-            Icons.add_to_drive,
+          child: const FaIcon(
+            FontAwesomeIcons.cartArrowDown,
           ),
         ),
         bottomNavigationBar: const CustomBottomAppButton(),

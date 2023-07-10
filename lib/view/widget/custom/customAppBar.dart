@@ -82,7 +82,7 @@ class CustomAppBar extends StatelessWidget {
                         onPressed: () {
                           c.gotoFvortites();
                         },
-                        icon: FaIcon(FontAwesomeIcons.heart,
+                        icon: FaIcon(FontAwesomeIcons.bookmark,
                             color: AppColor.black.withOpacity(0.8),
                             size: width / 11),
                       ),

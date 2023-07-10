@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:e_commerce/controller/settings/settings_screenController.dart';
 import 'package:e_commerce/core/constant/colors.dart';
+import 'package:e_commerce/core/services/services.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
@@ -100,6 +101,34 @@ class SettingScreen extends StatelessWidget {
                       color: AppColor.primary),
                   title: Text("Sign out"),
                 ),
+                // ListTile(
+                //   hoverColor: AppColor.primary,
+                //   onTap: () {
+                //     controller.exitAlert();
+                //   },
+                //   title: Text("Email :"),
+                //   subtitle: Text("${sharedPref.getString("email")}"),
+                // ),
+                // ListTile(
+                //   hoverColor: AppColor.primary,
+                //   onTap: () {
+                //     controller.exitAlert();
+                //   },
+                //   trailing: Icon(FontAwesomeIcons.arrowRightFromBracket,
+                //       color: AppColor.primary),
+                //   title: Text("Username :"),
+                //   subtitle: Text("${sharedPref.getString("username")}"),
+                // ),
+                // ListTile(
+                //   hoverColor: AppColor.primary,
+                //   onTap: () {
+                //     controller.exitAlert();
+                //   },
+                //   trailing: Icon(FontAwesomeIcons.arrowRightFromBracket,
+                //       color: AppColor.primary),
+                //   title: Text("Phone :"),
+                //   subtitle: Text("${sharedPref.getString("phone")}"),
+                // ),
               ],
             ),
           ),
