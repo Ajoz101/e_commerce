@@ -90,9 +90,10 @@ class CartController extends GetxController {
 
   view() async {
     statusRequest = StatusRequest.loading;
-    // update();
+    update();
     var response = await cart.displayCart(userId: sharedPref.getString('id'));
     statusRequest = handlingData(response);
+    update();
     if (StatusRequest.success == statusRequest ||
         StatusRequest.offlineFailure == statusRequest) {
       if (response["status"] == "success") {
@@ -101,13 +102,13 @@ class CartController extends GetxController {
         Map dataCountAndPrice = response["countAndPrice"];
         totalCountItems = int.parse(dataCountAndPrice['counts']);
         priceOrders = double.parse(dataCountAndPrice['itemstotal']);
-        print(data.toList());
-        print(priceOrders);
+
         // print("DATA ${data.first}");
       } else {
         statusRequest = StatusRequest.failure;
       }
     }
+    update();
   }
 
   List<CartModel> data = [];
@@ -118,5 +119,16 @@ class CartController extends GetxController {
   void onInit() {
     view();
     super.onInit();
+  }
+
+  resetItem() {
+    priceOrders = 0.0;
+    totalCountItems = 0;
+    data.clear();
+  }
+
+  refreshPage() {
+    resetItem();
+    view();
   }
 }

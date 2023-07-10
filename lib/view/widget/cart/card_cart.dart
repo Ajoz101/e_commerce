@@ -1,4 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:e_commerce/core/constant/apiLinks.dart';
+import 'package:e_commerce/core/constant/networkImage_links.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttericon/iconic_icons.dart';
 
@@ -6,10 +8,21 @@ import '../../../core/constant/colors.dart';
 import '../../../core/constant/image_asset.dart';
 
 class CustomCartCard extends StatelessWidget {
-  CustomCartCard({super.key, this.name, this.price, this.quantity});
+  CustomCartCard(
+      {super.key,
+      this.name,
+      this.price,
+      this.quantity,
+      this.image,
+      this.onAdd,
+      this.onRemove});
+
   String? name;
   String? price;
   String? quantity;
+  String? image;
+  void Function()? onAdd;
+  void Function()? onRemove;
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -20,7 +33,9 @@ class CustomCartCard extends StatelessWidget {
             Expanded(
               flex: 2,
               child: CachedNetworkImage(
-                  imageUrl: ImageAsset.logo, fit: BoxFit.fitHeight, height: 90),
+                  imageUrl: "${ImageLink.items}/${image}",
+                  fit: BoxFit.fitHeight,
+                  height: 90),
             ),
             Expanded(
               flex: 3,
@@ -44,7 +59,7 @@ class CustomCartCard extends StatelessWidget {
                   Container(
                     height: 36,
                     child: IconButton(
-                      onPressed: () {},
+                      onPressed: onAdd,
                       icon: const Icon(Iconic.plus, color: AppColor.primary),
                     ),
                   ),
@@ -55,7 +70,7 @@ class CustomCartCard extends StatelessWidget {
                   SizedBox(
                     height: 35,
                     child: IconButton(
-                      onPressed: () {},
+                      onPressed: onRemove,
                       icon: const Icon(
                         Iconic.minus,
                         color: AppColor.primary,

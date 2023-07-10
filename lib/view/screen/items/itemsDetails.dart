@@ -18,6 +18,7 @@ class ItemsDetails extends StatelessWidget {
     return Scaffold(
       backgroundColor: AppColor.white,
       bottomNavigationBar: AddToCart(onPressed: () {
+        controller.cartC.refreshPage();
         Get.toNamed(AppRoutes.cart);
       }),
       body: SafeArea(

@@ -14,38 +14,49 @@ class CartScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        bottomNavigationBar:
-            BottomAppCart(total: controller.priceOrders.toString()),
-        body: GetBuilder<CartController>(
-          builder: (controller) {
-            return HandleDataView(
-              statusRequest: controller.statusRequest!,
-              widget: ListView(
-                children: [
-                  CartAppBar(title: "My Cart"),
-                  SizedBox(
-                    height: Get.width / 19,
-                  ),
-                  CartQuantity(count: controller.totalCountItems.toString()),
-                  Container(
-                    padding: const EdgeInsets.all(10),
-                    child: Column(
-                      children: [
-                        ...List.generate(
-                          controller.data.length,
-                          (index) => CustomCartCard(
-                            name: "${controller.data[index].itemsName}",
-                            price: "${controller.data[index].itemsPrice}",
-                            quantity: "${controller.data[index].itemscount}",
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                ],
+        bottomNavigationBar: GetBuilder<CartController>(builder: (controller) {
+      return BottomAppCart(total: controller.priceOrders.toString());
+    }), body: GetBuilder<CartController>(
+      builder: (controller) {
+        return HandleDataView(
+          statusRequest: controller.statusRequest!,
+          widget: ListView(
+            children: [
+              CartAppBar(title: "My Cart"),
+              SizedBox(
+                height: Get.width / 19,
               ),
-            );
-          },
-        ));
+              CartQuantity(count: controller.totalCountItems.toString()),
+              Container(
+                padding: const EdgeInsets.all(10),
+                child: Column(
+                  children: [
+                    ...List.generate(
+                      controller.data.length,
+                      (index) => CustomCartCard(
+                          name: "${controller.data[index].itemsName}",
+                          price: "${controller.data[index].itemsPrice}",
+                          quantity: "${controller.data[index].itemscount}",
+                          image: controller.data[index].itemsImage,
+                          onAdd: () async {
+                            await controller
+                                .add(controller.data[index].itemsId.toString())
+                                .then((_) => controller.refreshPage());
+                          },
+                          onRemove: () async {
+                            await controller
+                                .remove(
+                                    controller.data[index].itemsId.toString())
+                                .then((_) => controller.refreshPage());
+                          }),
+                    )
+                  ],
+                ),
+              ),
+            ],
+          ),
+        );
+      },
+    ));
   }
 }
