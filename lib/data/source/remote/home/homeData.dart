@@ -8,4 +8,11 @@ class HomeData {
     var resp = await crud.getOffline(AppLinks.homePage, {});
     return resp.fold((l) => l, (r) => r);
   }
+
+  searchData(String itemName) async {
+    var resp = await crud.getOffline(AppLinks.search, {
+      "item": itemName,
+    });
+    return resp.fold((l) => l, (r) => r);
+  }
 }

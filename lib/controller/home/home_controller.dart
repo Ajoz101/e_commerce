@@ -1,6 +1,8 @@
 import 'package:e_commerce/core/constant/nameOfRoutes.dart';
 import 'package:e_commerce/core/services/services.dart';
+import 'package:e_commerce/data/model/items.dart';
 import 'package:e_commerce/data/source/remote/home/homeData.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
 import '../../core/class/crud.dart';
@@ -26,11 +28,15 @@ class HomeControllerImp extends HomeController {
   HomeData home = HomeData(Get.find());
   List categories = [];
   List items = [];
+  TextEditingController? search;
+
   @override
   getData() async {
     statusRequest = StatusRequest.loading;
+    update();
     var response = await home.getData();
     statusRequest = handlingData(response);
+    update();
     if (StatusRequest.success == statusRequest ||
         StatusRequest.offlineFailure == statusRequest) {
       if (response["status"] == "success") {
@@ -45,12 +51,11 @@ class HomeControllerImp extends HomeController {
 
   @override
   void onInit() {
+    search = TextEditingController();
     getData();
     super.onInit();
     update();
   }
-
-  
 
   @override
   gotToItems(List categories, int selectedcate, cate_id) {
@@ -64,5 +69,45 @@ class HomeControllerImp extends HomeController {
   @override
   gotoFvortites() {
     Get.toNamed(AppRoutes.favorites);
+  }
+
+  /*
+   * search  
+   */
+
+  bool isSearched = false;
+  checkSearch(String val) {
+    if (val.isEmpty) {
+      isSearched = false;
+    }
+    update();
+  }
+
+  onSearchItems() {
+    searchedData.clear();
+    isSearched = true;
+    searchData();
+    update();
+  }
+
+  // search
+  List<ItemsModel> searchedData = [];
+
+  searchData() async {
+    statusRequest = StatusRequest.loading;
+    update();
+    var response = await home.searchData(search!.text);
+    statusRequest = handlingData(response);
+    update();
+    if (StatusRequest.success == statusRequest ||
+        StatusRequest.offlineFailure == statusRequest) {
+      if (response["status"] == "success") {
+        List responseData = response['data'];
+        searchedData.addAll(responseData.map((e) => ItemsModel.fromJson(e)));
+      } else {
+        statusRequest = StatusRequest.failure;
+      }
+    }
+    update();
   }
 }

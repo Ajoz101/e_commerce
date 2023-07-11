@@ -14,6 +14,8 @@ class CustomAppBar extends StatelessWidget {
     this.height,
     this.width,
     this.showRow,
+    this.onChanged,
+  required this.searchController
   });
   void Function()? onTapSearch;
   String? title;
@@ -22,6 +24,8 @@ class CustomAppBar extends StatelessWidget {
   double? height;
   double? width;
   bool? showRow;
+  Function(String)? onChanged;
+  final TextEditingController searchController;
   @override
   Widget build(BuildContext context) {
     var width = MediaQuery.of(context).size.width;
@@ -34,6 +38,8 @@ class CustomAppBar extends StatelessWidget {
         children: [
           Expanded(
             child: TextFormField(
+              controller: searchController,
+              onChanged: onChanged,
               style: TextStyle(color: AppColor.white),
               decoration: InputDecoration(
                 prefixIcon: Padding(

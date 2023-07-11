@@ -25,16 +25,16 @@ class ItemsPage extends GetView<ItemsControllerImp> {
         body: ListView(
           scrollDirection: Axis.vertical,
           children: [
-            Container(
-              margin: EdgeInsets.only(top: 20),
-              child: CustomAppBar(
-                title: "Search Product",
-                onTapSearch: () {},
-                color: AppColor.black.withOpacity(0.8),
-                height: 1,
-                width: 20,
-              ),
-            ),
+            // Container(
+            //   margin: EdgeInsets.only(top: 20),
+            //   child: CustomAppBar(
+            //     title: "Search Product",
+            //     onTapSearch: () {},
+            //     color: AppColor.black.withOpacity(0.8),
+            //     height: 1,
+            //     width: 20,
+            //   ),
+            // ),
 
           const  CustomCategoriesItems(),
             GetBuilder<ItemsControllerImp>(

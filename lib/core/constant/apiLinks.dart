@@ -28,6 +28,7 @@ class AppLinks {
    * Items
    */
     static const String items = "$root/items/items_view.php";
+    static const String search = "$root/items/search.php";
 
     
 /*
