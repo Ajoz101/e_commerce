@@ -85,8 +85,12 @@ class HomeControllerImp extends HomeController {
 
   onSearchItems() {
     searchedData.clear();
-    isSearched = true;
-    searchData();
+    if (search!.text == "") {
+      isSearched = false;
+    } else {
+      isSearched = true;
+      searchData();
+    }
     update();
   }
 

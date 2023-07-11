@@ -12,6 +12,7 @@ import '../../../core/constant/colors.dart';
 import '../../../core/constant/networkImage_links.dart';
 import '../custom/customAppBar.dart';
 import 'CustomProductsForYou.dart';
+import 'itemSearch.dart';
 
 class HomeListView extends StatelessWidget {
   const HomeListView({super.key});
@@ -21,10 +22,9 @@ class HomeListView extends StatelessWidget {
     var width = MediaQuery.of(context).size.width;
     var height = MediaQuery.of(context).size.height;
     var controller = Get.put(HomeControllerImp());
-    return GetBuilder<HomeControllerImp>(builder: (controller) {
-      return HandleDataView(
-        statusRequest: controller.statusRequest!,
-        widget: ListView(
+    return GetBuilder<HomeControllerImp>(
+      builder: (controller) {
+        return ListView(
           shrinkWrap: true, physics: BouncingScrollPhysics(),
 
           /// Removes the padding from all sides.
@@ -82,110 +82,14 @@ class HomeListView extends StatelessWidget {
                       const CustomProds4You(),
                     ],
                   )
-                : SearchedItems(listdata: controller.searchedData, controller: controller),
+                : HandleDataView(
+                    statusRequest: controller.statusRequest!,
+                    widget: SearchedItems(
+                        listdata: controller.searchedData,
+                        controller: controller),
+                  ),
           ],
-        ),
-      );
-    });
-  }
-}
-
-class SearchedItems extends StatelessWidget {
-  const SearchedItems({super.key, required this.listdata, required this.controller});
-  final List<ItemsModel> listdata;
-  final HomeControllerImp controller;
-  @override
-  Widget build(BuildContext context) {
-    return ListView.builder(
-      itemCount: controller.searchedData.length,
-      shrinkWrap: true,
-      physics: NeverScrollableScrollPhysics(),
-      itemBuilder: (context, index) {
-        return InkWell(
-      onTap: () {
-        // controller.gotoDetails(itemsModel!);
-      },
-      child: Container(
-        padding: const EdgeInsets.all(5),
-        height: 250,
-        child: Card(
-          color: AppColor.black.withOpacity(0.8),
-          elevation: 40,
-          child: Container(
-            height: 200,
-            child: Column(
-              children: [
-                Hero(
-                  tag: "${listdata[index].itemsId}",
-                  child: Container(
-                    width: Get.width / 5,
-                    child: CachedNetworkImage(
-                      imageUrl:
-                          "${ImageLink.items}/${listdata[index].itemsImage.toString()}",
-                      // width: size.width / 4,
-                      fit: BoxFit.contain,
-                      height: Get.height / 11,
-                    ),
-                  ),
-                ),
-                Text(
-                  listdata[index].itemsName.toString(),
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: Get.width / 20,
-                      color: AppColor.second),
-                ),
-                Text(
-                  "${listdata[index].itemsPrice.toString()}\$",
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                      color: AppColor.white,
-                      fontSize: Get.width / 18,
-                      fontWeight: FontWeight.bold),
-                ),
-                Padding(
-                  padding: EdgeInsets.only(top: Get.height / 18),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      GetBuilder<FavoriteController>(
-                        init: FavoriteController(),
-                        builder: (controller) {
-                        return IconButton(
-                          splashColor: AppColor.second,
-                          onPressed: () {
-                            if (controller.isFavorite[listdata[index].itemsId] ==
-                                "0") {
-                              controller.setFavorite(listdata[index].itemsId, "1");
-                              controller
-                                  .addFave(listdata[index].itemsId.toString());
-                            } else {
-                              controller.setFavorite(listdata[index].itemsId, "0");
-                              controller.removeFave(
-                                  listdata[index].itemsId.toString(),
-                                  listdata[index].itemsName.toString());
-                            }
-                            print(listdata[index].itemsId);
-                          },
-                          icon: Icon(
-                            controller.isFavorite[listdata[index].itemsId] == "1"
-                                ? Icons.bookmark_added
-                                : Icons.bookmark_add_outlined,
-                            color: AppColor.second,
-                            size: Get.width / 12,
-                          ),
-                        );
-                      })
-                    ],
-                  ),
-                )
-              ],
-            ),
-          ),
-        ),
-      ),
-    );
+        );
       },
     );
   }
