@@ -1,3 +1,4 @@
+import 'package:e_commerce/controller/address/address_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -6,6 +7,7 @@ class AddressView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var controller = Get.put(AddressController());
     return Scaffold(
       body: SafeArea(
         child: ListView(
@@ -24,15 +26,18 @@ class AddressView extends StatelessWidget {
                     "Address",
                     style: Theme.of(context).textTheme.headline3,
                   ),
-                  Icon(
-                    Icons.add_location_alt_outlined,
-                    size: Get.width / 9,
+                  GestureDetector(
+                    onTap: () {
+                      controller.gotoAddAddress();
+                    },
+                    child: Icon(
+                      Icons.add_location_alt_outlined,
+                      size: Get.width / 9,
+                    ),
                   )
                 ],
               ),
             )
-          
-          
           ],
         ),
       ),
