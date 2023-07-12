@@ -61,6 +61,24 @@ class SettingScreen extends StatelessWidget {
           SizedBox(
             height: Get.width / 3,
           ),
+          InkWell(
+            onTap: () {
+              controller.gotoAdress();
+            },
+            child: Card(
+              color: AppColor.white,
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: const [
+                  ListTile(
+                    trailing: Icon(Icons.location_on_outlined,
+                        color: AppColor.primary),
+                    title: Text("Address"),
+                  ),
+                ],
+              ),
+            ),
+          ),
           Card(
             color: AppColor.white,
             child: Column(
@@ -101,14 +119,7 @@ class SettingScreen extends StatelessWidget {
                       color: AppColor.primary),
                   title: Text("Sign out"),
                 ),
-                // ListTile(
-                //   hoverColor: AppColor.primary,
-                //   onTap: () {
-                //     controller.exitAlert();
-                //   },
-                //   title: Text("Email :"),
-                //   subtitle: Text("${sharedPref.getString("email")}"),
-                // ),
+
                 // ListTile(
                 //   hoverColor: AppColor.primary,
                 //   onTap: () {

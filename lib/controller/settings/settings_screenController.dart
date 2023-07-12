@@ -25,7 +25,7 @@ class SettingsController extends GetxController {
             onPressed: () {
               signOut();
             },
-            child:const Text("I'm Sure"),
+            child: const Text("I'm Sure"),
           ),
           MaterialButton(
             onPressed: () {
@@ -34,5 +34,9 @@ class SettingsController extends GetxController {
             child: const Text("Cancel"),
           )
         ]);
+  }
+
+  gotoAdress() {
+    Get.toNamed(AppRoutes.address);
   }
 }

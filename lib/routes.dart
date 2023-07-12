@@ -1,5 +1,7 @@
 import 'package:e_commerce/core/constant/nameOfRoutes.dart';
 import 'package:e_commerce/core/middleware/myMiddleware.dart';
+import 'package:e_commerce/view/screen/address/add.dart';
+import 'package:e_commerce/view/screen/address/view.dart';
 import 'package:e_commerce/view/screen/auth/forgotPasswordFolder/forgotpass.dart';
 import 'package:e_commerce/view/screen/auth/login.dart';
 import 'package:e_commerce/view/screen/auth/forgotPasswordFolder/resetpass.dart';
@@ -105,9 +107,21 @@ List<GetPage<dynamic>>? routes = [
     transition: Transition.fadeIn,
   ),
 
-GetPage(
+  GetPage(
     name: AppRoutes.cart,
-    page: () =>  CartScreen(),
+    page: () => CartScreen(),
+    transitionDuration: const Duration(milliseconds: 500),
+    transition: Transition.fade,
+  ),
+  GetPage(
+    name: AppRoutes.address,
+    page: () => AddressView(),
+    transitionDuration: const Duration(milliseconds: 500),
+    transition: Transition.fade,
+  ),
+  GetPage(
+    name: AppRoutes.addAddress,
+    page: () => AddAddress(),
     transitionDuration: const Duration(milliseconds: 500),
     transition: Transition.fade,
   ),
