@@ -9,7 +9,7 @@ import '../../core/class/crud.dart';
 import '../../core/class/statusRequest.dart';
 import '../../core/functions/handlingData.dart';
 
-abstract class HomeController extends GetxController {
+abstract class HomeController extends SearchMixController {
   getData();
   gotToItems(List categories, int selectedcate, String cate_id);
   gotoFvortites();
@@ -25,6 +25,7 @@ class HomeControllerImp extends HomeController {
    */
   StatusRequest? statusRequest;
   // Crud crd = Crud();
+  @override
   HomeData home = HomeData(Get.find());
   List categories = [];
   List items = [];
@@ -75,27 +76,28 @@ class HomeControllerImp extends HomeController {
    * search  
    */
 
+  // search
+
+  gotoDetails(ItemsModel itemsMod) {
+    Get.toNamed(AppRoutes.itemsDetails, arguments: {"itemsmodel": itemsMod});
+  }
+}
+
+class SearchMixController extends GetxController {
+  StatusRequest? statusRequest;
+  // Crud crd = Crud();
+  HomeData home = HomeData(Get.find());
+  TextEditingController? search;
+  List<ItemsModel> searchedData = [];
+
   bool isSearched = false;
   checkSearch(String val) {
     if (val.isEmpty) {
+      statusRequest = StatusRequest.none;
       isSearched = false;
     }
     update();
   }
-
-  onSearchItems() {
-    searchedData.clear();
-    if (search!.text == "") {
-      isSearched = false;
-    } else {
-      isSearched = true;
-      searchData();
-    }
-    update();
-  }
-
-  // search
-  List<ItemsModel> searchedData = [];
 
   searchData() async {
     statusRequest = StatusRequest.loading;
@@ -111,6 +113,17 @@ class HomeControllerImp extends HomeController {
       } else {
         statusRequest = StatusRequest.failure;
       }
+    }
+    update();
+  }
+
+  onSearchItems() {
+    searchedData.clear();
+    if (search!.text == "") {
+      isSearched = false;
+    } else {
+      isSearched = true;
+      searchData();
     }
     update();
   }

@@ -1,14 +1,16 @@
+import 'package:e_commerce/controller/home/home_controller.dart';
 import 'package:e_commerce/core/constant/nameOfRoutes.dart';
 import 'package:e_commerce/core/services/services.dart';
 import 'package:e_commerce/data/model/items.dart';
 import 'package:e_commerce/data/source/remote/items_data.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
 import '../../core/class/crud.dart';
 import '../../core/class/statusRequest.dart';
 import '../../core/functions/handlingData.dart';
 
-abstract class ItemsController extends GetxController {
+abstract class ItemsController extends SearchMixController {
   initalData();
   changeCat(val, String cat_id);
   getItems(String cate_id);
@@ -59,6 +61,7 @@ class ItemsControllerImp extends ItemsController {
 
   @override
   void onInit() {
+    search = TextEditingController();
     initalData();
     getItems(catId!);
     update();

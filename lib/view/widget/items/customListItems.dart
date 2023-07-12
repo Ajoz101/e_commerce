@@ -78,14 +78,40 @@ class CustomCard extends StatelessWidget {
                       fontSize: size.width / 20,
                       color: AppColor.second),
                 ),
-                Text(
-                  "${itemsModel!.itemsPrice.toString()}\$",
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                      color: AppColor.white,
-                      fontSize: size.width / 18,
-                      fontWeight: FontWeight.bold),
-                ),
+                itemsModel!.itemsDiscount == "0"
+                    ? Text(
+                        "${itemsModel!.itemsPrice.toString()}\$",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                            color: AppColor.white,
+                            fontSize: size.width / 18,
+                            fontWeight: FontWeight.bold),
+                      )
+                    : Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          Text(
+                            "${itemsModel!.itemsPrice.toString()}\$",
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                                color: AppColor.white,
+                                fontSize: size.width / 18,
+                                fontWeight: FontWeight.bold,
+                                decoration: TextDecoration.lineThrough,
+                                decorationColor: AppColor.primary,
+                                decorationThickness: 5),
+                          ),
+                          Icon(Icons.discount, color: AppColor.second),
+                          Text(
+                            "${itemsModel!.priceDiscount.toString()}\$",
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                                color: AppColor.white,
+                                fontSize: size.width / 18,
+                                fontWeight: FontWeight.bold),
+                          )
+                        ],
+                      ),
                 Padding(
                   padding: EdgeInsets.only(top: Get.height / 18),
                   child: Row(

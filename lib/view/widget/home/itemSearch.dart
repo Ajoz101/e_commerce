@@ -12,7 +12,7 @@ class SearchedItems extends StatelessWidget {
   const SearchedItems(
       {super.key, required this.listdata, required this.controller});
   final List<ItemsModel> listdata;
-  final HomeControllerImp controller;
+  final controller;
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
@@ -22,7 +22,7 @@ class SearchedItems extends StatelessWidget {
       itemBuilder: (context, index) {
         return InkWell(
           onTap: () {
-            // controller.gotoDetails(itemsModel!);
+            controller.gotoDetails(listdata[index]);
           },
           child: Container(
             padding: const EdgeInsets.all(5),

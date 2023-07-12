@@ -22,6 +22,7 @@ class CustomCategoriesItems extends GetView<ItemsControllerImp> {
       margin:
           EdgeInsets.symmetric(horizontal: width / 30, vertical: height / 10),
       child: ListView.builder(
+        physics: BouncingScrollPhysics(),
         shrinkWrap: true,
         scrollDirection: Axis.horizontal,
         itemCount: controller.categories.length,
