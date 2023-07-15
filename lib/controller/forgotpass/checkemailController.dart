@@ -16,7 +16,7 @@ abstract class CheckEmailController extends GetxController {
 class CheckEmailControllerImp extends CheckEmailController {
   late TextEditingController email;
   var state = FKeys.checkEmailKey;
-   StatusRequest? statusRequest;
+  StatusRequest? statusRequest;
 
   CheckEmailData check = CheckEmailData(Get.find());
   @override
@@ -26,7 +26,7 @@ class CheckEmailControllerImp extends CheckEmailController {
     if (formData!.validate()) {
       // print("Hello");
       statusRequest = StatusRequest.loading;
-        update();
+      update();
       var response = await check.post(
         email: email.text,
       );
@@ -62,12 +62,16 @@ class CheckEmailControllerImp extends CheckEmailController {
     // if()
   }
 
+  gotoLogin() {
+    Get.offAllNamed(AppRoutes.login);
+  }
+
   showSnack(String title, String msg) {
     GetSnackBar(
       snackPosition: SnackPosition.TOP,
       borderRadius: 20,
       backgroundColor: AppColor.primary,
-      duration:const Duration(seconds: 5),
+      duration: const Duration(seconds: 5),
       dismissDirection: DismissDirection.horizontal,
       title: title,
       message: msg,

@@ -49,6 +49,17 @@ class ForgotPassword extends StatelessWidget {
                         key: controller.state,
                         child: ListView(
                           children: [
+                            GetBuilder<CheckEmailControllerImp>(
+                                builder: (controller) {
+                              return Container(
+                                margin: EdgeInsets.only(right: Get.width * 2),
+                                child: GestureDetector(
+                                    onTap: () {
+                                      controller.gotoLogin();
+                                    },
+                                    child: Icon(Icons.arrow_back)),
+                              );
+                            }),
                             CustomTitle(title: "Forgot Password?"),
                             SizedBox(
                               height: height / 30,
@@ -69,7 +80,15 @@ class ForgotPassword extends StatelessWidget {
                               text: "Send",
                               tapped: () {
                                 controller.checkEmail();
+                                // controller.gotoLogin();
                               },
+                            ),
+                            MaterialButton(
+                              color: AppColor.second,
+                              onPressed: () {
+                                controller.gotoLogin();
+                              },
+                              child: Text("go back"),
                             )
                           ],
                         ),
