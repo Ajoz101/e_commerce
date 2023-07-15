@@ -1,14 +1,12 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:e_commerce/core/class/statusRequest.dart';
 import 'package:e_commerce/core/constant/colors.dart';
-import 'package:e_commerce/core/constant/image_asset.dart';
 import 'package:e_commerce/core/functions/exitAlert.dart';
 import 'package:e_commerce/core/functions/validateInput.dart';
 import 'package:e_commerce/view/widget/auth/customBottomAuth.dart';
 import 'package:e_commerce/view/widget/auth/customTextBody.dart';
 import 'package:e_commerce/view/widget/auth/customTextFormField.dart';
 import 'package:e_commerce/view/widget/auth/cutsomTextTitle.dart';
-import 'package:e_commerce/view/widget/auth/googleSignIn.dart';
 import 'package:e_commerce/view/widget/auth/logo.dart';
 import 'package:e_commerce/view/widget/auth/signupOrLoginText.dart';
 import 'package:flutter/material.dart';
@@ -26,39 +24,59 @@ class Login extends StatelessWidget {
     return GestureDetector(
       onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
-        backgroundColor: AppColor.forGradient,
+        backgroundColor: AppColor.primary,
         body: WillPopScope(
           onWillPop: () {
             return exitAlert();
           },
           child: SafeArea(
             child: Container(
-              margin: const EdgeInsets.symmetric(horizontal: 30),
-              padding: const EdgeInsets.all(15),
+              width: 999,
+              // margin: const EdgeInsets.symmetric(horizontal: 30),
+              // padding: const EdgeInsets.all(15),
               child: Form(
                 key: control.state,
                 child: Stack(
+                  clipBehavior: Clip.none,
                   fit: StackFit.passthrough,
                   children: [
-                    CachedNetworkImage(
-                      imageUrl: ImageAsset.onBoardingImageOne,
+                    Container(
+                      decoration: const BoxDecoration(
+                        color: AppColor.primary,
+                        image: DecorationImage(
+                          fit: BoxFit.fill,
+                          opacity: 0.5,
+                          image: CachedNetworkImageProvider(
+                            scale: 0.6,
+                            // "https://i.pinimg.com/736x/97/e0/9c/97e09c7eda3e88a5f877c961ca7f8738--drown-pastels.jpg",
+                            "https://www.hdwallpapers.in/download/artistic_neon_purple_lights_hd_purple_aesthetic-1920x1080.jpg",
+                          ),
+                        ),
+                      ),
+                      width: double.infinity,
+                      height: Get.width / 1,
+                      child: Text(
+                        "Materialica",
+                        style: Theme.of(context).textTheme.headline1,
+                        textAlign: TextAlign.center,
+                      ),
                     ),
                     Container(
+                      margin: EdgeInsets.only(top: Get.width / 2),
                       decoration: BoxDecoration(
                           color: AppColor.white,
-                          borderRadius: BorderRadius.circular(20)),
-                      height: Get.width * 2,
+                          borderRadius: BorderRadius.circular(30)),
+                      height: Get.height / 1.7,
                       width: Get.width * 2,
                       child: ListView(
                         children: [
                           // const Logo(),
-                          CustomTitle(title: "Welcome Back"),
+                          CustomTitle(title: "Let's sign you in"),
                           SizedBox(
                             height: height / 30,
                           ),
                           CustomBodyAuth(
-                              body:
-                                  "Sign In With Email OR Continue with Socials"),
+                              body: "Welcome back you've been missed"),
                           SizedBox(
                             height: height / 33,
                           ),
@@ -101,24 +119,36 @@ class Login extends StatelessWidget {
                                       color: AppColor.primary,
                                       backgroundColor: AppColor.second,
                                     )
-                                  : CustomBottomAuth(
-                                      text: "Sign In",
-                                      tapped: () {
-                                        control.login();
-                                      },
+                                  : Padding(
+                                      padding: const EdgeInsets.symmetric(
+                                          horizontal: 15.0),
+                                      child: CustomBottomAuth(
+                                        text: "Sign In",
+                                        tapped: () {
+                                          control.login();
+                                        },
+                                      ),
                                     );
                             },
                           ),
-                          SignUpOrSigninText(
-                              txtone: "Don't Have  An Account?",
-                              txttwo: " Sign Up",
-                              onTap: (() => control.goToSignUP())),
-                          Container(
-                            margin: EdgeInsets.only(top: Get.width / 8),
-                            child: Text("Or", textAlign: TextAlign.center),
-                          ),
-                          GoogleSignInCard()
+
+                          // Container(
+                          //   margin: EdgeInsets.only(top: Get.width / 8),
+                          // ),
+                          // GoogleSignInCard()
                         ],
+                      ),
+                    ),
+                    Container(
+                      margin: EdgeInsets.only(bottom: 20),
+                      alignment: Alignment.bottomCenter,
+                      child: SignUpOrSigninText(
+                        txtone: "Don't Have  An Account?",
+                        txttwo: " Sign Up",
+                        onTap: () {
+                          print("Pressed");
+                          control.goToSignUP();
+                        },
                       ),
                     ),
                   ],

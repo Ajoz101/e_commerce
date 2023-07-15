@@ -1,7 +1,5 @@
 import 'package:e_commerce/core/locale/translation.dart';
-import 'package:e_commerce/firebase_options.dart';
 import 'package:e_commerce/routes.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'bindings/mybindings.dart';
@@ -20,9 +18,9 @@ void main() async {
   await initalServices();
   // initalConnect();
   // sharedPref.remove("seen");
-  await Firebase.initializeApp(
-  options: DefaultFirebaseOptions.currentPlatform,
-);
+//   await Firebase.initializeApp(
+//   options: DefaultFirebaseOptions.currentPlatform,
+// );
   runApp(const HomePage());
 }
 

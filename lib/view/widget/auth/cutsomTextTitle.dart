@@ -7,10 +7,10 @@ class CustomTitle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(top: 30),
+      padding: const EdgeInsets.only(top: 30, left: 14),
       child: Text(
         title!,
-        textAlign: TextAlign.center,
+        textAlign: TextAlign.start,
         style: Theme.of(context)
             .textTheme
             .headline1!

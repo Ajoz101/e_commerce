@@ -5,10 +5,12 @@ class CustomBodyAuth extends StatelessWidget {
   String? body;
   @override
   Widget build(BuildContext context) {
-    return Text(
-      body!,
-      style: Theme.of(context).textTheme.bodyText1!.copyWith(fontSize: 18),
-      textAlign: TextAlign.center,
+    return Padding(
+      padding: const EdgeInsets.only(left: 8.0),
+      child: Text(
+        body!,
+        style: Theme.of(context).textTheme.bodyText1!.copyWith(fontSize: 18),
+      ),
     );
   }
 }

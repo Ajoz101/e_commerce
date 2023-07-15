@@ -16,12 +16,15 @@ class SignUpOrSigninText extends StatelessWidget {
       children: [
         Text(
           txtone!,
-          style: Theme.of(context).textTheme.bodyText1!.copyWith(fontSize: 15),
+          style: Theme.of(context)
+              .textTheme
+              .bodyText1!
+              .copyWith(fontSize: 18, color: AppColor.white),
         ),
         InkWell(
           onTap: onTap,
           child: Text(txttwo!,
-              style: const TextStyle(color: AppColor.second, fontSize: 15)),
+              style: const TextStyle(color: AppColor.second, fontSize: 20)),
         ),
       ],
     );

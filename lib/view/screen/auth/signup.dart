@@ -33,72 +33,80 @@ class SignUp extends StatelessWidget {
               padding: const EdgeInsets.all(15),
               child: Form(
                 key: control.state,
-                child: ListView(
-                  children: [
-                    CustomTitle(title: "Create Your Account"),
-                    SizedBox(
-                      height: height / 30,
-                    ),
-                    CustomBodyAuth(
-                        body: "Sign up With Your Email And Password "),
-                    SizedBox(
-                      height: height / 33,
-                    ),
-                    CustomFormField(
-                      validator: (p) {
-                        return validInput(p!, 5, 50, "username");
-                      },
-                      textController: control.username,
-                      title: "Username",
-                      hintText: "Enter Your Username",
-                      icon: Icons.person_outlined,
-                    ),
-                    CustomFormField(
-                      validator: (p) {
-                        return validInput(p!, 6, 50, "email");
-                      },
-                      textController: control.email,
-                      title: "E-mail",
-                      hintText: "Enter Your Email",
-                      icon: Icons.email_outlined,
-                    ),
-                    CustomFormField(
-                      validator: (p) {
-                        return validInput(p!, 9, 9, "phone");
-                      },
-                      textController: control.phone,
-                      title: "Phone",
-                      hintText: "Enter Your Phone Number",
-                      icon: Icons.phone_android_outlined,
-                    ),
-                    CustomFormField(
-                      obscureText: true,
-                      validator: (p) {
-                        return validInput(p!, 5, 20, "password");
-                      },
-                      textController: control.password,
-                      title: "Password",
-                      hintText: "Enter Your Password",
-                      icon: Icons.password_outlined,
-                    ),
-                    SizedBox(height: height / 37),
-                    CustomBottomAuth(
-                      text: "Sign Up",
-                      tapped: () {
-                        control.signup();
-                      },
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        SignUpOrSigninText(
-                          txtone: "Already Have An Account? ",
-                          txttwo: " Sign in",
-                          onTap: (() => control.gotoLogin()),
-                        )
-                      ],
-                    ),
-                  ],
+                child: Container(
+                  margin: EdgeInsets.only(top: Get.width / 2),
+                  decoration: BoxDecoration(
+                      color: AppColor.white,
+                      borderRadius: BorderRadius.circular(30)),
+                  height: Get.height / 1.7,
+                  width: Get.width * 2,
+                  child: ListView(
+                    children: [
+                      CustomTitle(title: "Create Your Account"),
+                      SizedBox(
+                        height: height / 30,
+                      ),
+                      CustomBodyAuth(
+                          body: "Sign up With Your Email And Password "),
+                      SizedBox(
+                        height: height / 33,
+                      ),
+                      CustomFormField(
+                        validator: (p) {
+                          return validInput(p!, 5, 50, "username");
+                        },
+                        textController: control.username,
+                        title: "Username",
+                        hintText: "Enter Your Username",
+                        icon: Icons.person_outlined,
+                      ),
+                      CustomFormField(
+                        validator: (p) {
+                          return validInput(p!, 6, 50, "email");
+                        },
+                        textController: control.email,
+                        title: "E-mail",
+                        hintText: "Enter Your Email",
+                        icon: Icons.email_outlined,
+                      ),
+                      CustomFormField(
+                        validator: (p) {
+                          return validInput(p!, 9, 9, "phone");
+                        },
+                        textController: control.phone,
+                        title: "Phone",
+                        hintText: "Enter Your Phone Number",
+                        icon: Icons.phone_android_outlined,
+                      ),
+                      CustomFormField(
+                        obscureText: true,
+                        validator: (p) {
+                          return validInput(p!, 5, 20, "password");
+                        },
+                        textController: control.password,
+                        title: "Password",
+                        hintText: "Enter Your Password",
+                        icon: Icons.password_outlined,
+                      ),
+                      SizedBox(height: height / 37),
+                      CustomBottomAuth(
+                        text: "Sign Up",
+                        tapped: () {
+                          control.signup();
+                        },
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          SignUpOrSigninText(
+                            txtone: "Already Have An Account? ",
+                            txttwo: " Sign in",
+                            onTap: (() => control.gotoLogin()),
+                          )
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),
