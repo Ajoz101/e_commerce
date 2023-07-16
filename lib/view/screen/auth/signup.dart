@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:e_commerce/core/constant/colors.dart';
 import 'package:e_commerce/core/functions/exitAlert.dart';
 import 'package:e_commerce/core/functions/validateInput.dart';
@@ -23,90 +24,124 @@ class SignUp extends StatelessWidget {
     return GestureDetector(
       onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
+        backgroundColor: AppColor.primary,
         body: WillPopScope(
           onWillPop: () {
             return exitAlert();
           },
           child: SafeArea(
             child: Container(
-              margin: const EdgeInsets.symmetric(horizontal: 30),
-              padding: const EdgeInsets.all(15),
+              // margin: const EdgeInsets.symmetric(horizontal: 30),
+              // padding: const EdgeInsets.all(15),
               child: Form(
                 key: control.state,
-                child: Container(
-                  margin: EdgeInsets.only(top: Get.width / 2),
-                  decoration: BoxDecoration(
-                      color: AppColor.white,
-                      borderRadius: BorderRadius.circular(30)),
-                  height: Get.height / 1.7,
-                  width: Get.width * 2,
-                  child: ListView(
-                    children: [
-                      CustomTitle(title: "Create Your Account"),
-                      SizedBox(
-                        height: height / 30,
+                child: Stack(
+                  fit: StackFit.passthrough,
+                  clipBehavior: Clip.none,
+                  children: [
+                    Container(
+                      decoration: const BoxDecoration(
+                        color: AppColor.primary,
+                        image: DecorationImage(
+                          fit: BoxFit.fill,
+                          opacity: 0.5,
+                          image: CachedNetworkImageProvider(
+                            scale: 0.6,
+                            // "https://i.pinimg.com/736x/97/e0/9c/97e09c7eda3e88a5f877c961ca7f8738--drown-pastels.jpg",
+                            "https://www.hdwallpapers.in/download/artistic_neon_purple_lights_hd_purple_aesthetic-1920x1080.jpg",
+                          ),
+                        ),
                       ),
-                      CustomBodyAuth(
-                          body: "Sign up With Your Email And Password "),
-                      SizedBox(
-                        height: height / 33,
+                      width: double.infinity,
+                      height: Get.width / 1,
+                      child: Text(
+                        "Materialica",
+                        style: Theme.of(context).textTheme.headline1,
+                        textAlign: TextAlign.center,
                       ),
-                      CustomFormField(
-                        validator: (p) {
-                          return validInput(p!, 5, 50, "username");
-                        },
-                        textController: control.username,
-                        title: "Username",
-                        hintText: "Enter Your Username",
-                        icon: Icons.person_outlined,
-                      ),
-                      CustomFormField(
-                        validator: (p) {
-                          return validInput(p!, 6, 50, "email");
-                        },
-                        textController: control.email,
-                        title: "E-mail",
-                        hintText: "Enter Your Email",
-                        icon: Icons.email_outlined,
-                      ),
-                      CustomFormField(
-                        validator: (p) {
-                          return validInput(p!, 9, 9, "phone");
-                        },
-                        textController: control.phone,
-                        title: "Phone",
-                        hintText: "Enter Your Phone Number",
-                        icon: Icons.phone_android_outlined,
-                      ),
-                      CustomFormField(
-                        obscureText: true,
-                        validator: (p) {
-                          return validInput(p!, 5, 20, "password");
-                        },
-                        textController: control.password,
-                        title: "Password",
-                        hintText: "Enter Your Password",
-                        icon: Icons.password_outlined,
-                      ),
-                      SizedBox(height: height / 37),
-                      CustomBottomAuth(
-                        text: "Sign Up",
-                        tapped: () {
-                          control.signup();
-                        },
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
+                    ),
+                    Container(
+                      margin: EdgeInsets.only(top: Get.width / 4),
+                      decoration: BoxDecoration(
+                          color: AppColor.second,
+                          borderRadius: BorderRadius.circular(30)),
+                      height: Get.height / 1.4,
+                      width: Get.width * 2,
+                      child: ListView(
                         children: [
-                          SignUpOrSigninText(
-                            txtone: "Already Have An Account? ",
-                            txttwo: " Sign in",
-                            onTap: (() => control.gotoLogin()),
-                          )
+                          CustomTitle(title: "Create Your Account"),
+                          SizedBox(
+                            height: height / 30,
+                          ),
+                          CustomBodyAuth(
+                              body: "Sign up With Your Email And Password "),
+                          SizedBox(
+                            height: height / 33,
+                          ),
+                          CustomFormField(
+                            validator: (p) {
+                              return validInput(p!, 5, 50, "username");
+                            },
+                            textController: control.username,
+                            title: "Username",
+                            hintText: "Enter Your Username",
+                            icon: Icons.person_outlined,
+                          ),
+                          CustomFormField(
+                            validator: (p) {
+                              return validInput(p!, 6, 50, "email");
+                            },
+                            textController: control.email,
+                            title: "E-mail",
+                            hintText: "Enter Your Email",
+                            icon: Icons.email_outlined,
+                          ),
+                          CustomFormField(
+                            validator: (p) {
+                              return validInput(p!, 9, 9, "phone");
+                            },
+                            textController: control.phone,
+                            title: "Phone",
+                            hintText: "Enter Your Phone Number",
+                            icon: Icons.phone_android_outlined,
+                          ),
+                          CustomFormField(
+                            obscureText: true,
+                            validator: (p) {
+                              return validInput(p!, 5, 20, "password");
+                            },
+                            textController: control.password,
+                            title: "Password",
+                            hintText: "Enter Your Password",
+                            icon: Icons.password_outlined,
+                          ),
+                          SizedBox(height: height / 37),
+                          Padding(
+                            padding:
+                                const EdgeInsets.symmetric(horizontal: 15.0),
+                            child: CustomBottomAuth(
+                              text: "Sign Up",
+                              tapped: () {
+                                control.signup();
+                              },
+                            ),
+                          ),
                         ],
                       ),
-                    ],
-                  ),
+                    ),
+                    Container(
+                      margin: EdgeInsets.only(bottom: 20),
+                      alignment: Alignment.bottomCenter,
+                      child: SignUpOrSigninText(
+                        txtone: "Already have  An Account?",
+                        txttwo: " Sign in",
+                        onTap: () {
+                          print("Pressed");
+                          control.gotoLogin();
+                        },
+                      ),
+                    ),
+                  ],
                 ),
               ),
             ),

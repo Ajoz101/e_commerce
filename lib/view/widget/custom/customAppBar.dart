@@ -6,17 +6,16 @@ import '../../../controller/home/home_controller.dart';
 import '../../../core/constant/colors.dart';
 
 class CustomAppBar extends StatelessWidget {
-  CustomAppBar({
-    super.key,
-    this.onTapSearch,
-    this.title,
-    this.color,
-    this.height,
-    this.width,
-    this.showRow,
-    this.onChanged,
-  required this.searchController
-  });
+  CustomAppBar(
+      {super.key,
+      this.onTapSearch,
+      this.title,
+      this.color,
+      this.height,
+      this.width,
+      this.showRow,
+      this.onChanged,
+      required this.searchController});
   void Function()? onTapSearch;
   String? title;
 
@@ -66,21 +65,9 @@ class CustomAppBar extends StatelessWidget {
           showRow == true
               ? Row(
                   children: [
+                    SizedBox(width: Get.width / 17),
                     Container(
-                      decoration: BoxDecoration(
-                          color: AppColor.primary.withOpacity(0.1),
-                          borderRadius: BorderRadius.circular(20)),
-                      child: IconButton(
-                        onPressed: () {
-                          // c.signOut();
-                        },
-                        icon: FaIcon(FontAwesomeIcons.laptopCode,
-                            color: AppColor.black.withOpacity(0.8),
-                            size: width / 11),
-                      ),
-                    ),
-                    SizedBox(width: 10),
-                    Container(
+                      margin: EdgeInsets.only(right: 20),
                       decoration: BoxDecoration(
                           color: AppColor.primary.withOpacity(0.1),
                           borderRadius: BorderRadius.circular(20)),
