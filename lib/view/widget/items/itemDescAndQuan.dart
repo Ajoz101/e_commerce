@@ -19,21 +19,10 @@ class ItemDescriptionAndQuantity extends StatelessWidget {
   final String quantity;
   @override
   Widget build(BuildContext context) {
-    
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         const ItemTitleAndPrice(),
-        SizedBox(
-          height: Get.height / 25,
-        ),
-        Text(
-          description,
-          style: Theme.of(context)
-              .textTheme
-              .bodyText1!
-              .copyWith(color: AppColor.black),
-        ),
         SizedBox(
           height: Get.height / 25,
         ),
@@ -69,6 +58,16 @@ class ItemDescriptionAndQuantity extends StatelessWidget {
               ],
             )
           ],
+        ),
+        SizedBox(
+          height: Get.height / 25,
+        ),
+        Text(
+          description,
+          style: Theme.of(context)
+              .textTheme
+              .bodyText1!
+              .copyWith(color: AppColor.black),
         ),
         SizedBox(
           height: Get.height / 25,

@@ -11,6 +11,7 @@ import '../../core/services/services.dart';
 class CartController extends GetxController {
   CartData cart = CartData(Get.find());
   StatusRequest? statusRequest;
+  TextEditingController ?couponCont;
   add(String itemId) async {
     statusRequest = StatusRequest.loading;
     var response =
@@ -21,7 +22,6 @@ class CartController extends GetxController {
     update();
     if (StatusRequest.success == statusRequest ||
         StatusRequest.offlineFailure == statusRequest) {
-      print(statusRequest);
       if (response["status"] == "success") {
         showSnack("Added", "To Cart");
       } else {
@@ -41,11 +41,7 @@ class CartController extends GetxController {
     update();
     if (StatusRequest.success == statusRequest ||
         StatusRequest.offlineFailure == statusRequest) {
-      print(statusRequest);
       if (response["status"] == "success") {
-        // data.addAll(response["data"]);
-        // print(data);
-        // data.clear();
         showSnack("Removed", "removed from cart");
       } else {
         statusRequest = StatusRequest.failure;
@@ -65,12 +61,10 @@ class CartController extends GetxController {
     update();
     if (StatusRequest.success == statusRequest ||
         StatusRequest.offlineFailure == statusRequest) {
-      print(statusRequest);
       if (response["status"] == "success") {
         var itemsCount = 0;
 
         itemsCount = int.parse(response["data"]);
-        print(itemsCount);
         return itemsCount;
       } else {
         statusRequest = StatusRequest.failure;
@@ -118,6 +112,7 @@ class CartController extends GetxController {
   @override
   void onInit() {
     view();
+    couponCont = TextEditingController();
     super.onInit();
   }
 

@@ -20,6 +20,7 @@ class CustomCartCard extends StatelessWidget {
     this.onRemove,
     this.totalOfUnit,
     this.readMore,
+   
   });
 
   String? name;
@@ -31,6 +32,7 @@ class CustomCartCard extends StatelessWidget {
   void Function()? onAdd;
   void Function()? onRemove;
   void Function()? readMore;
+  
 
   @override
   Widget build(BuildContext context) {
@@ -40,6 +42,7 @@ class CustomCartCard extends StatelessWidget {
         elevation: 10,
         child: Container(
           // duration: const Duration(milliseconds: 800),
+          color: AppColor.secondLight.withOpacity(0.1),
           child: Row(
             children: [
               Expanded(
@@ -53,7 +56,7 @@ class CustomCartCard extends StatelessWidget {
               ),
               AnimatedContainer(
                 clipBehavior: Clip.none,
-                color: AppColor.cards,
+                // color: AppColor.secondLight.withOpacity(0.2),
                 duration: const Duration(milliseconds: 800),
                 height: controller.heightOfContainer,
                 width: 200,
@@ -112,7 +115,7 @@ class CustomCartCard extends StatelessWidget {
                     ),
 
                     AnimatedContainer(
-                      color: AppColor.white,
+                      color: AppColor.secondLight.withOpacity(0.2),
                       duration: Duration(milliseconds: 800),
                       margin: EdgeInsets.only(right: Get.width / 5),
                       child: Opacity(

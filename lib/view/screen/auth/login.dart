@@ -64,7 +64,7 @@ class Login extends StatelessWidget {
                     Container(
                       margin: EdgeInsets.only(top: Get.width / 2),
                       decoration: BoxDecoration(
-                          color: AppColor.secondLight,
+                          color: AppColor.white,
                           borderRadius: BorderRadius.circular(30)),
                       height: Get.height / 1.7,
                       width: Get.width * 2,

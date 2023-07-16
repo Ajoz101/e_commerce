@@ -5,24 +5,23 @@ import 'package:get/get.dart';
 
 import '../../../core/constant/colors.dart';
 
-class CutomOrderButton extends StatelessWidget {
-  CutomOrderButton({super.key, this.onPressed,this.title});
-  void Function()? onPressed;
-  String ?title;
+class CustomCouponButton extends StatelessWidget {
+   CustomCouponButton({super.key,required this.onPressed});
+  Function()? onPressed;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       height: 100,
       child: ActionChip(
         elevation: 20,
-        backgroundColor: AppColor.cards,
-        label: Text(title!,
-            style: const TextStyle(
+        backgroundColor: AppColor.shadedWhite,
+        label: const Text("Apply Code",
+            style: TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
                 color: AppColor.primary)),
-        onPressed: onPressed,
-        avatar: Icon(Icons.check_circle_outline,
+        onPressed: () {},
+        avatar: Icon(FontAwesomeIcons.codiepie,
             color: AppColor.primary, size: Get.width / 14),
       ),
     );

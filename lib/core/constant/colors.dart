@@ -11,4 +11,5 @@ class AppColor {
   static const Color forGradient = Color.fromARGB(255, 124, 144, 176);
   static const Color cards = Color.fromARGB(255, 229, 232, 248);
   static const Color black = Color.fromARGB(255, 10, 8, 26);
+  static const Color applyButton = Color.fromARGB(255, 205, 235, 224);
 }
