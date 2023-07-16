@@ -48,48 +48,15 @@ class BottomAppCart extends StatelessWidget {
                           ),
                         ],
                       ),
-                      SizedBox(
-                        height: Get.height / 20,
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Container(
-                            margin: EdgeInsets.symmetric(
-                                horizontal: Get.width / 15),
-                            child: Text(
-                              "Discount",
-                              style: TextStyle(
-                                  fontSize: Get.width / 16,
-                                  fontWeight: FontWeight.bold),
-                            ),
-                          ),
-                          Container(
-                            width: Get.width / 3,
-                            decoration: BoxDecoration(
-                                color: AppColor.primary,
-                                borderRadius: BorderRadius.circular(20)),
-                            margin: EdgeInsets.symmetric(
-                                horizontal: Get.width / 15),
-                            child: Text(
-                              textAlign: TextAlign.center,
-                              "$discount",
-                              style: TextStyle(
-                                  fontSize: Get.width / 16,
-                                  color: AppColor.white,
-                                  fontFamily: "sans"),
-                            ),
-                          ),
-                        ],
-                      ),
+                  
           CutomOrderButton(
             title: "Order",
             onPressed: () {
               Get.bottomSheet(
                 enterBottomSheetDuration: Duration(milliseconds: 600),
                 Container(
-                  decoration: BoxDecoration(
-                      borderRadius: const BorderRadius.only(
+                  decoration:const  BoxDecoration(
+                      borderRadius:  BorderRadius.only(
                           topLeft: Radius.circular(20),
                           topRight: Radius.circular(20)),
                       color: AppColor.secondLight),
@@ -195,7 +162,7 @@ class BottomAppCart extends StatelessWidget {
                             margin: EdgeInsets.symmetric(
                                 horizontal: Get.width / 15),
                             child: Text(
-                              "Total",
+                              "Discount",
                               style: TextStyle(
                                   fontSize: Get.width / 16,
                                   fontWeight: FontWeight.bold),
