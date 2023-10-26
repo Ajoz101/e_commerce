@@ -30,7 +30,7 @@ class CartData {
   }
 
   //get quantity added
-   getCount({String? userId, String? itemsId}) async {
+  getCount({String? userId, String? itemsId}) async {
     var resp = await crud.getOffline(AppLinks.cartgetCount, {
       "user": userId,
       "item": itemsId,

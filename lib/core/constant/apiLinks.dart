@@ -27,32 +27,23 @@ class AppLinks {
   /*
    * Items
    */
-    static const String items = "$root/items/items_view.php";
-    static const String search = "$root/items/search.php";
+  static const String items = "$root/items/items_view.php";
+  static const String search = "$root/items/search.php";
 
-    
 /*
  *  FAVORITES  
  */
 
-      static const String faveAdd = "$root/favorites/add.php";
-      static const String faveRemove = "$root/favorites/delete.php";
-      static const String faveDisplay = "$root/favorites/display_fave.php";
+  static const String faveAdd = "$root/favorites/add.php";
+  static const String faveRemove = "$root/favorites/delete.php";
+  static const String faveDisplay = "$root/favorites/display_fave.php";
 
-
-
-    
 /*
  *  CART  
  */
 
-      static const String cartAdd = "$root/cart/addToCart.php";
-      static const String cartRemove = "$root/cart/removeFromCart.php";
-      static const String cartDisplay = "$root/cart/view.php";
-      static const String cartgetCount = "$root/cart/getItemsCount.php";
-
-
-
-
-
+  static const String cartAdd = "$root/cart/addToCart.php";
+  static const String cartRemove = "$root/cart/removeFromCart.php";
+  static const String cartDisplay = "$root/cart/view.php";
+  static const String cartgetCount = "$root/cart/getItemsCount.php";
 }

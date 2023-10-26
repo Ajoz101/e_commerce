@@ -1,4 +1,3 @@
-import 'package:e_commerce/controller/cart/cart_controller.dart';
 import 'package:e_commerce/core/constant/colors.dart';
 import 'package:e_commerce/data/model/items.dart';
 import 'package:flutter/material.dart';
@@ -8,7 +7,6 @@ import '../../core/class/statusRequest.dart';
 import '../../core/constant/nameOfRoutes.dart';
 import '../../core/functions/handlingData.dart';
 import '../../core/services/services.dart';
-import '../../data/model/cart_model.dart';
 import '../../data/source/remote/cart/cart_data.dart';
 
 abstract class ItemsDetailsController extends GetxController {

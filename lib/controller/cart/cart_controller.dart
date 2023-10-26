@@ -11,7 +11,7 @@ import '../../core/services/services.dart';
 class CartController extends GetxController {
   CartData cart = CartData(Get.find());
   StatusRequest? statusRequest;
-  TextEditingController ?couponCont;
+  TextEditingController? couponCont;
   add(String itemId) async {
     statusRequest = StatusRequest.loading;
     var response =
